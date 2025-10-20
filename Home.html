@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-translate-key="pageTitle">Home - RuyaX Universe</title>
+  <style>
+    :root {
+      --primary-color: #e91e63;
+      --background-color: #000;
+      --text-color: #fff;
+      --text-color-secondary: #ccc;
+      --dark-gray: #121212;
+      --medium-gray: #1a1a1a;
+      --light-gray: #282828;
+      --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 10px;
+    }
+     header h1 span {
+        color: var(--primary-color);
+     }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--text-color-secondary);
+    }
+    
+    header nav {
+      margin-top: 25px;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    header nav ul li a {
+      color: var(--text-color-secondary);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+      font-size: 1rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    header nav ul li a:hover, header nav ul li a.active {
+      color: var(--primary-color);
+    }
+    
+    .lang-switcher a.active {
+        background-color: var(--light-gray);
+    }
+    
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 20px;
+    }
+    
+    .app-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: var(--medium-gray);
+    }
+
+    .app-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+    }
+
+    .app-card__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+    
+    .app-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+      z-index: 2;
+    }
+
+    .app-card__content {
+      position: relative;
+      z-index: 3;
+    }
+    
+    .app-card__content h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0 0 5px 0;
+    }
+    
+    .app-card__content p {
+      font-size: 0.95rem;
+      color: var(--text-color-secondary);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-top: 1px solid var(--light-gray);
+    }
+    
+    footer p {
+      font-size: 0.9rem;
+      color: var(--text-color-secondary);
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      header {
+        padding: 25px 15px;
+      }
+      header h1 {
+        font-size: 2.3rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+      .app-card__content h3 {
+        font-size: 1.5rem;
+      }
+      .app-card__content p {
+        font-size: 0.9rem;
+      }
+    }
+
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "cloudinary": "https://aistudiocdn.com/cloudinary@^2.8.0"
+  }
+}
+</script>
+</head>
+<body>
+
+  <header>
+    <h1 data-translate-key="headerTitle">RuyaX <span>Universe</span></h1>
+    <p data-translate-key="headerSubtitle">Browse all our creative apps and tools</p>
+    <nav>
+        <ul>
+            <li><a href="Home.html" class="active" data-translate-key="navHome">Home</a></li>
+            <li><a href="RuyaX.html" data-translate-key="navRuyaX">RuyaX</a></li>
+            <li><a href="#" class="future-link" data-translate-key="navFuture1">Future App 1</a></li>
+            <li><a href="#" class="future-link" data-translate-key="navFuture2">Future App 2</a></li>
+            <li><a href="#" class="future-link" data-translate-key="navMoreTools">More Tools</a></li>
+            <li class="lang-switcher"><a href="#" id="lang-ar">العربية</a></li>
+            <li class="lang-switcher"><a href="#" id="lang-en">English</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="apps-grid">
+      
+      <a href="RuyaX.html" class="app-card">
+        <img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg" alt="RuyaX App Preview" class="app-card__image">
+        <div class="app-card__content">
+          <h3 data-translate-key="ruyaxCardTitle">RuyaX</h3>
+          <p data-translate-key="ruyaxCardDesc">An immersive world of short videos and stunning images. Your vision, your world.</p>
+        </div>
+      </a>
+
+      <a href="#" class="app-card future-link">
+        <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=2070&auto=format&fit=crop" alt="Future App 1 Preview" class="app-card__image">
+        <div class="app-card__content">
+          <h3 data-translate-key="future1CardTitle">Future App 1</h3>
+          <p data-translate-key="future1CardDesc">Advanced analytics for creators. Coming soon.</p>
+        </div>
+      </a>
+
+      <a href="#" class="app-card future-link">
+         <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Future App 2 Preview" class="app-card__image">
+        <div class="app-card__content">
+          <h3 data-translate-key="future2CardTitle">Future App 2</h3>
+          <p data-translate-key="future2CardDesc">A new platform for collaboration and projects. Coming soon.</p>
+        </div>
+      </a>
+
+      <a href="#" class="app-card future-link">
+         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" alt="More Tools Preview" class="app-card__image">
+        <div class="app-card__content">
+          <h3 data-translate-key="moreToolsCardTitle">More Tools</h3>
+          <p data-translate-key="moreToolsCardDesc">A suite of helper tools to boost your creativity. Coming soon.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <footer>
+    <p data-translate-key="footerText">&copy; 2024 RuyaX. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Home - RuyaX Universe",
+        headerTitle: "RuyaX <span>Universe</span>",
+        headerSubtitle: "Browse all our creative apps and tools",
+        navHome: "Home",
+        navRuyaX: "RuyaX",
+        navFuture1: "Future App 1",
+        navFuture2: "Future App 2",
+        navMoreTools: "More Tools",
+        ruyaxCardTitle: "RuyaX",
+        ruyaxCardDesc: "An immersive world of short videos and stunning images. Your vision, your world.",
+        future1CardTitle: "Future App 1",
+        future1CardDesc: "Advanced analytics for creators. Coming soon.",
+        future2CardTitle: "Future App 2",
+        future2CardDesc: "A new platform for collaboration and projects. Coming soon.",
+        moreToolsCardTitle: "More Tools",
+        moreToolsCardDesc: "A suite of helper tools to boost your creativity. Coming soon.",
+        footerText: "&copy; 2024 RuyaX. All rights reserved.",
+        comingSoonAlert: "This application is under development and will be launched soon!"
+      },
+      ar: {
+        pageTitle: "الرئيسية - عالم RuyaX",
+        headerTitle: "عالم <span>RuyaX</span>",
+        headerSubtitle: "تصفح جميع تطبيقاتنا وأدواتنا الإبداعية",
+        navHome: "الرئيسية",
+        navRuyaX: "RuyaX",
+        navFuture1: "تطبيق مستقبلي ١",
+        navFuture2: "تطبيق مستقبلي ٢",
+        navMoreTools: "أدوات إضافية",
+        ruyaxCardTitle: "RuyaX",
+        ruyaxCardDesc: "عالم غامر من الفيديوهات القصيرة والصور المذهلة. رؤيتك، عالمك.",
+        future1CardTitle: "Future App 1",
+        future1CardDesc: "أدوات تحليلية متقدمة للمبدعين. قريباً.",
+        future2CardTitle: "Future App 2",
+        future2CardDesc: "منصة جديدة للتواصل والمشاريع المشتركة. قريباً.",
+        moreToolsCardTitle: "More Tools",
+        moreToolsCardDesc: "مجموعة من الأدوات المساعدة لتعزيز إبداعك. قريباً.",
+        footerText: "&copy; 2024 RuyaX. جميع الحقوق محفوظة.",
+        comingSoonAlert: "هذا التطبيق قيد التطوير وسيتم إطلاقه قريبًا!"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-translate-key]').forEach(el => {
+        const key = el.dataset.translateKey;
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-ar').classList.toggle('active', lang === 'ar');
+      
+      document.querySelectorAll('.future-link').forEach(link => {
+        link.onclick = (e) => {
+          e.preventDefault();
+          alert(translations[lang].comingSoonAlert);
+        };
+      });
+      
+      localStorage.setItem('userLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lang-en').addEventListener('click', (e) => {
+        e.preventDefault();
+        setLanguage('en');
+      });
+
+      document.getElementById('lang-ar').addEventListener('click', (e) => {
+        e.preventDefault();
+        setLanguage('ar');
+      });
+      
+      const savedLang = localStorage.getItem('userLanguage');
+      const browserLang = navigator.language.split('-')[0];
+      const initialLang = savedLang || (browserLang === 'ar' ? 'ar' : 'en');
+      
+      setLanguage(initialLang);
+    });
+  </script>
+
+</body>
+</html>
