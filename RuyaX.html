@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RuyaX - Your Vision, Your World</title>
+  <style>
+    :root {
+      --primary-color: #e91e63;
+      --background-color: #000;
+      --text-color: #fff;
+      --text-color-secondary: #ccc;
+      --dark-gray: #121212;
+      --medium-gray: #1a1a1a;
+      --light-gray: #282828;
+      --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--text-color-secondary);
+    }
+    
+    header nav {
+      margin-top: 25px;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    header nav ul li a {
+      color: var(--text-color-secondary);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    header nav ul li a:hover, header nav ul li a.active {
+      color: var(--primary-color);
+    }
+
+    .section {
+      padding: 40px 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--primary-color);
+      display: inline-block;
+    }
+
+    p, ul {
+      color: var(--text-color-secondary);
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    ul {
+      list-style-position: inside;
+      padding-left: 10px;
+    }
+    
+    ul li {
+        margin-bottom: 10px;
+    }
+    
+    strong {
+        color: var(--text-color);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #d81b60;
+      transform: scale(1.05);
+    }
+    
+    .center-content {
+        text-align: center;
+    }
+
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .screenshot-placeholder {
+      background-color: var(--medium-gray);
+      border: 1px solid var(--light-gray);
+      border-radius: 12px;
+      aspect-ratio: 9 / 16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--text-color-secondary);
+      text-align: center;
+      padding: 10px;
+      overflow: hidden;
+    }
+    
+    .screenshot-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .screenshot-placeholder img:hover {
+      opacity: 0.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-top: 1px solid var(--light-gray);
+      background-color: var(--dark-gray);
+    }
+    
+    footer p {
+      font-size: 0.9rem;
+      color: var(--text-color-secondary);
+    }
+    
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox-content {
+      margin: auto;
+      display: block;
+      max-width: 85%;
+      max-height: 85%;
+      animation-name: zoom;
+      animation-duration: 0.4s;
+    }
+    @keyframes zoom {
+      from {transform:scale(0)}
+      to {transform:scale(1)}
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .close-lightbox:hover,
+    .close-lightbox:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "cloudinary": "https://aistudiocdn.com/cloudinary@^2.8.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+  <header>
+    <h1>RuyaX</h1>
+    <p>Your Vision, Your World</p>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#ruyax-info" class="active">RuyaX</a></li>
+            <li><a href="#" class="future-link">Future App 1</a></li>
+            <li><a href="#" class="future-link">Future App 2</a></li>
+            <li><a href="#" class="future-link">More Tools</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    
+    <section id="ruyax-info" class="section center-content">
+      <h2>Experience a Universe of Creativity</h2>
+      <p>
+        Dive into an immersive, full-screen world of short-form videos and stunning images. RuyaX is a next-generation social platform designed for visual storytelling, connecting you with a global community of creators and dreamers.
+      </p>
+      <a href="RuyaX.html" class="cta-button">Open The App Now</a>
+    </section>
+
+    <section class="section">
+      <h3>Unleash Your Creativity with Powerful Tools</h3>
+      <p>
+        RuyaX empowers you to share your moments and express your unique vision. With our advanced, yet easy-to-use creation tools, your next masterpiece is just a tap away.
+      </p>
+        <ul>
+            <li><strong>Advanced In-App Camera:</strong> Switch between photo and video mode, use front or back cameras, control flash, and even apply live filters to capture the perfect shot.</li>
+            <li><strong>Perfect Your Frame:</strong> Choose from multiple aspect ratios (9:16, 16:9, 1:1) to ensure your content looks exactly how you envisioned it.</li>
+            <li><strong>Engage & Connect:</strong> Follow your favorite creators, engage with posts through likes and comments, and have private, secure conversations with friends, complete with media and audio message sharing.</li>
+        </ul>
+    </section>
+    
+    <section class="section">
+      <h2>A Glimpse Inside RuyaX</h2>
+      <p class="center-content">Here are some snapshots of the RuyaX experience. See how our community brings creativity to life!</p>
+      <!-- 
+        DEVELOPER NOTE / ملاحظة للمطور:
+        To update images, simply change the 'src' attribute for each img tag below.
+        You can point these to your GitHub repository raw file URLs.
+        لتحديث الصور، قم ببساطة بتغيير قيمة 'src' لكل وسم <img> أدناه.
+        يمكنك توجيهها إلى روابط الملفات الخام في مستودع GitHub الخاص بك.
+      -->
+      <div class="screenshot-gallery">
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg" alt="The immersive full-screen feed of the RuyaX app"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot2.jpg" alt="The powerful in-app camera interface of RuyaX"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot3.jpg" alt="Private chat screen within the RuyaX application"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot4.jpg" alt="User profile page in RuyaX"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot5.jpg" alt="Editing user profile in RuyaX"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot6.jpg" alt="Notifications page in RuyaX"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot7.jpg" alt="Search results for users and media"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot8.jpg" alt="User's media grid on their profile"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot9.jpg" alt="Reporting abuse modal in the app"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot10.jpg" alt="Account deletion request screen"></div>
+        <div class="screenshot-placeholder"><img src="https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot11.jpg" alt="App login and signup screen"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>How to Get Started</h3>
+       <p>Joining the RuyaX community is simple. Follow these easy steps to begin your journey:</p>
+        <ul>
+            <li><strong>Step 1: Sign Up Securely</strong><br>Create an account in seconds using your email or Google account. We prioritize your security from the very first step.</li>
+            <li><strong>Step 2: Discover & Explore</strong><br>Swipe through a personalized, full-screen feed of content. The more you watch and interact, the better our recommendations become. Use the search feature to find new creators and trends.</li>
+            <li><strong>Step 3: Create & Share</strong><br>Tap the upload button to share from your gallery, or use our in-app camera to capture a new moment. Add a title and description, and share it with the world!</li>
+        </ul>
+    </section>
+
+    <section class="section">
+      <h3>Your Privacy, Your Control</h3>
+      <p>
+        We believe in being upfront and clear about how we handle your data. Your trust is our top priority.
+      </p>
+      <ul>
+        <li>
+          <strong>You Are in Control:</strong> We only require your email for account creation. You decide what other information to share on your profile, with privacy settings to control the visibility of your age, gender, and country.
+        </li>
+        <li>
+          <strong>A Safe Community:</strong> We provide tools to ensure your safety. Block users you don't want to interact with and report any content that violates our guidelines.
+        </li>
+        <li>
+          <strong>Data Deletion:</strong> You have the right to request the complete deletion of your account and all associated data directly within the app.
+        </li>
+      </ul>
+      <p>
+        This is a summary. For complete details, we encourage you to read our full Privacy Policy.
+      </p>
+      <div class="center-content">
+        <!-- This link is taken directly from your app's code -->
+        <a href="https://privacy-policyap.blogspot.com/2025/10/ruyax.html?m=1" target="_blank" class="cta-button" style="background-color: var(--medium-gray);">View Full Privacy Policy</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <h2>Ready to Join the Vision?</h2>
+    <p>Download RuyaX today and start your creative journey. We can't wait to see what you'll create!</p>
+    <a href="RuyaX.html" class="cta-button">Get RuyaX for Free</a>
+    <p style="margin-top: 30px; font-size: 0.8rem;">&copy; 2024 RuyaX. All rights reserved.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-image">
+  </div>
+  
+  <script>
+    // Navbar links functionality
+    document.querySelectorAll('.future-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('This application is coming soon!');
+        });
+    });
+
+    const mainNavLinks = document.querySelectorAll('header nav a:not(.future-link)');
+    mainNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Check if the link is not for the current page before removing active classes
+            if (!this.href.includes('#')) {
+                return;
+            }
+            mainNavLinks.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const closeBtn = document.querySelector('.close-lightbox');
+
+    document.querySelectorAll('.screenshot-gallery img').forEach(img => {
+        img.addEventListener('click', function() {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = this.src;
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(event) {
+        // Close if the click is on the background, not the image itself
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+  </script>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
