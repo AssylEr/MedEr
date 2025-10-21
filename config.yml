@@ -12,7 +12,7 @@ collections:
     files:
       - name: "home"
         label: "Home Page"
-        file: "_data/home.json"
+        file: "home.json"
         description: "تحرير المحتوى الرئيسي لصفحة 'الرئيسية'."
         fields:
           - label: "English Content"
@@ -29,7 +29,7 @@ collections:
               - { label: "Header Subtitle", name: "header_subtitle", widget: "text" }
       - name: "about"
         label: "About Us Page"
-        file: "_data/about.json"
+        file: "about.json"
         description: "تحرير محتوى صفحة 'من نحن'."
         fields:
           - label: "English Content"
@@ -58,7 +58,7 @@ collections:
               - { label: "Contact Email Line", name: "contact_email", widget: "string", hint: "مثال: 'البريد الإلكتروني: contact@ruyax.dev'" }
       - name: "privacy"
         label: "Website Privacy Page"
-        file: "_data/privacy.json"
+        file: "privacy.json"
         description: "تحرير محتوى صفحة 'سياسة الخصوصية' الخاصة بالموقع."
         fields:
           - label: "English Content"
@@ -117,7 +117,7 @@ collections:
   - name: "apps"
     label: "Applications"
     label_singular: "Application"
-    file: "_data/apps.json"
+    file: "apps.json"
     description: "إدارة جميع التطبيقات المعروضة على الموقع من هنا."
     editor:
       preview: false
