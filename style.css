@@ -1,3 +1,4 @@
+
 :root {
   --primary-color: #e91e63;
   --background-color: #0f0f0f;
@@ -60,6 +61,13 @@ h3 {
   display: inline-block;
 }
 
+h4 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
 p, ul {
   color: var(--text-color-secondary);
   margin-bottom: 20px;
@@ -90,7 +98,7 @@ strong {
 
 .cta-button {
   display: inline-block;
-  background-color: var(--primary-color);
+  background-image: linear-gradient(45deg, var(--primary-color) 0%, #d81b60 100%);
   color: var(--text-color) !important;
   padding: 12px 28px;
   border-radius: 30px;
@@ -99,13 +107,18 @@ strong {
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
-  transition: background-color 0.3s, transform 0.3s;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s, background-image 0.3s;
 }
 
 .cta-button:hover {
-  background-color: #d81b60;
-  transform: scale(1.05);
+  text-decoration: none;
+  background-image: linear-gradient(45deg, #d81b60 0%, var(--primary-color) 100%);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.25);
 }
+
 
 /* Navbar */
 .navbar {
@@ -134,16 +147,18 @@ strong {
 }
 
 .nav-logo {
-  color: var(--text-color);
   font-size: 1.5rem;
   font-weight: 700;
   text-decoration: none;
-  transition: color 0.3s;
   flex-shrink: 0;
+  background: linear-gradient(45deg, var(--primary-color), #ff79b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .nav-logo:hover {
-  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -215,7 +230,8 @@ strong {
 }
 
 /* Page Specific: RuyaX.html */
-#ruyax-page .container {
+#ruyax-page .container,
+#privacy-page .container {
     max-width: 800px;
 }
 .page-header {
@@ -225,7 +241,8 @@ strong {
   margin-bottom: 30px;
 }
 
-#ruyax-page .page-header h1 {
+#ruyax-page .page-header h1,
+#privacy-page .page-header h1 {
   font-size: 2.8rem;
   font-weight: 800;
   color: var(--primary-color);
@@ -593,7 +610,8 @@ footer p {
   }
 
   /* Page: RuyaX */
-  #ruyax-page .page-header h1 { 
+  #ruyax-page .page-header h1,
+  #privacy-page .page-header h1 { 
     font-size: 2.3rem; 
   }
   .page-header p { 

@@ -7,17 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
           navLogo: "RuyaX Universe",
           navHome: "Home",
           navApps: "Apps",
+          navPrivacy: "Privacy Policy",
           navAbout: "About Us",
           appsModalTitle: "Our Applications",
           ruyaxCardTitle: "RuyaX",
           futureAppTitle: "Future App",
           comingSoon: "Coming Soon",
-          footerCopyright: "&copy; 2024 RuyaX. All rights reserved.",
+          footerCopyright: "&copy; 2025 RuyaX. All rights reserved.",
           learnMore: "Learn More",
           viewPolicyBtn: "View Full Privacy Policy",
-          privacyTitle: "Privacy Policy",
-          privacyLink: "View Full Privacy Policy",
-
+          
           // Home.html -> index.html
           pageTitleHome: "Home - RuyaX Universe",
           homeHeaderTitle: "Welcome to the <span>RuyaX Universe</span>",
@@ -57,27 +56,52 @@ document.addEventListener('DOMContentLoaded', () => {
           pageTitleAbout: "About Us - RuyaX Universe",
           aboutTitle: "About RuyaX",
           aboutSubtitle: "Our vision, our mission, and our commitment to you.",
+          adminTitle: "About the Admin",
+          adminDesc: "The RuyaX Universe is developed and maintained by a passionate and dedicated independent developer with expertise in creating seamless user experiences across web and mobile platforms. With a focus on clean design, robust functionality, and user privacy, the goal is to build applications that are not only powerful but also intuitive and enjoyable to use.",
           contactTitle: "Contact Information",
           contactAdmin: "<strong>Admin:</strong> The RuyaX Team",
           contactEmail: "<strong>Email:</strong> <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
-          privacyDescAbout: "Your trust and privacy are paramount to us. We are committed to protecting your data and being transparent about how we use it. Our applications are designed with your privacy in mind, giving you full control over your information.",
-          privacySummaryAbout: "This is a summary of our key principles. For full details, please review our complete privacy policy.",
+          
+          // privacy.html
+          pageTitlePrivacy: "Privacy Policy - RuyaX Universe",
+          privacyHeaderTitle: "Privacy Policy",
+          privacyHeaderSubtitle: "Last Updated: October 16, 2025",
+          privacyIntroTitle: "Introduction",
+          privacyIntroP1: "Welcome to RuyaX Universe. We are committed to protecting your privacy and handling your data in an open and transparent manner. This privacy policy sets out how we collect, use, and safeguard your information when you visit our website and use our applications (like RuyaX).",
+          privacyDataCollectionTitle: "Information We Collect",
+          privacyDataCollectionP1: "We may collect information about you in a variety of ways. The information we may collect includes:",
+          privacyDataPersonalTitle: "Personal Data",
+          privacyDataPersonalList: "<li><strong>Account Information:</strong> When you register for an account on our RuyaX app, we collect your email address. You may voluntarily provide other information such as a username, profile picture, age, gender, and country.</li><li><strong>User Content:</strong> We collect the photos, videos, comments, and other content you create and share on our platforms.</li><li><strong>Communications:</strong> If you contact us directly, we may receive additional information about you such as your name, email address, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</li>",
+          privacyDataUsageTitle: "Usage Data",
+          privacyDataUsageP1: "We automatically collect information when you access our services, such as your IP address, browser type, operating system, access times, and the pages you have viewed directly before and after accessing the site.",
+          privacyDataUseTitle: "How We Use Your Information",
+          privacyDataUseP1: "Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you to:",
+          privacyDataUseList: "<li>Create and manage your account.</li><li>Personalize and improve your experience.</li><li>Monitor and analyze usage and trends to improve our services.</li><li>Respond to your comments, questions, and provide customer service.</li><li>Protect our platform from abuse, fraud, and illegal activity.</li><li>Send you technical notices, updates, security alerts, and support messages.</li>",
+          privacyDataSharingTitle: "Disclosure of Your Information",
+          privacyDataSharingP1: "We do not share your personal information with third parties except in the circumstances described below:",
+          privacyDataSharingList: "<li><strong>With Your Consent:</strong> We may share your information with your consent or at your direction.</li><li><strong>For Legal Reasons:</strong> We may share information if we believe it's required by law, regulation, or legal process, or to protect the rights, property, and safety of our company, our users, or others.</li><li><strong>Service Providers:</strong> We may share information with vendors, consultants, and other service providers who need access to such information to carry out work on our behalf.</li>",
+          privacyYourRightsTitle: "Your Data Protection Rights",
+          privacyYourRightsP1: "You have certain rights regarding your personal data. These include the right to:",
+          privacyYourRightsList: "<li><strong>Access:</strong> You can request a copy of the personal information we hold about you.</li><li><strong>Correction:</strong> You can request that we correct any inaccurate or incomplete information.</li><li><strong>Deletion:</strong> You can request that we delete your personal data, subject to certain legal obligations. You can initiate this process directly within the RuyaX application.</li>",
+          privacySecurityTitle: "Security of Your Information",
+          privacySecurityP1: "We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.",
+          privacyContactTitle: "Contact Us",
+          privacyContactP1: "If you have questions or comments about this Privacy Policy, please contact us at: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
       },
       ar: {
           // Common
           navLogo: "عالم RuyaX",
           navHome: "الرئيسية",
           navApps: "التطبيقات",
+          navPrivacy: "سياسة الخصوصية",
           navAbout: "من نحن",
           appsModalTitle: "تطبيقاتنا",
           ruyaxCardTitle: "RuyaX",
           futureAppTitle: "تطبيق مستقبلي",
           comingSoon: "قريباً",
-          footerCopyright: "&copy; 2024 RuyaX. جميع الحقوق محفوظة.",
+          footerCopyright: "&copy; 2025 RuyaX. جميع الحقوق محفوظة.",
           learnMore: "اعرف المزيد",
           viewPolicyBtn: "عرض سياسة الخصوصية الكاملة",
-          privacyTitle: "سياسة الخصوصية",
-          privacyLink: "عرض سياسة الخصوصية الكاملة",
 
           // Home.html -> index.html
           pageTitleHome: "الرئيسية - عالم RuyaX",
@@ -118,11 +142,37 @@ document.addEventListener('DOMContentLoaded', () => {
           pageTitleAbout: "من نحن - عالم RuyaX",
           aboutTitle: "عن RuyaX",
           aboutSubtitle: "رؤيتنا، مهمتنا، والتزامنا تجاهكم.",
+          adminTitle: "عن المسؤول",
+          adminDesc: "تم تطوير وصيانة عالم RuyaX بواسطة مطور مستقل شغوف ومتفانٍ يتمتع بخبرة في إنشاء تجارب مستخدم سلسة عبر منصات الويب والجوال. مع التركيز على التصميم النظيف والوظائف القوية وخصوصية المستخدم، الهدف هو بناء تطبيقات ليست قوية فحسب، بل سهلة الاستخدام وممتعة أيضًا.",
           contactTitle: "معلومات الاتصال",
           contactAdmin: "<strong>المسؤول:</strong> فريق RuyaX",
           contactEmail: "<strong>البريد الإلكتروني:</strong> <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
-          privacyDescAbout: "ثقتكم وخصوصيتكم هي أولويتنا القصوى. نحن ملتزمون بحماية بياناتكم والتحلي بالشفافية في كيفية استخدامها. تم تصميم تطبيقاتنا مع مراعاة خصوصيتكم، مما يمنحكم السيطرة الكاملة على معلوماتكم.",
-          privacySummaryAbout: "هذا ملخص لمبادئنا الرئيسية. للحصول على التفاصيل الكاملة، يرجى مراجعة سياسة الخصوصية الكاملة لدينا.",
+
+          // privacy.html
+          pageTitlePrivacy: "سياسة الخصوصية - عالم RuyaX",
+          privacyHeaderTitle: "سياسة الخصوصية",
+          privacyHeaderSubtitle: "آخر تحديث: 16 أكتوبر 2025",
+          privacyIntroTitle: "مقدمة",
+          privacyIntroP1: "مرحبًا بكم في عالم RuyaX. نحن ملتزمون بحماية خصوصيتكم والتعامل مع بياناتكم بطريقة مفتوحة وشفافة. توضح سياسة الخصوصية هذه كيف نجمع معلوماتكم ونستخدمها ونحميها عند زيارتكم لموقعنا الإلكتروني واستخدام تطبيقاتنا (مثل RuyaX).",
+          privacyDataCollectionTitle: "المعلومات التي نجمعها",
+          privacyDataCollectionP1: "قد نجمع معلومات عنكم بعدة طرق. تشمل المعلومات التي قد نجمعها:",
+          privacyDataPersonalTitle: "البيانات الشخصية",
+          privacyDataPersonalList: "<li><strong>معلومات الحساب:</strong> عند تسجيل حساب في تطبيق RuyaX، نجمع عنوان بريدكم الإلكتروني. يمكنكم تقديم معلومات أخرى طواعية مثل اسم المستخدم وصورة الملف الشخصي والعمر والجنس والبلد.</li><li><strong>محتوى المستخدم:</strong> نجمع الصور ومقاطع الفيديو والتعليقات والمحتويات الأخرى التي تنشئونها وتشاركونها على منصاتنا.</li><li><strong>الاتصالات:</strong> إذا اتصلتم بنا مباشرة، فقد نتلقى معلومات إضافية عنكم مثل اسمكم وعنوان بريدكم الإلكتروني ومحتويات الرسالة و/أو المرفقات التي قد ترسلونها، وأي معلومات أخرى تختارون تقديمها.</li>",
+          privacyDataUsageTitle: "بيانات الاستخدام",
+          privacyDataUsageP1: "نقوم بجمع المعلومات تلقائيًا عند وصولكم إلى خدماتنا، مثل عنوان IP الخاص بكم ونوع المتصفح ونظام التشغيل وأوقات الوصول والصفحات التي قمتم بعرضها مباشرة قبل وبعد الوصول إلى الموقع.",
+          privacyDataUseTitle: "كيف نستخدم معلوماتكم",
+          privacyDataUseP1: "إن امتلاك معلومات دقيقة عنكم يسمح لنا بتزويدكم بتجربة سلسة وفعالة ومخصصة. على وجه التحديد، قد نستخدم المعلومات التي تم جمعها عنكم من أجل:",
+          privacyDataUseList: "<li>إنشاء وإدارة حسابكم.</li><li>تخصيص وتحسين تجربتكم.</li><li>مراقبة وتحليل الاستخدام والاتجاهات لتحسين خدماتنا.</li><li>الرد على تعليقاتكم وأسئلتكم وتقديم خدمة العملاء.</li><li>حماية منصتنا من الإساءة والاحتيال والنشاط غير القانوني.</li><li>إرسال إشعارات فنية وتحديثات وتنبيهات أمنية ورسائل دعم لكم.</li>",
+          privacyDataSharingTitle: "الكشف عن معلوماتكم",
+          privacyDataSharingP1: "نحن لا نشارك معلوماتكم الشخصية مع أطراف ثالثة إلا في الظروف الموضحة أدناه:",
+          privacyDataSharingList: "<li><strong>بموافقتكم:</strong> قد نشارك معلوماتكم بموافقتكم أو بناءً على توجيهاتكم.</li><li><strong>لأسباب قانونية:</strong> قد نشارك المعلومات إذا كنا نعتقد أن ذلك مطلوب بموجب القانون أو اللوائح أو الإجراءات القانونية، أو لحماية حقوق وممتلكات وسلامة شركتنا أو مستخدمينا أو الآخرين.</li><li><strong>مقدمو الخدمات:</strong> قد نشارك المعلومات مع البائعين والمستشارين ومقدمي الخدمات الآخرين الذين يحتاجون إلى الوصول إلى هذه المعلومات للقيام بعمل نيابة عنا.</li>",
+          privacyYourRightsTitle: "حقوق حماية البيانات الخاصة بكم",
+          privacyYourRightsP1: "لديكم حقوق معينة فيما يتعلق ببياناتكم الشخصية. وتشمل هذه الحقوق:",
+          privacyYourRightsList: "<li><strong>الوصول:</strong> يمكنكم طلب نسخة من المعلومات الشخصية التي نحتفظ بها عنكم.</li><li><strong>التصحيح:</strong> يمكنكم طلب تصحيح أي معلومات غير دقيقة أو غير كاملة.</li><li><strong>الحذف:</strong> يمكنكم طلب حذف بياناتكم الشخصية، مع مراعاة بعض الالتزامات القانونية. يمكنكم بدء هذه العملية مباشرة من داخل تطبيق RuyaX.</li>",
+          privacySecurityTitle: "أمن معلوماتكم",
+          privacySecurityP1: "نستخدم تدابير أمنية إدارية وتقنية ومادية للمساعدة في حماية معلوماتكم الشخصية. في حين أننا اتخذنا خطوات معقولة لتأمين المعلومات الشخصية التي تقدمونها لنا، يرجى العلم أنه على الرغم من جهودنا، لا توجد تدابير أمنية مثالية أو لا يمكن اختراقها، ولا يمكن ضمان أي طريقة لنقل البيانات ضد أي اعتراض أو أي نوع آخر من سوء الاستخدام.",
+          privacyContactTitle: "اتصل بنا",
+          privacyContactP1: "إذا كانت لديكم أسئلة أو تعليقات حول سياسة الخصوصية هذه، يرجى الاتصال بنا على: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
       }
   };
 
@@ -147,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('nav-home')?.classList.add('active');
       } else if (currentPage === 'about.html') {
           document.getElementById('nav-about')?.classList.add('active');
+      } else if (currentPage === 'privacy.html') {
+          document.getElementById('nav-privacy')?.classList.add('active');
       }
   }
 
