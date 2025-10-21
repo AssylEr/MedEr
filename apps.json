@@ -1,112 +1,115 @@
-[
-  {
-    "slug": "ruyax",
-    "is_placeholder": false,
-    "href": "app.html?slug=ruyax",
-    "imgSrc": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg",
-    "alt": "RuyaX App Preview",
-    "en": {
-      "name": "RuyaX",
-      "short_desc": "An immersive, full-screen world of short-form videos and stunning images. RuyaX is a next-generation social platform designed for visual storytelling and global connection.",
-      "page_title": "RuyaX - Your Vision, Your World",
-      "header_title": "RuyaX",
-      "header_subtitle": "Your Vision, Your World",
-      "intro_title": "Experience a Universe of Creativity",
-      "intro_desc": "Dive into an immersive, full-screen world of short-form videos and stunning images. RuyaX is a next-generation social platform designed for visual storytelling, connecting you with a global community of creators and dreamers.",
-      "features_title": "Unleash Your Creativity with Powerful Tools",
-      "features_desc": "RuyaX empowers you to share your moments and express your unique vision. With our advanced, yet easy-to-use creation tools, your next masterpiece is just a tap away.",
-      "features_list": [
-        "<strong>Advanced In-App Camera:</strong> Switch between photo and video mode, use front or back cameras, control flash, and even apply live filters to capture the perfect shot.",
-        "<strong>Perfect Your Frame:</strong> Choose from multiple aspect ratios (9:16, 16:9, 1:1) to ensure your content looks exactly how you envisioned it.",
-        "<strong>Engage & Connect:</strong> Follow your favorite creators, engage with posts through likes and comments, and have private, secure conversations with friends, complete with media and audio message sharing."
+
+{
+  "applications": [
+    {
+      "slug": "ruyax",
+      "is_placeholder": false,
+      "href": "app.html?slug=ruyax",
+      "imgSrc": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg",
+      "alt": "RuyaX App Preview",
+      "en": {
+        "name": "RuyaX",
+        "short_desc": "An immersive, full-screen world of short-form videos and stunning images. RuyaX is a next-generation social platform designed for visual storytelling and global connection.",
+        "page_title": "RuyaX - Your Vision, Your World",
+        "header_title": "RuyaX",
+        "header_subtitle": "Your Vision, Your World",
+        "intro_title": "Experience a Universe of Creativity",
+        "intro_desc": "Dive into an immersive, full-screen world of short-form videos and stunning images. RuyaX is a next-generation social platform designed for visual storytelling, connecting you with a global community of creators and dreamers.",
+        "features_title": "Unleash Your Creativity with Powerful Tools",
+        "features_desc": "RuyaX empowers you to share your moments and express your unique vision. With our advanced, yet easy-to-use creation tools, your next masterpiece is just a tap away.",
+        "features_list": [
+          "<strong>Advanced In-App Camera:</strong> Switch between photo and video mode, use front or back cameras, control flash, and even apply live filters to capture the perfect shot.",
+          "<strong>Perfect Your Frame:</strong> Choose from multiple aspect ratios (9:16, 16:9, 1:1) to ensure your content looks exactly how you envisioned it.",
+          "<strong>Engage & Connect:</strong> Follow your favorite creators, engage with posts through likes and comments, and have private, secure conversations with friends, complete with media and audio message sharing."
+        ],
+        "gallery_title": "A Glimpse Inside RuyaX",
+        "gallery_desc": "Here are some snapshots of the RuyaX experience. See how our community brings creativity to life!",
+        "howto_title": "How to Get Started",
+        "howto_desc": "Joining the RuyaX community is simple. Follow these easy steps to begin your journey:",
+        "howto_steps": [
+          "<strong>Step 1: Sign Up Securely</strong><br>Create an account in seconds using your email or Google account. We prioritize your security from the very first step.",
+          "<strong>Step 2: Discover & Explore</strong><br>Swipe through a personalized, full-screen feed of content. The more you watch and interact, the better our recommendations become. Use the search feature to find new creators and trends.",
+          "<strong>Step 3: Create & Share</strong><br>Tap the upload button to share from your gallery, or use our in-app camera to capture a new moment. Add a title and description, and share it with the world!"
+        ],
+        "privacy_title": "Your Privacy, Your Control",
+        "privacy_desc": "We believe in being upfront and clear about how we handle your data. Your trust is our top priority.",
+        "privacy_points": [
+          "<strong>You Are in Control:</strong> We only require your email for account creation. You decide what other information to share on your profile, with privacy settings to control the visibility of your age, gender, and country.",
+          "<strong>A Safe Community:</strong> We provide tools to ensure your safety. Block users you don't want to interact with and report any content that violates our guidelines.",
+          "<strong>Data Deletion:</strong> You have the right to request the complete deletion of your account and all associated data directly within the app."
+        ],
+        "privacy_summary": "This is a summary. For complete details, we encourage you to read our full Privacy Policy.",
+        "privacy_btn_text": "View Full Privacy Policy",
+        "footer_title": "Ready to Join the Vision?",
+        "footer_desc": "Download RuyaX today and start your creative journey. We can't wait to see what you'll create!",
+        "download_btn_text": "Get RuyaX for Free",
+        "privacy_page_title": "Privacy Policy - RuyaX App",
+        "privacy_header_title": "RuyaX App Privacy Policy",
+        "privacy_header_subtitle": "Last Updated: October 16, 2025",
+        "privacy_content": "### Introduction\n\nThis Privacy Policy applies specifically to the RuyaX mobile application (\"the App\"). It explains how we collect, use, and protect your information when you use our App. For information regarding our website, please see our [Website Privacy Policy](privacy.html).\n\n### Information We Collect\n\n#### Information You Provide to Us\n*   **Account Information:** When you create a RuyaX account, you provide us with information such as your email address, username, and password. You may also choose to add more information to your profile, like a profile picture, biography, age, gender, and country.\n*   **Content:** We collect the content you create on the App, including photos and videos you upload, comments you post, and metadata associated with this content.\n*   **Communications:** We collect information when you communicate with us (e.g., for customer support) or with others through the App's messaging features, including the content of messages, media, and audio notes.\n\n#### Information We Collect Automatically\n*   **Usage Information:** We collect information about your activity on the App, such as which videos you watch, creators you follow, and how you interact with content and features.\n*   **Device Information:** We collect information from and about the devices you use, such as your IP address, device type, operating system, and unique device identifiers.\n\n#### Permissions\n*   **Camera and Photos/Videos:** We require access to your camera and photo/video library so you can create and upload visual content, which is a core feature of the App.\n*   **Microphone:** We require access to your microphone to allow you to record audio for your videos and send voice messages in chats.\n\n### How We Use Your Information\n\nWe use your information to:\n\n*   Provide, maintain, and improve the App and its features.\n*   Personalize your experience by showing you content we think you'll be interested in.\n*   Allow you to connect and communicate with other users.\n*   Communicate with you, including for technical support and service-related announcements.\n*   Enforce our terms, conditions, and policies to ensure the safety and security of our community.\n\n### How We Share Your Information\n\nWe may share your information in the following situations:\n\n*   **With Other Users:** Your profile information (username, profile picture) and the content you post are visible to other users. How widely your content is shared depends on your audience settings.\n*   **For Legal Reasons:** We may share information if we believe it's required by law or to protect the rights, property, or safety of RuyaX, our users, or others.\n\n### Your Choices and Control\n\nYou have control over your information. Within the App, you can:\n\n*   Access and update your profile information at any time.\n*   Control who can see your content.\n*   Delete your account permanently through the settings menu, which will also delete your data.\n*   Block other users and report content that violates our policies.\n\n### Contact Us\n\nIf you have questions about this App Privacy Policy, please contact us at: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>"
+      },
+      "ar": {
+        "name": "RuyaX",
+        "short_desc": "عالم غامر بملء الشاشة من مقاطع الفيديو القصيرة والصور المذهلة. RuyaX هي منصة اجتماعية من الجيل التالي مصممة لسرد القصص المرئية والتواصل العالمي.",
+        "page_title": "RuyaX - رؤيتك، عالمك",
+        "header_title": "RuyaX",
+        "header_subtitle": "رؤيتك، عالمك",
+        "intro_title": "اكتشف عالمًا من الإبداع",
+        "intro_desc": "انغمس في عالم غامر بملء الشاشة من مقاطع الفيديو القصيرة والصور المذهلة. RuyaX هي منصة اجتماعية من الجيل التالي مصممة لسرد القصص المرئية، وتربطك بمجتمع عالمي من المبدعين والحالمين.",
+        "features_title": "أطلق العنان لإبداعك بأدوات قوية",
+        "features_desc": "يمكّنك RuyaX من مشاركة لحظاتك والتعبير عن رؤيتك الفريدة. مع أدواتنا المتقدمة وسهلة الاستخدام، فإن تحفتك الفنية التالية على بعد نقرة واحدة.",
+        "features_list": [
+          "<strong>كاميرا متقدمة داخل التطبيق:</strong> بدّل بين وضع الصور والفيديو، استخدم الكاميرا الأمامية أو الخلفية، تحكم في الفلاش، وطبّق فلاتر حية لالتقاط اللقطة المثالية.",
+          "<strong>إطار مثالي:</strong> اختر من بين نسب عرض إلى ارتفاع متعددة (9:16، 16:9، 1:1) لضمان ظهور المحتوى الخاص بك تمامًا كما تخيلته.",
+          "<strong>تفاعل وتواصل:</strong> تابع المبدعين المفضلين لديك، تفاعل مع المنشورات عبر الإعجابات والتعليقات، وأجرِ محادثات خاصة وآمنة مع الأصدقاء، مع إمكانية مشاركة الوسائط والرسائل الصوتية."
+        ],
+        "gallery_title": "لمحة داخل RuyaX",
+        "gallery_desc": "إليك بعض اللقطات من تجربة RuyaX. شاهد كيف يبدع مجتمعنا!",
+        "howto_title": "كيف تبدأ",
+        "howto_desc": "الانضمام إلى مجتمع RuyaX بسيط. اتبع هذه الخطوات السهلة لبدء رحلتك:",
+        "howto_steps": [
+          "<strong>الخطوة 1: تسجيل آمن</strong><br>أنشئ حسابًا في ثوانٍ باستخدام بريدك الإلكتروني أو حساب Google. نحن نعطي الأولوية لأمنك منذ الخطوة الأولى.",
+          "<strong>الخطوة 2: اكتشف واستكشف</strong><br>تصفح موجزًا مخصصًا بملء الشاشة. كلما شاهدت وتفاعلت أكثر، أصبحت توصياتنا أفضل. استخدم ميزة البحث للعثور على مبدعين واتجاهات جديدة.",
+          "<strong>الخطوة 3: أنشئ وشارك</strong><br>انقر على زر التحميل للمشاركة من معرض الصور الخاص بك، أو استخدم الكاميرا داخل التطبيق لالتقاط لحظة جديدة. أضف عنوانًا ووصفًا، وشاركه مع العالم!"
+        ],
+        "privacy_title": "خصوصيتك تحت سيطرتك",
+        "privacy_desc": "نؤمن بالشفافية والوضوح في كيفية تعاملنا مع بياناتك. ثقتك هي أولويتنا القصوى.",
+        "privacy_points": [
+          "<strong>أنت المتحكم:</strong> نطلب فقط بريدك الإلكتروني لإنشاء الحساب. أنت تقرر المعلومات الأخرى التي تشاركها في ملفك الشخصي، مع إعدادات الخصوصية للتحكم في رؤية عمرك وجنسك وبلدك.",
+          "<strong>مجتمع آمن:</strong> نوفر أدوات لضمان سلامتك. احظر المستخدمين الذين لا تريد التفاعل معهم وأبلغ عن أي محتوى ينتهك إرشاداتنا.",
+          "<strong>حذف البيانات:</strong> لديك الحق في طلب الحذف الكامل لحسابك وجميع البيانات المرتبطة به مباشرة من داخل التطبيق."
+        ],
+        "privacy_summary": "هذا ملخص. للحصول على التفاصيل الكاملة، نشجعك على قراءة سياسة الخصوصية الكاملة الخاصة بنا.",
+        "privacy_btn_text": "عرض سياسة الخصوصية الكاملة",
+        "footer_title": "هل أنت مستعد للانضمام إلى الرؤية؟",
+        "footer_desc": "نزّل RuyaX اليوم وابدأ رحلتك الإبداعية. لا يسعنا الانتظار لرؤية ما ستبدعه!",
+        "download_btn_text": "احصل على RuyaX مجانًا",
+        "privacy_page_title": "سياسة الخصوصية - تطبيق RuyaX",
+        "privacy_header_title": "سياسة خصوصية تطبيق RuyaX",
+        "privacy_header_subtitle": "آخر تحديث: 16 أكتوبر 2025",
+        "privacy_content": "### مقدمة\n\nتنطبق سياسة الخصوصية هذه تحديدًا على تطبيق الهاتف المحمول RuyaX (\"التطبيق\"). وهي توضح كيفية جمعنا واستخدامنا وحماية معلوماتك عند استخدامك لتطبيقنا. للحصول على معلومات بخصوص موقعنا الإلكتروني، يرجى الاطلاع على [سياسة خصوصية الموقع الإلكتروني](privacy.html).\n\n### المعلومات التي نجمعها\n\n#### المعلومات التي تقدمها لنا\n*   **معلومات الحساب:** عند إنشاء حساب RuyaX، فإنك تزودنا بمعلومات مثل عنوان بريدك الإلكتروني واسم المستخدم وكلمة المرور. يمكنك أيضًا اختيار إضافة المزيد من المعلومات إلى ملفك الشخصي، مثل صورة الملف الشخصي، والسيرة الذاتية، والعمر، والجنس، والبلد.\n*   **المحتوى:** نقوم بجمع المحتوى الذي تنشئه على التطبيق، بما في ذلك الصور ومقاطع الفيديو التي تحمّلها، والتعليقات التي تنشرها، والبيانات الوصفية المرتبطة بهذا المحتوى.\n*   **الاتصالات:** نقوم بجمع المعلومات عندما تتواصل معنا (على سبيل المثال، لدعم العملاء) أو مع الآخرين من خلال ميزات المراسلة في التطبيق، بما في ذلك محتوى الرسائل والوسائط والملاحظات الصوتية.\n\n#### المعلومات التي نجمعها تلقائيًا\n*   **معلومات الاستخدام:** نقوم بجمع معلومات حول نشاطك على التطبيق، مثل مقاطع الفيديو التي تشاهدها، والمبدعين الذين تتابعهم، وكيفية تفاعلك مع المحتوى والميزات.\n*   **معلومات الجهاز:** نقوم بجمع معلومات من وعن الأجهزة التي تستخدمها، مثل عنوان IP الخاص بك، ونوع الجهاز، ونظام التشغيل، ومعرفات الجهاز الفريدة.\n\n#### الأذونات\n*   **الكاميرا والصور/الفيديو:** نطلب الوصول إلى الكاميرا ومكتبة الصور/الفيديو الخاصة بك حتى تتمكن من إنشاء وتحميل محتوى مرئي، وهي ميزة أساسية في التطبيق.\n*   **الميكروفون:** نطلب الوصول إلى الميكروفون الخاص بك للسماح لك بتسجيل الصوت لمقاطع الفيديو الخاصة بك وإرسال رسائل صوتية في المحادثات.\n\n### كيف نستخدم معلوماتك\n\nنحن نستخدم معلوماتك من أجل:\n\n*   توفير التطبيق وميزاته وصيانتها وتحسينها.\n*   تخصيص تجربتك من خلال عرض محتوى نعتقد أنه سيهمك.\n*   السماح لك بالاتصال والتواصل مع المستخدمين الآخرين.\n*   التواصل معك، بما في ذلك الدعم الفني والإعلانات المتعلقة بالخدمة.\n*   تطبيق شروطنا وشروطنا وسياساتنا لضمان سلامة وأمن مجتمعنا.\n\n### كيف نشارك معلوماتك\n\nقد نشارك معلوماتك في الحالات التالية:\n\n*   **مع المستخدمين الآخرين:** معلومات ملفك الشخصي (اسم المستخدم، صورة الملف الشخصي) والمحتوى الذي تنشره تكون مرئية للمستخدمين الآخرين. يعتمد مدى مشاركة المحتوى الخاص بك على إعدادات جمهورك.\n*   **لأسباب قانونية:** قد نشارك المعلومات إذا كنا نعتقد أنها مطلوبة بموجب القانون أو لحماية حقوق أو ممتلكات أو سلامة RuyaX أو مستخدمينا أو الآخرين.\n\n### خياراتك وتحكمك\n\nلديك السيطرة على معلوماتك. داخل التطبيق، يمكنك:\n\n*   الوصول إلى معلومات ملفك الشخصي وتحديثها في أي وقت.\n*   التحكم في من يمكنه رؤية المحتوى الخاص بك.\n*   حذف حسابك بشكل دائم من خلال قائمة الإعدادات، مما سيؤدي أيضًا إلى حذف بياناتك.\n*   حظر المستخدمين الآخرين والإبلاغ عن المحتوى الذي ينتهك سياساتنا.\n\n### اتصل بنا\n\nإذا كانت لديك أسئلة حول سياسة خصوصية التطبيق هذه، يرجى الاتصال بنا على: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>"
+      },
+      "screenshots": [
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot2.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot3.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot4.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot5.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot6.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot7.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot8.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot9.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot10.jpg" },
+        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot11.jpg" }
       ],
-      "gallery_title": "A Glimpse Inside RuyaX",
-      "gallery_desc": "Here are some snapshots of the RuyaX experience. See how our community brings creativity to life!",
-      "howto_title": "How to Get Started",
-      "howto_desc": "Joining the RuyaX community is simple. Follow these easy steps to begin your journey:",
-      "howto_steps": [
-        "<strong>Step 1: Sign Up Securely</strong><br>Create an account in seconds using your email or Google account. We prioritize your security from the very first step.",
-        "<strong>Step 2: Discover & Explore</strong><br>Swipe through a personalized, full-screen feed of content. The more you watch and interact, the better our recommendations become. Use the search feature to find new creators and trends.",
-        "<strong>Step 3: Create & Share</strong><br>Tap the upload button to share from your gallery, or use our in-app camera to capture a new moment. Add a title and description, and share it with the world!"
-      ],
-      "privacy_title": "Your Privacy, Your Control",
-      "privacy_desc": "We believe in being upfront and clear about how we handle your data. Your trust is our top priority.",
-      "privacy_points": [
-        "<strong>You Are in Control:</strong> We only require your email for account creation. You decide what other information to share on your profile, with privacy settings to control the visibility of your age, gender, and country.",
-        "<strong>A Safe Community:</strong> We provide tools to ensure your safety. Block users you don't want to interact with and report any content that violates our guidelines.",
-        "<strong>Data Deletion:</strong> You have the right to request the complete deletion of your account and all associated data directly within the app."
-      ],
-      "privacy_summary": "This is a summary. For complete details, we encourage you to read our full Privacy Policy.",
-      "privacy_btn_text": "View Full Privacy Policy",
-      "footer_title": "Ready to Join the Vision?",
-      "footer_desc": "Download RuyaX today and start your creative journey. We can't wait to see what you'll create!",
-      "download_btn_text": "Get RuyaX for Free",
-      "privacy_page_title": "Privacy Policy - RuyaX App",
-      "privacy_header_title": "RuyaX App Privacy Policy",
-      "privacy_header_subtitle": "Last Updated: October 16, 2025",
-      "privacy_content": "### Introduction\n\nThis Privacy Policy applies specifically to the RuyaX mobile application (\"the App\"). It explains how we collect, use, and protect your information when you use our App. For information regarding our website, please see our [Website Privacy Policy](privacy.html).\n\n### Information We Collect\n\n#### Information You Provide to Us\n*   **Account Information:** When you create a RuyaX account, you provide us with information such as your email address, username, and password. You may also choose to add more information to your profile, like a profile picture, biography, age, gender, and country.\n*   **Content:** We collect the content you create on the App, including photos and videos you upload, comments you post, and metadata associated with this content.\n*   **Communications:** We collect information when you communicate with us (e.g., for customer support) or with others through the App's messaging features, including the content of messages, media, and audio notes.\n\n#### Information We Collect Automatically\n*   **Usage Information:** We collect information about your activity on the App, such as which videos you watch, creators you follow, and how you interact with content and features.\n*   **Device Information:** We collect information from and about the devices you use, such as your IP address, device type, operating system, and unique device identifiers.\n\n#### Permissions\n*   **Camera and Photos/Videos:** We require access to your camera and photo/video library so you can create and upload visual content, which is a core feature of the App.\n*   **Microphone:** We require access to your microphone to allow you to record audio for your videos and send voice messages in chats.\n\n### How We Use Your Information\n\nWe use your information to:\n\n*   Provide, maintain, and improve the App and its features.\n*   Personalize your experience by showing you content we think you'll be interested in.\n*   Allow you to connect and communicate with other users.\n*   Communicate with you, including for technical support and service-related announcements.\n*   Enforce our terms, conditions, and policies to ensure the safety and security of our community.\n\n### How We Share Your Information\n\nWe may share your information in the following situations:\n\n*   **With Other Users:** Your profile information (username, profile picture) and the content you post are visible to other users. How widely your content is shared depends on your audience settings.\n*   **For Legal Reasons:** We may share information if we believe it's required by law or to protect the rights, property, or safety of RuyaX, our users, or others.\n\n### Your Choices and Control\n\nYou have control over your information. Within the App, you can:\n\n*   Access and update your profile information at any time.\n*   Control who can see your content.\n*   Delete your account permanently through the settings menu, which will also delete your data.\n*   Block other users and report content that violates our policies.\n\n### Contact Us\n\nIf you have questions about this App Privacy Policy, please contact us at: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>"
+      "play_store_link": "https://play.google.com/store/apps/details?id=com.appy.ruyax"
     },
-    "ar": {
-      "name": "RuyaX",
-      "short_desc": "عالم غامر بملء الشاشة من مقاطع الفيديو القصيرة والصور المذهلة. RuyaX هي منصة اجتماعية من الجيل التالي مصممة لسرد القصص المرئية والتواصل العالمي.",
-      "page_title": "RuyaX - رؤيتك، عالمك",
-      "header_title": "RuyaX",
-      "header_subtitle": "رؤيتك، عالمك",
-      "intro_title": "اكتشف عالمًا من الإبداع",
-      "intro_desc": "انغمس في عالم غامر بملء الشاشة من مقاطع الفيديو القصيرة والصور المذهلة. RuyaX هي منصة اجتماعية من الجيل التالي مصممة لسرد القصص المرئية، وتربطك بمجتمع عالمي من المبدعين والحالمين.",
-      "features_title": "أطلق العنان لإبداعك بأدوات قوية",
-      "features_desc": "يمكّنك RuyaX من مشاركة لحظاتك والتعبير عن رؤيتك الفريدة. مع أدواتنا المتقدمة وسهلة الاستخدام، فإن تحفتك الفنية التالية على بعد نقرة واحدة.",
-      "features_list": [
-        "<strong>كاميرا متقدمة داخل التطبيق:</strong> بدّل بين وضع الصور والفيديو، استخدم الكاميرا الأمامية أو الخلفية، تحكم في الفلاش، وطبّق فلاتر حية لالتقاط اللقطة المثالية.",
-        "<strong>إطار مثالي:</strong> اختر من بين نسب عرض إلى ارتفاع متعددة (9:16، 16:9، 1:1) لضمان ظهور المحتوى الخاص بك تمامًا كما تخيلته.",
-        "<strong>تفاعل وتواصل:</strong> تابع المبدعين المفضلين لديك، تفاعل مع المنشورات عبر الإعجابات والتعليقات، وأجرِ محادثات خاصة وآمنة مع الأصدقاء، مع إمكانية مشاركة الوسائط والرسائل الصوتية."
-      ],
-      "gallery_title": "لمحة داخل RuyaX",
-      "gallery_desc": "إليك بعض اللقطات من تجربة RuyaX. شاهد كيف يبدع مجتمعنا!",
-      "howto_title": "كيف تبدأ",
-      "howto_desc": "الانضمام إلى مجتمع RuyaX بسيط. اتبع هذه الخطوات السهلة لبدء رحلتك:",
-      "howto_steps": [
-        "<strong>الخطوة 1: تسجيل آمن</strong><br>أنشئ حسابًا في ثوانٍ باستخدام بريدك الإلكتروني أو حساب Google. نحن نعطي الأولوية لأمنك منذ الخطوة الأولى.",
-        "<strong>الخطوة 2: اكتشف واستكشف</strong><br>تصفح موجزًا مخصصًا بملء الشاشة. كلما شاهدت وتفاعلت أكثر، أصبحت توصياتنا أفضل. استخدم ميزة البحث للعثور على مبدعين واتجاهات جديدة.",
-        "<strong>الخطوة 3: أنشئ وشارك</strong><br>انقر على زر التحميل للمشاركة من معرض الصور الخاص بك، أو استخدم الكاميرا داخل التطبيق لالتقاط لحظة جديدة. أضف عنوانًا ووصفًا، وشاركه مع العالم!"
-      ],
-      "privacy_title": "خصوصيتك تحت سيطرتك",
-      "privacy_desc": "نؤمن بالشفافية والوضوح في كيفية تعاملنا مع بياناتك. ثقتك هي أولويتنا القصوى.",
-      "privacy_points": [
-        "<strong>أنت المتحكم:</strong> نطلب فقط بريدك الإلكتروني لإنشاء الحساب. أنت تقرر المعلومات الأخرى التي تشاركها في ملفك الشخصي، مع إعدادات الخصوصية للتحكم في رؤية عمرك وجنسك وبلدك.",
-        "<strong>مجتمع آمن:</strong> نوفر أدوات لضمان سلامتك. احظر المستخدمين الذين لا تريد التفاعل معهم وأبلغ عن أي محتوى ينتهك إرشاداتنا.",
-        "<strong>حذف البيانات:</strong> لديك الحق في طلب الحذف الكامل لحسابك وجميع البيانات المرتبطة به مباشرة من داخل التطبيق."
-      ],
-      "privacy_summary": "هذا ملخص. للحصول على التفاصيل الكاملة، نشجعك على قراءة سياسة الخصوصية الكاملة الخاصة بنا.",
-      "privacy_btn_text": "عرض سياسة الخصوصية الكاملة",
-      "footer_title": "هل أنت مستعد للانضمام إلى الرؤية؟",
-      "footer_desc": "نزّل RuyaX اليوم وابدأ رحلتك الإبداعية. لا يسعنا الانتظار لرؤية ما ستبدعه!",
-      "download_btn_text": "احصل على RuyaX مجانًا",
-      "privacy_page_title": "سياسة الخصوصية - تطبيق RuyaX",
-      "privacy_header_title": "سياسة خصوصية تطبيق RuyaX",
-      "privacy_header_subtitle": "آخر تحديث: 16 أكتوبر 2025",
-      "privacy_content": "### مقدمة\n\nتنطبق سياسة الخصوصية هذه تحديدًا على تطبيق الهاتف المحمول RuyaX (\"التطبيق\"). وهي توضح كيفية جمعنا واستخدامنا وحماية معلوماتك عند استخدامك لتطبيقنا. للحصول على معلومات بخصوص موقعنا الإلكتروني، يرجى الاطلاع على [سياسة خصوصية الموقع الإلكتروني](privacy.html).\n\n### المعلومات التي نجمعها\n\n#### المعلومات التي تقدمها لنا\n*   **معلومات الحساب:** عند إنشاء حساب RuyaX، فإنك تزودنا بمعلومات مثل عنوان بريدك الإلكتروني واسم المستخدم وكلمة المرور. يمكنك أيضًا اختيار إضافة المزيد من المعلومات إلى ملفك الشخصي، مثل صورة الملف الشخصي، والسيرة الذاتية، والعمر، والجنس، والبلد.\n*   **المحتوى:** نقوم بجمع المحتوى الذي تنشئه على التطبيق، بما في ذلك الصور ومقاطع الفيديو التي تحمّلها، والتعليقات التي تنشرها، والبيانات الوصفية المرتبطة بهذا المحتوى.\n*   **الاتصالات:** نقوم بجمع المعلومات عندما تتواصل معنا (على سبيل المثال، لدعم العملاء) أو مع الآخرين من خلال ميزات المراسلة في التطبيق، بما في ذلك محتوى الرسائل والوسائط والملاحظات الصوتية.\n\n#### المعلومات التي نجمعها تلقائيًا\n*   **معلومات الاستخدام:** نقوم بجمع معلومات حول نشاطك على التطبيق، مثل مقاطع الفيديو التي تشاهدها، والمبدعين الذين تتابعهم، وكيفية تفاعلك مع المحتوى والميزات.\n*   **معلومات الجهاز:** نقوم بجمع معلومات من وعن الأجهزة التي تستخدمها، مثل عنوان IP الخاص بك، ونوع الجهاز، ونظام التشغيل، ومعرفات الجهاز الفريدة.\n\n#### الأذونات\n*   **الكاميرا والصور/الفيديو:** نطلب الوصول إلى الكاميرا ومكتبة الصور/الفيديو الخاصة بك حتى تتمكن من إنشاء وتحميل محتوى مرئي، وهي ميزة أساسية في التطبيق.\n*   **الميكروفون:** نطلب الوصول إلى الميكروفون الخاص بك للسماح لك بتسجيل الصوت لمقاطع الفيديو الخاصة بك وإرسال رسائل صوتية في المحادثات.\n\n### كيف نستخدم معلوماتك\n\nنحن نستخدم معلوماتك من أجل:\n\n*   توفير التطبيق وميزاته وصيانتها وتحسينها.\n*   تخصيص تجربتك من خلال عرض محتوى نعتقد أنه سيهمك.\n*   السماح لك بالاتصال والتواصل مع المستخدمين الآخرين.\n*   التواصل معك، بما في ذلك الدعم الفني والإعلانات المتعلقة بالخدمة.\n*   تطبيق شروطنا وشروطنا وسياساتنا لضمان سلامة وأمن مجتمعنا.\n\n### كيف نشارك معلوماتك\n\nقد نشارك معلوماتك في الحالات التالية:\n\n*   **مع المستخدمين الآخرين:** معلومات ملفك الشخصي (اسم المستخدم، صورة الملف الشخصي) والمحتوى الذي تنشره تكون مرئية للمستخدمين الآخرين. يعتمد مدى مشاركة المحتوى الخاص بك على إعدادات جمهورك.\n*   **لأسباب قانونية:** قد نشارك المعلومات إذا كنا نعتقد أنها مطلوبة بموجب القانون أو لحماية حقوق أو ممتلكات أو سلامة RuyaX أو مستخدمينا أو الآخرين.\n\n### خياراتك وتحكمك\n\nلديك السيطرة على معلوماتك. داخل التطبيق، يمكنك:\n\n*   الوصول إلى معلومات ملفك الشخصي وتحديثها في أي وقت.\n*   التحكم في من يمكنه رؤية المحتوى الخاص بك.\n*   حذف حسابك بشكل دائم من خلال قائمة الإعدادات، مما سيؤدي أيضًا إلى حذف بياناتك.\n*   حظر المستخدمين الآخرين والإبلاغ عن المحتوى الذي ينتهك سياساتنا.\n\n### اتصل بنا\n\nإذا كانت لديك أسئلة حول سياسة خصوصية التطبيق هذه، يرجى الاتصال بنا على: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>"
-    },
-    "screenshots": [
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot2.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot3.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot4.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot5.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot6.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot7.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot8.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot9.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot10.jpg" },
-      { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot11.jpg" }
-    ],
-    "play_store_link": "https://play.google.com/store/apps/details?id=com.appy.ruyax"
-  },
-  {
-    "slug": "future-app-1",
-    "is_placeholder": true,
-    "href": "#",
-    "imgSrc": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=400&auto=format&fit=crop",
-    "alt": "Future App"
-  }
-]
+    {
+      "slug": "future-app-1",
+      "is_placeholder": true,
+      "href": "#",
+      "imgSrc": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=400&auto=format&fit=crop",
+      "alt": "Future App"
+    }
+  ]
+}

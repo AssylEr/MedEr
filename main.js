@@ -213,6 +213,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
     
     const converter = new showdown.Converter();
+
+    setContent('privacy_header_title', content.privacy_header_title);
+    setContent('privacy_header_subtitle', content.privacy_header_subtitle);
     const policyHtml = converter.makeHtml(content.privacy_content || '');
     setContent('privacy_content', policyHtml);
   }
@@ -316,17 +319,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Determine which page we are on to fetch the correct data
     const bodyId = document.body.id;
     let pageDataPath;
-    if (bodyId === 'home-page') pageDataPath = '_data/home.json';
-    else if (bodyId === 'about-page') pageDataPath = '_data/about.json';
-    else if (bodyId === 'privacy-page') pageDataPath = '_data/privacy.json';
+    if (bodyId === 'home-page') pageDataPath = 'home.json';
+    else if (bodyId === 'about-page') pageDataPath = 'about.json';
+    else if (bodyId === 'privacy-page') pageDataPath = 'privacy.json';
 
     // Fetch all necessary data in parallel
     const [appsData, pageData] = await Promise.all([
-      fetchJsonData('_data/apps.json'),
+      fetchJsonData('apps.json'),
       pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
     ]);
 
-    APPS_DATA = appsData || [];
+    APPS_DATA = (appsData && appsData.applications) || [];
     PAGE_DATA = pageData || {};
 
     // Initial render
