@@ -1,6 +1,27 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- بيانات التطبيقات ---
+  // لتحديث قائمة التطبيقات في النافذة المنبثقة، قم ببساطة بتعديل هذه المصفوفة.
+  // 'nameKey': هو مفتاح الترجمة لاسم التطبيق (من كائن الترجمة أدناه).
+  // 'href': هو الرابط إلى صفحة التطبيق. استخدم "#" للتطبيقات المستقبلية.
+  // 'imgSrc': هو رابط الصورة المصغرة للتطبيق.
+  // 'isPlaceholder': اضبطه على "true" للتطبيقات المستقبلية (سيضيف تراكب "قريباً" والنمط المعطل).
+  // 'alt': النص البديل للصورة.
+  const appsData = [
+    { nameKey: 'ruyaxCardTitle', href: 'RuyaX.html', imgSrc: 'https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg', isPlaceholder: false, alt: 'RuyaX App Preview' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1516116216624-53e697314945?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1542831371-d531d36971ad?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1542903660-eedba2cda473?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' },
+    { nameKey: 'futureAppTitle', href: '#', imgSrc: 'https://images.unsplash.com/photo-1593433362804-d893876a382d?q=80&w=400&auto=format&fit=crop', isPlaceholder: true, alt: 'Future App' }
+  ];
+
   const translations = {
       en: {
           // Common
@@ -86,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
           privacyContactTitle: "Contact Us",
           privacyContactP1: "If you have questions or comments about this Privacy Policy, please contact us at: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
 
-          // app-privacy.html
+          // app-privacy.html -> RuyaX-Privacy.html
           pageTitleAppPrivacy: "Privacy Policy - RuyaX App",
           appPrivacyHeaderTitle: "RuyaX App Privacy Policy",
           appPrivacyHeaderSubtitle: "Last Updated: October 16, 2025",
@@ -195,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
           privacyContactTitle: "اتصل بنا",
           privacyContactP1: "إذا كانت لديكم أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا على: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
 
-          // app-privacy.html
+          // app-privacy.html -> RuyaX-Privacy.html
           pageTitleAppPrivacy: "سياسة الخصوصية - تطبيق RuyaX",
           appPrivacyHeaderTitle: "سياسة خصوصية تطبيق RuyaX",
           appPrivacyHeaderSubtitle: "آخر تحديث: 16 أكتوبر 2025",
@@ -222,6 +243,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   };
 
+  function populateAppsModal() {
+    const grid = document.querySelector('.apps-modal-grid');
+    if (!grid) return;
+
+    let gridHTML = '';
+    appsData.forEach(app => {
+      const cardClass = app.isPlaceholder ? 'app-modal-card app-modal-card--placeholder' : 'app-modal-card';
+      const comingSoonOverlay = app.isPlaceholder ? '<div class="app-placeholder-overlay"><span data-translate-key="comingSoon"></span></div>' : '';
+      
+      gridHTML += `
+        <a href="${app.href}" class="${cardClass}">
+          <img src="${app.imgSrc}" alt="${app.alt}">
+          ${comingSoonOverlay}
+          <h3 data-translate-key="${app.nameKey}"></h3>
+        </a>
+      `;
+    });
+    grid.innerHTML = gridHTML;
+  }
+
   function setLanguage(lang) {
     const currentTranslations = translations[lang] || translations.en;
     document.querySelectorAll('[data-translate-key]').forEach(el => {
@@ -243,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('nav-home')?.classList.add('active');
       } else if (currentPage === 'about.html') {
           document.getElementById('nav-about')?.classList.add('active');
-      } else if (currentPage === 'privacy.html' || currentPage === 'app-privacy.html') {
+      } else if (currentPage === 'privacy.html' || currentPage === 'RuyaX-Privacy.html') {
           document.getElementById('nav-privacy')?.classList.add('active');
       }
   }
@@ -258,6 +299,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeLightboxBtn = document.querySelector('.close-lightbox');
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
+
+  // Populate apps modal grid
+  populateAppsModal();
 
   // Language setup
   let currentLang = localStorage.getItem('userLanguage') || (navigator.language.startsWith('ar') ? 'ar' : 'en');
@@ -281,9 +325,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Apps Modal functionality
   if(appsBtn && appsModal) {
-    appsBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        appsModal.style.display = 'flex';
+    // Re-select the button for all pages
+    document.querySelectorAll('#apps-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          appsModal.style.display = 'flex';
+      });
     });
 
     const closeModal = () => {
