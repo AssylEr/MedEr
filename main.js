@@ -316,13 +316,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Determine which page we are on to fetch the correct data
     const bodyId = document.body.id;
     let pageDataPath;
-    if (bodyId === 'home-page') pageDataPath = '/home.json';
-    else if (bodyId === 'about-page') pageDataPath = '/about.json';
-    else if (bodyId === 'privacy-page') pageDataPath = '/privacy.json';
+    if (bodyId === 'home-page') pageDataPath = '_data/home.json';
+    else if (bodyId === 'about-page') pageDataPath = '_data/about.json';
+    else if (bodyId === 'privacy-page') pageDataPath = '_data/privacy.json';
 
     // Fetch all necessary data in parallel
     const [appsData, pageData] = await Promise.all([
-      fetchJsonData('/apps.json'),
+      fetchJsonData('_data/apps.json'),
       pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
     ]);
 
