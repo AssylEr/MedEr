@@ -85,6 +85,31 @@ document.addEventListener('DOMContentLoaded', () => {
           privacySecurityP1: "We are committed to ensuring that your information is secure. While no method of transmission over the Internet is 100% secure, we take reasonable steps to protect the limited data related to our website's operation.",
           privacyContactTitle: "Contact Us",
           privacyContactP1: "If you have questions or comments about this Privacy Policy, please contact us at: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
+
+          // app-privacy.html
+          pageTitleAppPrivacy: "Privacy Policy - RuyaX App",
+          appPrivacyHeaderTitle: "RuyaX App Privacy Policy",
+          appPrivacyHeaderSubtitle: "Last Updated: October 16, 2025",
+          appPrivacyIntroTitle: "Introduction",
+          appPrivacyIntroP1: 'This Privacy Policy applies specifically to the RuyaX mobile application ("the App"). It explains how we collect, use, and protect your information when you use our App. For information regarding our website, please see our <a href="privacy.html">Website Privacy Policy</a>.',
+          appPrivacyCollectionTitle: "Information We Collect",
+          appPrivacyCollectionSub1Title: "Information You Provide to Us",
+          appPrivacyCollectionSub1List: "<li><strong>Account Information:</strong> When you create a RuyaX account, you provide us with information such as your email address, username, and password. You may also choose to add more information to your profile, like a profile picture, biography, age, gender, and country.</li><li><strong>Content:</strong> We collect the content you create on the App, including photos and videos you upload, comments you post, and metadata associated with this content.</li><li><strong>Communications:</strong> We collect information when you communicate with us (e.g., for customer support) or with others through the App's messaging features, including the content of messages, media, and audio notes.</li>",
+          appPrivacyCollectionSub2Title: "Information We Collect Automatically",
+          appPrivacyCollectionSub2List: "<li><strong>Usage Information:</strong> We collect information about your activity on the App, such as which videos you watch, creators you follow, and how you interact with content and features.</li><li><strong>Device Information:</strong> We collect information from and about the devices you use, such as your IP address, device type, operating system, and unique device identifiers.</li>",
+          appPrivacyCollectionSub3Title: "Permissions",
+          appPrivacyCollectionSub3List: "<li><strong>Camera and Photos/Videos:</strong> We require access to your camera and photo/video library so you can create and upload visual content, which is a core feature of the App.</li><li><strong>Microphone:</strong> We require access to your microphone to allow you to record audio for your videos and send voice messages in chats.</li>",
+          appPrivacyUseTitle: "How We Use Your Information",
+          appPrivacyUseP1: "We use your information to:",
+          appPrivacyUseList: "<li>Provide, maintain, and improve the App and its features.</li><li>Personalize your experience by showing you content we think you'll be interested in.</li><li>Allow you to connect and communicate with other users.</li><li>Communicate with you, including for technical support and service-related announcements.</li><li>Enforce our terms, conditions, and policies to ensure the safety and security of our community.</li>",
+          appPrivacySharingTitle: "How We Share Your Information",
+          appPrivacySharingP1: "We may share your information in the following situations:",
+          appPrivacySharingList: "<li><strong>With Other Users:</strong> Your profile information (username, profile picture) and the content you post are visible to other users. How widely your content is shared depends on your audience settings.</li><li><strong>For Legal Reasons:</strong> We may share information if we believe it's required by law or to protect the rights, property, or safety of RuyaX, our users, or others.</li>",
+          appPrivacyControlTitle: "Your Choices and Control",
+          appPrivacyControlP1: "You have control over your information. Within the App, you can:",
+          appPrivacyControlList: "<li>Access and update your profile information at any time.</li><li>Control who can see your content.</li><li>Delete your account permanently through the settings menu, which will also delete your data.</li><li>Block other users and report content that violates our policies.</li>",
+          appPrivacyContactTitle: "Contact Us",
+          appPrivacyContactP1: "If you have questions about this App Privacy Policy, please contact us at: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
       },
       ar: {
           // Common
@@ -169,6 +194,31 @@ document.addEventListener('DOMContentLoaded', () => {
           privacySecurityP1: "نحن ملتزمون بضمان أمان معلوماتكم. في حين أنه لا توجد طريقة نقل عبر الإنترنت آمنة 100٪، فإننا نتخذ خطوات معقولة لحماية البيانات المحدودة المتعلقة بتشغيل موقعنا.",
           privacyContactTitle: "اتصل بنا",
           privacyContactP1: "إذا كانت لديكم أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا على: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
+
+          // app-privacy.html
+          pageTitleAppPrivacy: "سياسة الخصوصية - تطبيق RuyaX",
+          appPrivacyHeaderTitle: "سياسة خصوصية تطبيق RuyaX",
+          appPrivacyHeaderSubtitle: "آخر تحديث: 16 أكتوبر 2025",
+          appPrivacyIntroTitle: "مقدمة",
+          appPrivacyIntroP1: 'تنطبق سياسة الخصوصية هذه تحديدًا على تطبيق الهاتف المحمول RuyaX ("التطبيق"). وهي توضح كيفية جمعنا واستخدامنا وحماية معلوماتك عند استخدامك لتطبيقنا. للحصول على معلومات بخصوص موقعنا الإلكتروني، يرجى الاطلاع على <a href="privacy.html">سياسة خصوصية الموقع الإلكتروني</a>.',
+          appPrivacyCollectionTitle: "المعلومات التي نجمعها",
+          appPrivacyCollectionSub1Title: "المعلومات التي تقدمها لنا",
+          appPrivacyCollectionSub1List: "<li><strong>معلومات الحساب:</strong> عند إنشاء حساب RuyaX، فإنك تزودنا بمعلومات مثل عنوان بريدك الإلكتروني واسم المستخدم وكلمة المرور. يمكنك أيضًا اختيار إضافة المزيد من المعلومات إلى ملفك الشخصي، مثل صورة الملف الشخصي، والسيرة الذاتية، والعمر، والجنس، والبلد.</li><li><strong>المحتوى:</strong> نقوم بجمع المحتوى الذي تنشئه على التطبيق، بما في ذلك الصور ومقاطع الفيديو التي تحمّلها، والتعليقات التي تنشرها، والبيانات الوصفية المرتبطة بهذا المحتوى.</li><li><strong>الاتصالات:</strong> نقوم بجمع المعلومات عندما تتواصل معنا (على سبيل المثال، لدعم العملاء) أو مع الآخرين من خلال ميزات المراسلة في التطبيق، بما في ذلك محتوى الرسائل والوسائط والملاحظات الصوتية.</li>",
+          appPrivacyCollectionSub2Title: "المعلومات التي نجمعها تلقائيًا",
+          appPrivacyCollectionSub2List: "<li><strong>معلومات الاستخدام:</strong> نقوم بجمع معلومات حول نشاطك على التطبيق، مثل مقاطع الفيديو التي تشاهدها، والمبدعين الذين تتابعهم، وكيفية تفاعلك مع المحتوى والميزات.</li><li><strong>معلومات الجهاز:</strong> نقوم بجمع معلومات من وعن الأجهزة التي تستخدمها، مثل عنوان IP الخاص بك، ونوع الجهاز، ونظام التشغيل، ومعرفات الجهاز الفريدة.</li>",
+          appPrivacyCollectionSub3Title: "الأذونات",
+          appPrivacyCollectionSub3List: "<li><strong>الكاميرا والصور/الفيديو:</strong> نطلب الوصول إلى الكاميرا ومكتبة الصور/الفيديو الخاصة بك حتى تتمكن من إنشاء وتحميل محتوى مرئي، وهي ميزة أساسية في التطبيق.</li><li><strong>الميكروفون:</strong> نطلب الوصول إلى الميكروفون الخاص بك للسماح لك بتسجيل الصوت لمقاطع الفيديو الخاصة بك وإرسال رسائل صوتية في المحادثات.</li>",
+          appPrivacyUseTitle: "كيف نستخدم معلوماتك",
+          appPrivacyUseP1: "نحن نستخدم معلوماتك من أجل:",
+          appPrivacyUseList: "<li>توفير التطبيق وميزاته وصيانتها وتحسينها.</li><li>تخصيص تجربتك من خلال عرض محتوى نعتقد أنه سيهمك.</li><li>السماح لك بالاتصال والتواصل مع المستخدمين الآخرين.</li><li>التواصل معك، بما في ذلك الدعم الفني والإعلانات المتعلقة بالخدمة.</li><li>تطبيق شروطنا وشروطنا وسياساتنا لضمان سلامة وأمن مجتمعنا.</li>",
+          appPrivacySharingTitle: "كيف نشارك معلوماتك",
+          appPrivacySharingP1: "قد نشارك معلوماتك في الحالات التالية:",
+          appPrivacySharingList: "<li><strong>مع المستخدمين الآخرين:</strong> معلومات ملفك الشخصي (اسم المستخدم، صورة الملف الشخصي) والمحتوى الذي تنشره تكون مرئية للمستخدمين الآخرين. يعتمد مدى مشاركة المحتوى الخاص بك على إعدادات جمهورك.</li><li><strong>لأسباب قانونية:</strong> قد نشارك المعلومات إذا كنا نعتقد أنها مطلوبة بموجب القانون أو لحماية حقوق أو ممتلكات أو سلامة RuyaX أو مستخدمينا أو الآخرين.</li>",
+          appPrivacyControlTitle: "خياراتك وتحكمك",
+          appPrivacyControlP1: "لديك السيطرة على معلوماتك. داخل التطبيق، يمكنك:",
+          appPrivacyControlList: "<li>الوصول إلى معلومات ملفك الشخصي وتحديثها في أي وقت.</li><li>التحكم في من يمكنه رؤية المحتوى الخاص بك.</li><li>حذف حسابك بشكل دائم من خلال قائمة الإعدادات، مما سيؤدي أيضًا إلى حذف بياناتك.</li><li>حظر المستخدمين الآخرين والإبلاغ عن المحتوى الذي ينتهك سياساتنا.</li>",
+          appPrivacyContactTitle: "اتصل بنا",
+          appPrivacyContactP1: "إذا كانت لديك أسئلة حول سياسة خصوصية التطبيق هذه، يرجى الاتصال بنا على: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>",
       }
   };
 
@@ -193,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('nav-home')?.classList.add('active');
       } else if (currentPage === 'about.html') {
           document.getElementById('nav-about')?.classList.add('active');
-      } else if (currentPage === 'privacy.html') {
+      } else if (currentPage === 'privacy.html' || currentPage === 'app-privacy.html') {
           document.getElementById('nav-privacy')?.classList.add('active');
       }
   }
