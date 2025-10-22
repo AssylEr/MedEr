@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', async () => {
 
   // Global state
@@ -19,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           comingSoon: "Coming Soon",
           footerCopyright: "&copy; 2025 RuyaX. All rights reserved.",
           learnMore: "Learn More",
+          adminPanel: "Admin Panel",
       },
       ar: {
           navLogo: "عالم RuyaX",
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           comingSoon: "قريباً",
           footerCopyright: "&copy; 2025 RuyaX. جميع الحقوق محفوظة.",
           learnMore: "اعرف المزيد",
+          adminPanel: "لوحة الإدارة",
       }
   };
 
@@ -220,6 +221,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     setContent('privacy_content', policyHtml);
   }
 
+  // --- DYNAMIC CONTENT INJECTION ---
+  function addAdminLinkToFooter() {
+    const footer = document.querySelector('footer');
+    if (footer) {
+        const copyright = footer.querySelector('p[data-translate-key="footerCopyright"]');
+        if (copyright && !document.getElementById('admin-link')) {
+            const adminLinkContainer = document.createElement('div');
+            adminLinkContainer.className = 'footer-links';
+            adminLinkContainer.innerHTML = `<a href="admin.html" id="admin-link" data-translate-key="adminPanel">Admin Panel</a>`;
+            footer.insertBefore(adminLinkContainer, copyright);
+        }
+    }
+  }
+
   // --- LANGUAGE & ROUTING ---
   function setLanguage(lang) {
     currentLang = lang;
@@ -316,6 +331,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function initializeApp() {
+    // Inject dynamic elements that should exist on every page
+    addAdminLinkToFooter();
+
     // Determine which page we are on to fetch the correct data
     const bodyId = document.body.id;
     let pageDataPath;

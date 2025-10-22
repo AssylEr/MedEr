@@ -1,4 +1,3 @@
-
 :root {
   --primary-color: #e91e63;
   --background-color: #0f0f0f;
@@ -518,6 +517,22 @@ html[dir="rtl"] .close-modal, html[dir="rtl"] .close-lightbox {
 }
 
 /* Footer */
+.footer-links {
+  margin-bottom: 15px;
+}
+
+#admin-link {
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#admin-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
 footer {
   text-align: center;
   padding: 30px 20px;
