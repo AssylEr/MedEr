@@ -220,11 +220,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     navMenus.forEach(navMenu => {
         if (!navMenu.querySelector('#nav-admin')) {
             const langSwitcher = navMenu.querySelector('.lang-switcher');
+            const adminNavItem = document.createElement('li');
+            adminNavItem.className = 'nav-item';
+            adminNavItem.innerHTML = `<a href="admin.html" class="nav-link" id="nav-admin" data-translate-key="adminPanel">Admin Panel</a>`;
+            
             if (langSwitcher) {
-                const adminNavItem = document.createElement('li');
-                adminNavItem.className = 'nav-item';
-                adminNavItem.innerHTML = `<a href="admin.html" class="nav-link" id="nav-admin" data-translate-key="adminPanel">Admin Panel</a>`;
-                langSwitcher.insertAdjacentElement('afterend', adminNavItem);
+                langSwitcher.before(adminNavItem);
+            } else {
+                navMenu.appendChild(adminNavItem);
             }
         }
     });
