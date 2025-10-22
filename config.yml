@@ -16,24 +16,22 @@ collections:
       - name: "home"
         label: "Home Page"
         file: "home.json"
-        description: "Edit the main content for the 'Home' page."
         fields:
           - label: "English Content"
             name: "en"
             widget: "object"
             fields:
-              - { label: "Header Title", name: "header_title", widget: "string", hint: "The large title at the top of the homepage. You can use <span></span> to color part of the text." }
+              - { label: "Header Title", name: "header_title", widget: "string" }
               - { label: "Header Subtitle", name: "header_subtitle", widget: "text" }
           - label: "Arabic Content"
             name: "ar"
             widget: "object"
             fields:
-              - { label: "Header Title", name: "header_title", widget: "string", hint: "The large title at the top of the homepage. You can use <span></span> to color part of the text." }
+              - { label: "Header Title", name: "header_title", widget: "string" }
               - { label: "Header Subtitle", name: "header_subtitle", widget: "text" }
       - name: "about"
         label: "About Us Page"
         file: "about.json"
-        description: "Edit the content for the 'About Us' page."
         fields:
           - label: "English Content"
             name: "en"
@@ -45,8 +43,8 @@ collections:
               - { label: "Admin Section Title", name: "admin_title", widget: "string" }
               - { label: "Admin Section Description", name: "admin_desc", widget: "text" }
               - { label: "Contact Section Title", name: "contact_title", widget: "string" }
-              - { label: "Contact Admin Line", name: "contact_admin", widget: "string", hint: "Example: 'Admin: The RuyaX Team'" }
-              - { label: "Contact Email Line", name: "contact_email", widget: "string", hint: "Example: 'Email: contact@ruyax.dev'" }
+              - { label: "Contact Admin Line", name: "contact_admin", widget: "string" }
+              - { label: "Contact Email Line", name: "contact_email", widget: "string" }
           - label: "Arabic Content"
             name: "ar"
             widget: "object"
@@ -57,12 +55,11 @@ collections:
               - { label: "Admin Section Title", name: "admin_title", widget: "string" }
               - { label: "Admin Section Description", name: "admin_desc", widget: "text" }
               - { label: "Contact Section Title", name: "contact_title", widget: "string" }
-              - { label: "Contact Admin Line", name: "contact_admin", widget: "string", hint: "Example: 'Admin: The RuyaX Team'" }
-              - { label: "Contact Email Line", name: "contact_email", widget: "string", hint: "Example: 'Email: contact@ruyax.dev'" }
+              - { label: "Contact Admin Line", name: "contact_admin", widget: "string" }
+              - { label: "Contact Email Line", name: "contact_email", widget: "string" }
       - name: "privacy"
         label: "Website Privacy Page"
         file: "privacy.json"
-        description: "Edit the content for the website's 'Privacy Policy' page."
         fields:
           - label: "English Content"
             name: "en"
@@ -76,12 +73,12 @@ collections:
               - { label: "Data Collection Title", name: "data_collection_title", widget: "string" }
               - { label: "Data Collection Content", name: "data_collection_p1", widget: "text" }
               - { label: "Types of Data Title", name: "data_type_title", widget: "string" }
-              - { label: "Types of Data List (Markdown)", name: "data_type_list", widget: "markdown", hint: "Use markdown list format." }
+              - { label: "Types of Data List (Markdown)", name: "data_type_list", widget: "markdown" }
               - { label: "Personal Info Title", name: "data_personal_title", widget: "string" }
               - { label: "Personal Info Content", name: "data_personal_p1", widget: "text" }
               - { label: "How We Use Title", name: "data_use_title", widget: "string" }
               - { label: "How We Use Content", name: "data_use_p1", widget: "text" }
-              - { label: "How We Use List (Markdown)", name: "data_use_list", widget: "markdown", hint: "Use markdown list format." }
+              - { label: "How We Use List (Markdown)", name: "data_use_list", widget: "markdown" }
               - { label: "Sharing Title", name: "data_sharing_title", widget: "string" }
               - { label: "Sharing Content", name: "data_sharing_p1", widget: "text" }
               - { label: "Links Title", name: "links_title", widget: "string" }
@@ -89,7 +86,7 @@ collections:
               - { label: "Security Title", name: "security_title", widget: "string" }
               - { label: "Security Content", name: "security_p1", widget: "text" }
               - { label: "Contact Title", name: "contact_title", widget: "string" }
-              - { label: "Contact Content", name: "contact_p1", widget: "string", hint: "Don't include the mailto link, just the text." }
+              - { label: "Contact Content", name: "contact_p1", widget: "string" }
           - label: "Arabic Content"
             name: "ar"
             widget: "object"
@@ -102,12 +99,12 @@ collections:
               - { label: "Data Collection Title", name: "data_collection_title", widget: "string" }
               - { label: "Data Collection Content", name: "data_collection_p1", widget: "text" }
               - { label: "Types of Data Title", name: "data_type_title", widget: "string" }
-              - { label: "Types of Data List (Markdown)", name: "data_type_list", widget: "markdown", hint: "Use markdown list format." }
+              - { label: "Types of Data List (Markdown)", name: "data_type_list", widget: "markdown" }
               - { label: "Personal Info Title", name: "data_personal_title", widget: "string" }
               - { label: "Personal Info Content", name: "data_personal_p1", widget: "text" }
               - { label: "How We Use Title", name: "data_use_title", widget: "string" }
               - { label: "How We Use Content", name: "data_use_p1", widget: "text" }
-              - { label: "How We Use List (Markdown)", name: "data_use_list", widget: "markdown", hint: "Use markdown list format." }
+              - { label: "How We Use List (Markdown)", name: "data_use_list", widget: "markdown" }
               - { label: "Sharing Title", name: "data_sharing_title", widget: "string" }
               - { label: "Sharing Content", name: "data_sharing_p1", widget: "text" }
               - { label: "Links Title", name: "links_title", widget: "string" }
@@ -115,11 +112,10 @@ collections:
               - { label: "Security Title", name: "security_title", widget: "string" }
               - { label: "Security Content", name: "security_p1", widget: "text" }
               - { label: "Contact Title", name: "contact_title", widget: "string" }
-              - { label: "Contact Content", name: "contact_p1", widget: "string", hint: "Don't include the mailto link, just the text." }
+              - { label: "Contact Content", name: "contact_p1", widget: "string" }
       - name: "apps"
         label: "Applications"
         file: "apps.json"
-        description: "Manage all applications displayed on the website from here."
         editor:
           preview: false
         fields:
@@ -128,48 +124,17 @@ collections:
             label_singular: "Application"
             widget: "list"
             fields:
-              - { label: "Slug", name: "slug", widget: "string", hint: "A unique identifier for the app, used in the URL (e.g., 'ruyax'). Must be lowercase English letters with no spaces." }
-              - { label: "Is Placeholder", name: "is_placeholder", widget: "boolean", default: false, hint: "Check this if the app is not yet available." }
-              - { label: "App Page Link", name: "href", widget: "string", hint: "The link to the app page. Should be 'app.html?slug=THE_SLUG_YOU_ENTERED_ABOVE'." }
-              - { label: "Thumbnail Image", name: "imgSrc", widget: "image", hint: "Image for the homepage card and the 'Apps' modal." }
-              - { label: "Image Alt Text", name: "alt", widget: "string", hint: "Descriptive text for the thumbnail image." }
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Is Placeholder", name: "is_placeholder", widget: "boolean", default: false }
+              - { label: "App Page Link", name: "href", widget: "string" }
+              - { label: "Thumbnail Image", name: "imgSrc", widget: "image" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
               - label: "English Content"
                 name: "en"
                 widget: "object"
                 fields:
                   - { label: "App Name", name: "name", widget: "string" }
-                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "Appears on the homepage card." }
-                  - { label: "Page Title", name: "page_title", widget: "string", hint: "The title that appears in the browser tab." }
-                  - { label: "Header Title", name: "header_title", widget: "string", hint: "The large title at the top of the app page." }
-                  - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
-                  - { label: "Intro Section Title", name: "intro_title", widget: "string" }
-                  - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
-                  - { label: "Features Section Title", name: "features_title", widget: "string" }
-                  - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
-                  - { label: "Features List", name: "features_list", widget: "list", field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" } }
-                  - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
-                  - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
-                  - { label: "How-To Section Title", name: "howto_title", widget: "string" }
-                  - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
-                  - { label: "How-To Steps", name: "howto_steps", widget: "list", field: { label: "Step (HTML allowed)", name: "item", widget: "string" } }
-                  - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
-                  - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
-                  - { label: "Privacy Points", name: "privacy_points", widget: "list", field: { label: "Point (HTML allowed)", name: "item", widget: "string" } }
-                  - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
-                  - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
-                  - { label: "Footer Title", name: "footer_title", widget: "string" }
-                  - { label: "Footer Description", name: "footer_desc", widget: "string" }
-                  - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
-                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "The title for the app's privacy policy page browser tab." }
-                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "The main, large title on the privacy policy page." }
-                  - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
-                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "Write the full privacy policy content here using Markdown." }
-              - label: "Arabic Content"
-                name: "ar"
-                widget: "object"
-                fields:
-                  - { label: "App Name", name: "name", widget: "string" }
-                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "Appears on the homepage card." }
+                  - { label: "Short Description", name: "short_desc", widget: "text" }
                   - { label: "Page Title", name: "page_title", widget: "string" }
                   - { label: "Header Title", name: "header_title", widget: "string" }
                   - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
@@ -191,9 +156,40 @@ collections:
                   - { label: "Footer Title", name: "footer_title", widget: "string" }
                   - { label: "Footer Description", name: "footer_desc", widget: "string" }
                   - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
-                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "The title for the app's privacy policy page browser tab." }
-                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "The main, large title on the privacy policy page." }
+                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string" }
+                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string" }
                   - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
-                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "Write the full privacy policy content here using Markdown." }
-              - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", fields: [{ label: "Image", name: "src", widget: "image" }], hint: "Images for the gallery on the app page." }
-              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "The full URL to the Google Play Store listing." }
+                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown" }
+              - label: "Arabic Content"
+                name: "ar"
+                widget: "object"
+                fields:
+                  - { label: "App Name", name: "name", widget: "string" }
+                  - { label: "Short Description", name: "short_desc", widget: "text" }
+                  - { label: "Page Title", name: "page_title", widget: "string" }
+                  - { label: "Header Title", name: "header_title", widget: "string" }
+                  - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
+                  - { label: "Intro Section Title", name: "intro_title", widget: "string" }
+                  - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
+                  - { label: "Features Section Title", name: "features_title", widget: "string" }
+                  - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
+                  - { label: "Features List", name: "features_list", widget: "list", field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
+                  - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
+                  - { label: "How-To Section Title", name: "howto_title", widget: "string" }
+                  - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
+                  - { label: "How-To Steps", name: "howto_steps", widget: "list", field: { label: "Step (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
+                  - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
+                  - { label: "Privacy Points", name: "privacy_points", widget: "list", field: { label: "Point (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
+                  - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
+                  - { label: "Footer Title", name: "footer_title", widget: "string" }
+                  - { label: "Footer Description", name: "footer_desc", widget: "string" }
+                  - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
+                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string" }
+                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string" }
+                  - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
+                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown" }
+              - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", fields: [{ label: "Image", name: "src", widget: "image" }] }
+              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false }
