@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           navApps: "Apps",
           navPrivacy: "Privacy Policy",
           navAbout: "About Us",
-          navAdmin: "Admin",
           appsModalTitle: "Our Applications",
           futureAppTitle: "Future App",
           comingSoon: "Coming Soon",
@@ -27,7 +26,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           navApps: "التطبيقات",
           navPrivacy: "سياسة الخصوصية",
           navAbout: "من نحن",
-          navAdmin: "الإدارة",
           appsModalTitle: "تطبيقاتنا",
           futureAppTitle: "تطبيق مستقبلي",
           comingSoon: "قريباً",
@@ -247,8 +245,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           document.getElementById('nav-about')?.classList.add('active');
       } else if (currentPage === 'privacy.html' || currentPage === 'privacy-app.html') {
           document.getElementById('nav-privacy')?.classList.add('active');
-      } else if (currentPage === 'admin.html') {
-          document.getElementById('nav-admin')?.classList.add('active');
       }
   }
   
@@ -327,24 +323,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     else if (bodyId === 'about-page') pageDataPath = 'about.json';
     else if (bodyId === 'privacy-page') pageDataPath = 'privacy.json';
 
-    // Fetch all necessary data and the navbar HTML in parallel
-    const [appsData, pageData, navHtml] = await Promise.all([
+    // Fetch all necessary data in parallel
+    const [appsData, pageData] = await Promise.all([
       fetchJsonData('apps.json'),
-      pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({}),
-      fetch('nav.html').then(res => {
-        if (!res.ok) throw new Error('Navbar template not found');
-        return res.text();
-      }).catch(err => {
-        console.error('Failed to load navbar:', err);
-        return ''; // Return empty string on failure
-      })
+      pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
     ]);
-
-    // Inject navbar into its placeholder
-    const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    if (navbarPlaceholder && navHtml) {
-        navbarPlaceholder.innerHTML = navHtml;
-    }
 
     APPS_DATA = (appsData && appsData.applications) || [];
     PAGE_DATA = pageData || {};
