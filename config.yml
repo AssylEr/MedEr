@@ -3,7 +3,7 @@ backend:
   repo: AssylEr/MedEr # Your GitHub username / repository name
   branch: main # The branch to update
   auth_type: pkce # Use PKCE auth flow for secure, client-side authentication
-  app_id: Ov23liXxs76aN3z4skEo # Client ID from your GitHub OAuth App.
+  app_id: Ov23liFyiCUJ3SM2f6y5 # Client ID from your GitHub OAuth App.
   site_url: https://assyler.github.io/MedEr/ # The base URL of your site.
 
 media_folder: "uploads" # Media files will be stored in the repo under the 'uploads' folder
@@ -214,4 +214,4 @@ collections:
                   - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
                   - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "Write the full privacy policy content here using Markdown." }
               - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", fields: [{ label: "Image", name: "src", widget: "image" }], hint: "Images for the gallery on the app page." }
-              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "The full URL to the Google Play Store listing." }
+              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "The full URL to the Google Play Store listing." }شاهد الصورة المرفقة وقم باستخراج client id و secret key ثم اضافتها الى الملفات المعنية! واجبني بالعربية ارجوك 68da039b74ed8f06e96df6311292da936cc5afa7
