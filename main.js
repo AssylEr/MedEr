@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
-  // Global state
   let APPS_DATA = [];
   let PAGE_DATA = {};
   let currentLang = localStorage.getItem('userLanguage') || (navigator.language.startsWith('ar') ? 'ar' : 'en');
 
-  // Static translations for components not managed by CMS
   const translations = {
       en: {
           navLogo: "RuyaX Universe",
@@ -35,7 +33,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   };
 
-  // --- DATA FETCHING ---
   async function fetchJsonData(path) {
     try {
       const response = await fetch(path);
@@ -49,7 +46,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // --- CONTENT POPULATION ---
   function populateStaticTranslations(lang) {
     const currentTranslations = translations[lang] || translations.en;
     document.querySelectorAll('[data-translate-key]').forEach(el => {
@@ -68,7 +64,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('[data-page-prop]').forEach(el => {
         const key = el.dataset.pageProp;
         if (content[key] !== undefined) {
-          // Use Showdown converter for markdown-enabled fields
           if (el.dataset.pageProp.endsWith('_list')) {
               const converter = new showdown.Converter();
               el.innerHTML = converter.makeHtml(content[key]);
@@ -78,7 +73,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Special case for page title
     if (content.page_title) {
         document.title = content.page_title;
     }
@@ -221,7 +215,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setContent('privacy_content', policyHtml);
   }
 
-  // --- DYNAMIC CONTENT INJECTION ---
   function addAdminLinkToNavbar() {
     const navMenus = document.querySelectorAll('.nav-menu');
     navMenus.forEach(navMenu => {
@@ -231,7 +224,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const adminNavItem = document.createElement('li');
                 adminNavItem.className = 'nav-item';
                 adminNavItem.innerHTML = `<a href="admin.html" class="nav-link" id="nav-admin" data-translate-key="adminPanel">Admin Panel</a>`;
-                // Insert the admin link immediately after the language switcher
                 langSwitcher.insertAdjacentElement('afterend', adminNavItem);
             }
         }
@@ -239,7 +231,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
 
-  // --- LANGUAGE & ROUTING ---
   function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('userLanguage', lang);
@@ -267,7 +258,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   }
   
-  // --- UI INITIALIZATION ---
   function initializeLightboxForGallery() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-image');
@@ -335,17 +325,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function initializeApp() {
-    // Inject dynamic elements that should exist on every page
     addAdminLinkToNavbar();
 
-    // Determine which page we are on to fetch the correct data
     const bodyId = document.body.id;
     let pageDataPath;
     if (bodyId === 'home-page') pageDataPath = 'home.json';
     else if (bodyId === 'about-page') pageDataPath = 'about.json';
     else if (bodyId === 'privacy-page') pageDataPath = 'privacy.json';
 
-    // Fetch all necessary data in parallel
     const [appsData, pageData] = await Promise.all([
       fetchJsonData('apps.json'),
       pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
@@ -354,12 +341,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     APPS_DATA = (appsData && appsData.applications) || [];
     PAGE_DATA = pageData || {};
 
-    // Initial render
     setLanguage(currentLang);
     setActiveNav();
     initializeEventListeners();
   }
 
-  // --- Start Application ---
   initializeApp();
 });
