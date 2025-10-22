@@ -5,9 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
-  <link href="config.yml" type="text/yaml" rel="cms-config-url" />
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- 1. Include js-yaml to parse the YAML configuration file -->
+  <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  
+  <!-- 2. Include Decap CMS script -->
+  <script src="https://unpkg.com/decap-cms@3.1.3/dist/decap-cms.js"></script>
+  
+  <!-- 3. Manually fetch, parse, and initialize the CMS -->
+  <script>
+    fetch('config.yml')
+      .then(response => response.text())
+      .then(configYAML => {
+        const config = jsyaml.load(configYAML);
+        // Initialize the CMS with the configuration object
+        window.CMS.init({ config });
+      })
+      .catch(error => {
+        console.error('Error loading or parsing config.yml:', error);
+        const body = document.querySelector('body');
+        body.innerHTML = '<p style="font-family: sans-serif; color: #333; padding: 20px;"><strong>Error:</strong> Could not load CMS configuration from config.yml. Please check the browser console for more details.</p>';
+      });
+  </script>
 </body>
 </html>
