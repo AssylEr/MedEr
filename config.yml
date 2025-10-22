@@ -2,6 +2,7 @@ backend:
   name: github
   repo: AssylEr/MedEr # هام: استبدل هذا باسم المستخدم/المستودع الخاص بك على GitHub
   branch: main # أو الفرع الافتراضي للمستودع الخاص بك
+  auth_type: implicit # This enables GitHub's implicit auth flow
 
 media_folder: "uploads" # سيتم تخزين ملفات الوسائط في المستودع تحت مجلد uploads
 public_folder: "/uploads" # مسار الصور عند عرضها في الموقع
