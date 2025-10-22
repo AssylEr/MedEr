@@ -1,8 +1,5 @@
 {
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ],
   "name": "RuyaX ",
-  "description": ""
+  "description": "",
+  "requestFramePermissions": []
 }

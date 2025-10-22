@@ -222,18 +222,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // --- DYNAMIC CONTENT INJECTION ---
-  function addAdminLinkToFooter() {
-    const footer = document.querySelector('footer');
-    if (footer) {
-        const copyright = footer.querySelector('p[data-translate-key="footerCopyright"]');
-        if (copyright && !document.getElementById('admin-link')) {
-            const adminLinkContainer = document.createElement('div');
-            adminLinkContainer.className = 'footer-links';
-            adminLinkContainer.innerHTML = `<a href="admin.html" id="admin-link" data-translate-key="adminPanel">Admin Panel</a>`;
-            footer.insertBefore(adminLinkContainer, copyright);
+  function addAdminLinkToNavbar() {
+    const navMenus = document.querySelectorAll('.nav-menu');
+    navMenus.forEach(navMenu => {
+        if (!navMenu.querySelector('#nav-admin')) {
+            const langSwitcher = navMenu.querySelector('.lang-switcher');
+            if (langSwitcher) {
+                const adminNavItem = document.createElement('li');
+                adminNavItem.className = 'nav-item';
+                adminNavItem.innerHTML = `<a href="admin.html" class="nav-link" id="nav-admin" data-translate-key="adminPanel">Admin Panel</a>`;
+                // Insert the admin link immediately after the language switcher
+                langSwitcher.insertAdjacentElement('afterend', adminNavItem);
+            }
         }
-    }
+    });
   }
+
 
   // --- LANGUAGE & ROUTING ---
   function setLanguage(lang) {
@@ -332,7 +336,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function initializeApp() {
     // Inject dynamic elements that should exist on every page
-    addAdminLinkToFooter();
+    addAdminLinkToNavbar();
 
     // Determine which page we are on to fetch the correct data
     const bodyId = document.body.id;
