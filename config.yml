@@ -117,103 +117,100 @@ collections:
 
   - name: "apps"
     label: "Applications"
-    files:
+    file: "apps.json"
+    description: "إدارة جميع التطبيقات المعروضة على الموقع من هنا."
+    editor:
+      preview: false
+    fields:
       - name: "applications"
-        label: "Manage Applications"
-        file: "apps.json"
-        description: "إدارة جميع التطبيقات المعروضة على الموقع من هنا."
-        editor:
-          preview: false
+        label: "Applications"
+        label_singular: "Application"
+        widget: "list"
         fields:
-          - name: "applications"
-            label: "Applications"
-            label_singular: "Application"
-            widget: "list"
+          - { label: "Slug", name: "slug", widget: "string", hint: "معرّف فريد للتطبيق، يستخدم في الرابط (مثال: 'ruyax'). يجب أن يكون بأحرف إنجليزية صغيرة وبدون مسافات." }
+          - { label: "Is Placeholder", name: "is_placeholder", widget: "boolean", default: false, hint: "حدد هذا الخيار إذا كان التطبيق غير متاح بعد." }
+          - { label: "App Page Link", name: "href", widget: "string", hint: "الرابط إلى صفحة التطبيق. يجب أن يكون 'app.html?slug=الـSLUG_الذي_أدخلته_أعلاه'." }
+          - { label: "Thumbnail Image", name: "imgSrc", widget: "image", hint: "صورة لبطاقة الصفحة الرئيسية ونافذة 'التطبيقات'." }
+          - { label: "Image Alt Text", name: "alt", widget: "string", hint: "نص وصفي لصورة العرض المصغرة." }
+          - label: "English Content"
+            name: "en"
+            widget: "object"
             fields:
-              - { label: "Slug", name: "slug", widget: "string", hint: "معرّف فريد للتطبيق، يستخدم في الرابط (مثال: 'ruyax'). يجب أن يكون بأحرف إنجليزية صغيرة وبدون مسافات." }
-              - { label: "Is Placeholder", name: "is_placeholder", widget: "boolean", default: false, hint: "حدد هذا الخيار إذا كان التطبيق غير متاح بعد." }
-              - { label: "App Page Link", name: "href", widget: "string", hint: "الرابط إلى صفحة التطبيق. يجب أن يكون 'app.html?slug=الـSLUG_الذي_أدخلته_أعلاه'." }
-              - { label: "Thumbnail Image", name: "imgSrc", widget: "image", hint: "صورة لبطاقة الصفحة الرئيسية ونافذة 'التطبيقات'." }
-              - { label: "Image Alt Text", name: "alt", widget: "string", hint: "نص وصفي لصورة العرض المصغرة." }
-              - label: "English Content"
-                name: "en"
-                widget: "object"
-                fields:
-                  - { label: "App Name", name: "name", widget: "string" }
-                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "تظهر على بطاقة الصفحة الرئيسية." }
-                  - { label: "Page Title", name: "page_title", widget: "string", hint: "العنوان الذي يظهر في علامة تبويب المتصفح." }
-                  - { label: "Header Title", name: "header_title", widget: "string", hint: "العنوان الكبير في أعلى صفحة التطبيق." }
-                  - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
-                  - { label: "Intro Section Title", name: "intro_title", widget: "string" }
-                  - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
-                  - { label: "Features Section Title", name: "features_title", widget: "string" }
-                  - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
-                  - label: "Features List"
-                    name: "features_list"
-                    widget: "list"
-                    field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" }
-                  - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
-                  - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
-                  - { label: "How-To Section Title", name: "howto_title", widget: "string" }
-                  - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
-                  - label: "How-To Steps"
-                    name: "howto_steps"
-                    widget: "list"
-                    field: { label: "Step (HTML allowed)", name: "item", widget: "string" }
-                  - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
-                  - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
-                  - label: "Privacy Points"
-                    name: "privacy_points"
-                    widget: "list"
-                    field: { label: "Point (HTML allowed)", name: "item", widget: "string" }
-                  - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
-                  - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
-                  - { label: "Footer Title", name: "footer_title", widget: "string" }
-                  - { label: "Footer Description", name: "footer_desc", widget: "string" }
-                  - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
-                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "The title for the app's privacy policy page browser tab." }
-                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "The main, large title on the privacy policy page." }
-                  - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
-                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "Write the full privacy policy content here using Markdown." }
-              - label: "Arabic Content"
-                name: "ar"
-                widget: "object"
-                fields:
-                  - { label: "App Name", name: "name", widget: "string" }
-                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "تظهر على بطاقة الصفحة الرئيسية." }
-                  - { label: "Page Title", name: "page_title", widget: "string" }
-                  - { label: "Header Title", name: "header_title", widget: "string" }
-                  - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
-                  - { label: "Intro Section Title", name: "intro_title", widget: "string" }
-                  - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
-                  - { label: "Features Section Title", name: "features_title", widget: "string" }
-                  - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
-                  - label: "Features List"
-                    name: "features_list"
-                    widget: "list"
-                    field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" }
-                  - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
-                  - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
-                  - { label: "How-To Section Title", name: "howto_title", widget: "string" }
-                  - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
-                  - label: "How-To Steps"
-                    name: "howto_steps"
-                    widget: "list"
-                    field: { label: "Step (HTML allowed)", name: "item", widget: "string" }
-                  - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
-                  - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
-                  - label: "Privacy Points"
-                    name: "privacy_points"
-                    widget: "list"
-                    field: { label: "Point (HTML allowed)", name: "item", widget: "string" }
-                  - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
-                  - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
-                  - { label: "Footer Title", name: "footer_title", widget: "string" }
-                  - { label: "Footer Description", name: "footer_desc", widget: "string" }
-                  - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
-                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "العنوان لعلامة تبويب المتصفح لصفحة سياسة خصوصية التطبيق." }
-                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "العنوان الرئيسي الكبير في صفحة سياسة الخصوصية." }
-                  - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
-                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "اكتب محتوى سياسة الخصوصية الكامل هنا باستخدام الماركداون." }
-              - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", field: { label: "Image", name: "src", widget: "image" }, hint: "صور لمعرض الصور في صفحة التطبيق." }
-              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "الرابط الكامل لمتجر Google Play." }
+              - { label: "App Name", name: "name", widget: "string" }
+              - { label: "Short Description", name: "short_desc", widget: "text", hint: "تظهر على بطاقة الصفحة الرئيسية." }
+              - { label: "Page Title", name: "page_title", widget: "string", hint: "العنوان الذي يظهر في علامة تبويب المتصفح." }
+              - { label: "Header Title", name: "header_title", widget: "string", hint: "العنوان الكبير في أعلى صفحة التطبيق." }
+              - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
+              - { label: "Intro Section Title", name: "intro_title", widget: "string" }
+              - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
+              - { label: "Features Section Title", name: "features_title", widget: "string" }
+              - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
+              - label: "Features List"
+                name: "features_list"
+                widget: "list"
+                field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" }
+              - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
+              - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
+              - { label: "How-To Section Title", name: "howto_title", widget: "string" }
+              - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
+              - label: "How-To Steps"
+                name: "howto_steps"
+                widget: "list"
+                field: { label: "Step (HTML allowed)", name: "item", widget: "string" }
+              - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
+              - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
+              - label: "Privacy Points"
+                name: "privacy_points"
+                widget: "list"
+                field: { label: "Point (HTML allowed)", name: "item", widget: "string" }
+              - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
+              - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
+              - { label: "Footer Title", name: "footer_title", widget: "string" }
+              - { label: "Footer Description", name: "footer_desc", widget: "string" }
+              - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
+              - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "The title for the app's privacy policy page browser tab." }
+              - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "The main, large title on the privacy policy page." }
+              - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
+              - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "Write the full privacy policy content here using Markdown." }
+          - label: "Arabic Content"
+            name: "ar"
+            widget: "object"
+            fields:
+              - { label: "App Name", name: "name", widget: "string" }
+              - { label: "Short Description", name: "short_desc", widget: "text", hint: "تظهر على بطاقة الصفحة الرئيسية." }
+              - { label: "Page Title", name: "page_title", widget: "string" }
+              - { label: "Header Title", name: "header_title", widget: "string" }
+              - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
+              - { label: "Intro Section Title", name: "intro_title", widget: "string" }
+              - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
+              - { label: "Features Section Title", name: "features_title", widget: "string" }
+              - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
+              - label: "Features List"
+                name: "features_list"
+                widget: "list"
+                field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" }
+              - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
+              - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
+              - { label: "How-To Section Title", name: "howto_title", widget: "string" }
+              - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
+              - label: "How-To Steps"
+                name: "howto_steps"
+                widget: "list"
+                field: { label: "Step (HTML allowed)", name: "item", widget: "string" }
+              - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
+              - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
+              - label: "Privacy Points"
+                name: "privacy_points"
+                widget: "list"
+                field: { label: "Point (HTML allowed)", name: "item", widget: "string" }
+              - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
+              - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
+              - { label: "Footer Title", name: "footer_title", widget: "string" }
+              - { label: "Footer Description", name: "footer_desc", widget: "string" }
+              - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
+              - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "العنوان لعلامة تبويب المتصفح لصفحة سياسة خصوصية التطبيق." }
+              - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "العنوان الرئيسي الكبير في صفحة سياسة الخصوصية." }
+              - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
+              - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "اكتب محتوى سياسة الخصوصية الكامل هنا باستخدام الماركداون." }
+          - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", field: { label: "Image", name: "src", widget: "image" }, hint: "صور لمعرض الصور في صفحة التطبيق." }
+          - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "الرابط الكامل لمتجر Google Play." }
