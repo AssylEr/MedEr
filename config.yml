@@ -6,8 +6,6 @@ backend:
   app_id: Ov23liFyiCUJ3SM2f6y5
   site_url: https://assyler.github.io/MedEr/
 
-local_backend: true
-
 media_folder: "uploads"
 public_folder: "/uploads"
 
