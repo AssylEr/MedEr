@@ -6,6 +6,11 @@ backend:
   app_id: Ov23liFyiCUJ3SM2f6y5 # Client ID from your GitHub OAuth App.
   site_url: https://assyler.github.io/MedEr/ # The base URL of your site.
 
+# Enable this for local development. It runs a proxy server to handle authentication.
+# This should fix the "white screen" issue on localhost.
+# Read more: https://decapcms.org/docs/local-backend/
+local_backend: true
+
 media_folder: "uploads" # Media files will be stored in the repo under the 'uploads' folder
 public_folder: "/uploads" # The path to the media files when displayed on the site
 
@@ -214,4 +219,4 @@ collections:
                   - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
                   - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "Write the full privacy policy content here using Markdown." }
               - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", fields: [{ label: "Image", name: "src", widget: "image" }], hint: "Images for the gallery on the app page." }
-              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "The full URL to the Google Play Store listing." }شاهد الصورة المرفقة وقم باستخراج client id و secret key ثم اضافتها الى الملفات المعنية! واجبني بالعربية ارجوك 68da039b74ed8f06e96df6311292da936cc5afa7
+              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "The full URL to the Google Play Store listing." }
