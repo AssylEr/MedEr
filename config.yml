@@ -1,8 +1,9 @@
 backend:
   name: github
-  repo: AssylEr/MedEr # هام: استبدل هذا باسم المستخدم/المستودع الخاص بك على GitHub
-  branch: main # أو الفرع الافتراضي للمستودع الخاص بك
+  repo: AssylEr/MedEr # Your GitHub username / repository name
+  branch: main # The branch to update
   auth_type: implicit # This enables GitHub's implicit auth flow
+  app_id: 0v231lXXs76aH3Z4skeO # هام جداً: هذا هو Client ID من تطبيق GitHub OAuth. يجب إضافته لتعمل المصادقة بشكل صحيح.
 
 media_folder: "uploads" # سيتم تخزين ملفات الوسائط في المستودع تحت مجلد uploads
 public_folder: "/uploads" # مسار الصور عند عرضها في الموقع
