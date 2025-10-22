@@ -34,8 +34,6 @@
   </style>
   <!-- Link to the configuration file -->
   <link href="config.yml" type="text/yaml" rel="cms-config-url" />
-  <!-- Decap CMS script -->
-  <script src="https://unpkg.com/decap-cms@3/dist/decap-cms.js"></script>
 </head>
 <body>
   <div class="loader-container">
@@ -43,5 +41,7 @@
     <p>Loading Content Manager...</p>
   </div>
   <!-- Decap CMS will be initialized here and replace the loader -->
+  <!-- Moved the script to the end of the body to prevent loading race conditions -->
+  <script src="https://unpkg.com/decap-cms@3/dist/decap-cms.js"></script>
 </body>
 </html>
