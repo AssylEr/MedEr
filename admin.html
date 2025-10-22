@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
+  
+  <!-- Point Decap CMS to the root config.yml file -->
+  <script>
+    window.CMS_CONFIG_URL = '/config.yml';
+  </script>
+  
   <!-- Decap CMS script -->
-  <script src="https://unpkg.com/decap-cms@3/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
   <!-- Decap CMS will be initialized here -->
