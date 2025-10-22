@@ -10,7 +10,6 @@
   --navbar-height: 60px;
 }
 
-/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -118,8 +117,6 @@ strong {
   box-shadow: 0 6px 20px rgba(233, 30, 99, 0.25);
 }
 
-
-/* Navbar */
 .navbar {
   background-color: rgba(18, 18, 18, 0.85);
   backdrop-filter: blur(10px);
@@ -228,7 +225,6 @@ strong {
   bottom: -8px;
 }
 
-/* Page Specific: RuyaX.html */
 #ruyax-page .container,
 #privacy-page .container {
     max-width: 800px;
@@ -279,7 +275,6 @@ strong {
   transform: scale(1.03);
 }
 
-/* Page Specific: Home.html */
 .home-header {
   text-align: center;
   padding: 40px 0;
@@ -349,7 +344,6 @@ strong {
   margin-bottom: 20px;
 }
 
-/* Page Specific: about.html */
 #about-page .container {
     max-width: 800px;
 }
@@ -382,7 +376,6 @@ strong {
   text-align: left;
 }
 
-/* Modals (Lightbox & Apps) */
 .modal, .lightbox {
   display: none;
   position: fixed;
@@ -516,7 +509,6 @@ html[dir="rtl"] .close-modal, html[dir="rtl"] .close-lightbox {
   max-height: 85%;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 30px 20px;
@@ -529,13 +521,11 @@ footer p {
   color: var(--text-color-secondary);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .container {
     padding: 30px 15px;
   }
   
-  /* Navbar */
   .nav-menu {
     position: fixed;
     top: var(--navbar-height);
@@ -577,7 +567,6 @@ footer p {
     transform: rotate(-45deg) translate(5px, -6px);
   }
 
-  /* General Page Content */
   .page-header {
     padding: 40px 15px 20px;
     margin-bottom: 20px;
@@ -591,7 +580,6 @@ footer p {
   h3 { font-size: 1.25rem; }
   p, ul { font-size: 0.95rem; }
   
-  /* Page: Home */
   .home-header {
     padding: 20px 0 30px;
   }
@@ -608,7 +596,6 @@ footer p {
     padding: 20px;
   }
 
-  /* Page: RuyaX */
   #ruyax-page .page-header h1,
   #privacy-page .page-header h1 { 
     font-size: 2.3rem; 
@@ -621,7 +608,6 @@ footer p {
     gap: 15px;
   }
   
-  /* Page: About */
   #about-page .page-header h1 { 
     font-size: 2rem; 
   }
@@ -629,7 +615,6 @@ footer p {
     padding: 20px;
   }
 
-  /* Modal: Apps */
   #apps-modal .modal-content {
     width: 95%;
     padding: 25px 15px;
@@ -646,7 +631,6 @@ footer p {
     height: calc(100% - 37px);
   }
   
-  /* Footer */
   footer {
     padding: 25px 15px;
     margin-top: 20px;
