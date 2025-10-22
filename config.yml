@@ -3,10 +3,11 @@ backend:
   repo: AssylEr/MedEr # Your GitHub username / repository name
   branch: main # The branch to update
   auth_type: pkce # Use PKCE auth flow for secure, client-side authentication
-  app_id: Ov23liXxs76aN3z4skEo # هام جداً: هذا هو Client ID من تطبيق GitHub OAuth. يجب إضافته لتعمل المصادقة بشكل صحيح.
+  app_id: Ov23liXxs76aN3z4skEo # Client ID from your GitHub OAuth App.
+  site_url: https://assyler.github.io/MedEr/ # The base URL of your site.
 
-media_folder: "uploads" # سيتم تخزين ملفات الوسائط في المستودع تحت مجلد uploads
-public_folder: "/uploads" # مسار الصور عند عرضها في الموقع
+media_folder: "uploads" # Media files will be stored in the repo under the 'uploads' folder
+public_folder: "/uploads" # The path to the media files when displayed on the site
 
 collections:
   - name: "pages"
@@ -15,24 +16,24 @@ collections:
       - name: "home"
         label: "Home Page"
         file: "home.json"
-        description: "تحرير المحتوى الرئيسي لصفحة 'الرئيسية'."
+        description: "Edit the main content for the 'Home' page."
         fields:
           - label: "English Content"
             name: "en"
             widget: "object"
             fields:
-              - { label: "Header Title", name: "header_title", widget: "string", hint: "العنوان الكبير في أعلى الصفحة الرئيسية. يمكنك استخدام <span></span> لتلوين جزء من النص." }
+              - { label: "Header Title", name: "header_title", widget: "string", hint: "The large title at the top of the homepage. You can use <span></span> to color part of the text." }
               - { label: "Header Subtitle", name: "header_subtitle", widget: "text" }
           - label: "Arabic Content"
             name: "ar"
             widget: "object"
             fields:
-              - { label: "Header Title", name: "header_title", widget: "string", hint: "العنوان الكبير في أعلى الصفحة الرئيسية. يمكنك استخدام <span></span> لتلوين جزء من النص." }
+              - { label: "Header Title", name: "header_title", widget: "string", hint: "The large title at the top of the homepage. You can use <span></span> to color part of the text." }
               - { label: "Header Subtitle", name: "header_subtitle", widget: "text" }
       - name: "about"
         label: "About Us Page"
         file: "about.json"
-        description: "تحرير محتوى صفحة 'من نحن'."
+        description: "Edit the content for the 'About Us' page."
         fields:
           - label: "English Content"
             name: "en"
@@ -56,12 +57,12 @@ collections:
               - { label: "Admin Section Title", name: "admin_title", widget: "string" }
               - { label: "Admin Section Description", name: "admin_desc", widget: "text" }
               - { label: "Contact Section Title", name: "contact_title", widget: "string" }
-              - { label: "Contact Admin Line", name: "contact_admin", widget: "string", hint: "مثال: 'المسؤول: فريق RuyaX'" }
-              - { label: "Contact Email Line", name: "contact_email", widget: "string", hint: "مثال: 'البريد الإلكتروني: contact@ruyax.dev'" }
+              - { label: "Contact Admin Line", name: "contact_admin", widget: "string", hint: "Example: 'Admin: The RuyaX Team'" }
+              - { label: "Contact Email Line", name: "contact_email", widget: "string", hint: "Example: 'Email: contact@ruyax.dev'" }
       - name: "privacy"
         label: "Website Privacy Page"
         file: "privacy.json"
-        description: "تحرير محتوى صفحة 'سياسة الخصوصية' الخاصة بالموقع."
+        description: "Edit the content for the website's 'Privacy Policy' page."
         fields:
           - label: "English Content"
             name: "en"
@@ -75,12 +76,12 @@ collections:
               - { label: "Data Collection Title", name: "data_collection_title", widget: "string" }
               - { label: "Data Collection Content", name: "data_collection_p1", widget: "text" }
               - { label: "Types of Data Title", name: "data_type_title", widget: "string" }
-              - { label: "Types of Data List (HTML)", name: "data_type_list", widget: "markdown", hint: "Use markdown list format." }
+              - { label: "Types of Data List (Markdown)", name: "data_type_list", widget: "markdown", hint: "Use markdown list format." }
               - { label: "Personal Info Title", name: "data_personal_title", widget: "string" }
               - { label: "Personal Info Content", name: "data_personal_p1", widget: "text" }
               - { label: "How We Use Title", name: "data_use_title", widget: "string" }
               - { label: "How We Use Content", name: "data_use_p1", widget: "text" }
-              - { label: "How We Use List (HTML)", name: "data_use_list", widget: "markdown", hint: "Use markdown list format." }
+              - { label: "How We Use List (Markdown)", name: "data_use_list", widget: "markdown", hint: "Use markdown list format." }
               - { label: "Sharing Title", name: "data_sharing_title", widget: "string" }
               - { label: "Sharing Content", name: "data_sharing_p1", widget: "text" }
               - { label: "Links Title", name: "links_title", widget: "string" }
@@ -101,12 +102,12 @@ collections:
               - { label: "Data Collection Title", name: "data_collection_title", widget: "string" }
               - { label: "Data Collection Content", name: "data_collection_p1", widget: "text" }
               - { label: "Types of Data Title", name: "data_type_title", widget: "string" }
-              - { label: "Types of Data List (HTML)", name: "data_type_list", widget: "markdown", hint: "استخدم تنسيق القائمة في ماركداون." }
+              - { label: "Types of Data List (Markdown)", name: "data_type_list", widget: "markdown", hint: "Use markdown list format." }
               - { label: "Personal Info Title", name: "data_personal_title", widget: "string" }
               - { label: "Personal Info Content", name: "data_personal_p1", widget: "text" }
               - { label: "How We Use Title", name: "data_use_title", widget: "string" }
               - { label: "How We Use Content", name: "data_use_p1", widget: "text" }
-              - { label: "How We Use List (HTML)", name: "data_use_list", widget: "markdown", hint: "استخدم تنسيق القائمة في ماركداون." }
+              - { label: "How We Use List (Markdown)", name: "data_use_list", widget: "markdown", hint: "Use markdown list format." }
               - { label: "Sharing Title", name: "data_sharing_title", widget: "string" }
               - { label: "Sharing Content", name: "data_sharing_p1", widget: "text" }
               - { label: "Links Title", name: "links_title", widget: "string" }
@@ -114,11 +115,11 @@ collections:
               - { label: "Security Title", name: "security_title", widget: "string" }
               - { label: "Security Content", name: "security_p1", widget: "text" }
               - { label: "Contact Title", name: "contact_title", widget: "string" }
-              - { label: "Contact Content", name: "contact_p1", widget: "string", hint: "النص فقط، بدون رابط mailto." }
+              - { label: "Contact Content", name: "contact_p1", widget: "string", hint: "Don't include the mailto link, just the text." }
       - name: "apps"
         label: "Applications"
         file: "apps.json"
-        description: "إدارة جميع التطبيقات المعروضة على الموقع من هنا."
+        description: "Manage all applications displayed on the website from here."
         editor:
           preview: false
         fields:
@@ -127,19 +128,19 @@ collections:
             label_singular: "Application"
             widget: "list"
             fields:
-              - { label: "Slug", name: "slug", widget: "string", hint: "معرّف فريد للتطبيق، يستخدم في الرابط (مثال: 'ruyax'). يجب أن يكون بأحرف إنجليزية صغيرة وبدون مسافات." }
-              - { label: "Is Placeholder", name: "is_placeholder", widget: "boolean", default: false, hint: "حدد هذا الخيار إذا كان التطبيق غير متاح بعد." }
-              - { label: "App Page Link", name: "href", widget: "string", hint: "الرابط إلى صفحة التطبيق. يجب أن يكون 'app.html?slug=الـSLUG_الذي_أدخلته_أعلاه'." }
-              - { label: "Thumbnail Image", name: "imgSrc", widget: "image", hint: "صورة لبطاقة الصفحة الرئيسية ونافذة 'التطبيقات'." }
-              - { label: "Image Alt Text", name: "alt", widget: "string", hint: "نص وصفي لصورة العرض المصغرة." }
+              - { label: "Slug", name: "slug", widget: "string", hint: "A unique identifier for the app, used in the URL (e.g., 'ruyax'). Must be lowercase English letters with no spaces." }
+              - { label: "Is Placeholder", name: "is_placeholder", widget: "boolean", default: false, hint: "Check this if the app is not yet available." }
+              - { label: "App Page Link", name: "href", widget: "string", hint: "The link to the app page. Should be 'app.html?slug=THE_SLUG_YOU_ENTERED_ABOVE'." }
+              - { label: "Thumbnail Image", name: "imgSrc", widget: "image", hint: "Image for the homepage card and the 'Apps' modal." }
+              - { label: "Image Alt Text", name: "alt", widget: "string", hint: "Descriptive text for the thumbnail image." }
               - label: "English Content"
                 name: "en"
                 widget: "object"
                 fields:
                   - { label: "App Name", name: "name", widget: "string" }
-                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "تظهر على بطاقة الصفحة الرئيسية." }
-                  - { label: "Page Title", name: "page_title", widget: "string", hint: "العنوان الذي يظهر في علامة تبويب المتصفح." }
-                  - { label: "Header Title", name: "header_title", widget: "string", hint: "العنوان الكبير في أعلى صفحة التطبيق." }
+                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "Appears on the homepage card." }
+                  - { label: "Page Title", name: "page_title", widget: "string", hint: "The title that appears in the browser tab." }
+                  - { label: "Header Title", name: "header_title", widget: "string", hint: "The large title at the top of the app page." }
                   - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
                   - { label: "Intro Section Title", name: "intro_title", widget: "string" }
                   - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
@@ -177,7 +178,7 @@ collections:
                 widget: "object"
                 fields:
                   - { label: "App Name", name: "name", widget: "string" }
-                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "تظهر على بطاقة الصفحة الرئيسية." }
+                  - { label: "Short Description", name: "short_desc", widget: "text", hint: "Appears on the homepage card." }
                   - { label: "Page Title", name: "page_title", widget: "string" }
                   - { label: "Header Title", name: "header_title", widget: "string" }
                   - { label: "Header Subtitle", name: "header_subtitle", widget: "string" }
@@ -208,9 +209,9 @@ collections:
                   - { label: "Footer Title", name: "footer_title", widget: "string" }
                   - { label: "Footer Description", name: "footer_desc", widget: "string" }
                   - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
-                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "العنوان لعلامة تبويب المتصفح لصفحة سياسة خصوصية التطبيق." }
-                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "العنوان الرئيسي الكبير في صفحة سياسة الخصوصية." }
+                  - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "The title for the app's privacy policy page browser tab." }
+                  - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "The main, large title on the privacy policy page." }
                   - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
-                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "اكتب محتوى سياسة الخصوصية الكامل هنا باستخدام الماركداون." }
-              - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", fields: [{ label: "Image", name: "src", widget: "image" }], hint: "صور لمعرض الصور في صفحة التطبيق." }
-              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "الرابط الكامل لمتجر Google Play." }
+                  - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "Write the full privacy policy content here using Markdown." }
+              - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", fields: [{ label: "Image", name: "src", widget: "image" }], hint: "Images for the gallery on the app page." }
+              - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "The full URL to the Google Play Store listing." }
