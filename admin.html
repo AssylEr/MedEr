@@ -5,43 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
-  <style>
-    body {
-      background-color: #0f0f0f;
-      color: #f1f1f1;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .loader-container {
-      text-align: center;
-    }
-    .spinner {
-      border: 4px solid rgba(255, 255, 255, 0.2);
-      border-left-color: #e91e63; /* Primary color from style.css */
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 20px;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
   <!-- Link to the configuration file -->
   <link href="config.yml" type="text/yaml" rel="cms-config-url" />
+  <!-- Decap CMS script -->
+  <script src="https://unpkg.com/decap-cms@3/dist/decap-cms.js"></script>
 </head>
 <body>
-  <div class="loader-container">
-    <div class="spinner"></div>
-    <p>Loading Content Manager...</p>
-  </div>
-  <!-- Decap CMS will be initialized here and replace the loader -->
-  <!-- Moved the script to the end of the body to prevent loading race conditions -->
-  <script src="https://unpkg.com/decap-cms@3/dist/decap-cms.js"></script>
+  <!-- Decap CMS will be initialized here -->
 </body>
 </html>
