@@ -210,7 +210,7 @@ collections:
                   - { label: "Download Button Text", name: "download_btn_text", widget: "string" }
                   - { label: "Privacy Policy Page Title", name: "privacy_page_title", widget: "string", hint: "العنوان لعلامة تبويب المتصفح لصفحة سياسة خصوصية التطبيق." }
                   - { label: "Privacy Policy Header Title", name: "privacy_header_title", widget: "string", hint: "العنوان الرئيسي الكبير في صفحة سياسة الخصوصية." }
-                  - { label: "Privacy Policy Header Subtitle", name: "header_subtitle", widget: "string" }
+                  - { label: "Privacy Policy Header Subtitle", name: "privacy_header_subtitle", widget: "string" }
                   - { label: "Privacy Policy Content", name: "privacy_content", widget: "markdown", hint: "اكتب محتوى سياسة الخصوصية الكامل هنا باستخدام الماركداون." }
               - { label: "Screenshot Gallery Images", name: "screenshots", widget: "list", field: { label: "Image", name: "src", widget: "image" }, hint: "صور لمعرض الصور في صفحة التطبيق." }
               - { label: "Google Play Store Link", name: "play_store_link", widget: "string", required: false, hint: "الرابط الكامل لمتجر Google Play." }
