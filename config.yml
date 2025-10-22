@@ -2,8 +2,8 @@ backend:
   name: github
   repo: AssylEr/MedEr # Your GitHub username / repository name
   branch: main # The branch to update
-  auth_type: implicit # This enables GitHub's implicit auth flow
-  app_id: 0v231lXXs76aH3Z4skeO # هام جداً: هذا هو Client ID من تطبيق GitHub OAuth. يجب إضافته لتعمل المصادقة بشكل صحيح.
+  auth_type: pkce # Use PKCE auth flow for secure, client-side authentication
+  app_id: Ov23liXxs76aN3z4skEo # هام جداً: هذا هو Client ID من تطبيق GitHub OAuth. يجب إضافته لتعمل المصادقة بشكل صحيح.
 
 media_folder: "uploads" # سيتم تخزين ملفات الوسائط في المستودع تحت مجلد uploads
 public_folder: "/uploads" # مسار الصور عند عرضها في الموقع
