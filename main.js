@@ -160,15 +160,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     setContent('intro_desc', converter.makeHtml(content.intro_desc || ''));
     setContent('features_title', content.features_title);
     setContent('features_desc', converter.makeHtml(content.features_desc || ''));
-    setContent('features_list', (content.features_list || []).map(item => `<li>${item}</li>`).join(''));
+    setContent('features_list', (content.features_list || []).map(obj => `<li>${obj.item}</li>`).join(''));
     setContent('gallery_title', content.gallery_title);
     setContent('gallery_desc', converter.makeHtml(content.gallery_desc || ''));
     setContent('howto_title', content.howto_title);
     setContent('howto_desc', converter.makeHtml(content.howto_desc || ''));
-    setContent('howto_steps', (content.howto_steps || []).map(item => `<li>${item}</li>`).join(''));
+    setContent('howto_steps', (content.howto_steps || []).map(obj => `<li>${obj.item}</li>`).join(''));
     setContent('privacy_title', content.privacy_title);
     setContent('privacy_desc', converter.makeHtml(content.privacy_desc || ''));
-    setContent('privacy_points', (content.privacy_points || []).map(item => `<li>${item}</li>`).join(''));
+    setContent('privacy_points', (content.privacy_points || []).map(obj => `<li>${obj.item}</li>`).join(''));
     setContent('privacy_summary', content.privacy_summary);
     setContent('privacy_btn_text', content.privacy_btn_text);
     setAttribute('privacy_btn', 'href', `privacy-app.html?slug=${appData.slug}`);
