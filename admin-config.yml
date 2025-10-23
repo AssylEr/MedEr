@@ -6,7 +6,6 @@ backend:
   app_id: Ov23liXxs76aN3z4skEo
 
 publish_mode: simple
-site_domain: localhost:3000
 
 media_folder: "uploads"
 public_folder: "/uploads"
@@ -144,15 +143,15 @@ collections:
                   - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
                   - { label: "Features Section Title", name: "features_title", widget: "string" }
                   - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
-                  - { label: "Features List", name: "features_list", widget: "list", field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "Features List", name: "features_list", widget: "list", field: { label: "Feature Item (HTML allowed)", widget: "string" } }
                   - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
                   - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
                   - { label: "How-To Section Title", name: "howto_title", widget: "string" }
                   - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
-                  - { label: "How-To Steps", name: "howto_steps", widget: "list", field: { label: "Step (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "How-To Steps", name: "howto_steps", widget: "list", field: { label: "Step (HTML allowed)", widget: "string" } }
                   - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
                   - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
-                  - { label: "Privacy Points", name: "privacy_points", widget: "list", field: { label: "Point (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "Privacy Points", name: "privacy_points", widget: "list", field: { label: "Point (HTML allowed)", widget: "string" } }
                   - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
                   - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
                   - { label: "Footer Title", name: "footer_title", widget: "string" }
@@ -175,15 +174,15 @@ collections:
                   - { label: "Intro Section Description", name: "intro_desc", widget: "markdown" }
                   - { label: "Features Section Title", name: "features_title", widget: "string" }
                   - { label: "Features Section Description", name: "features_desc", widget: "markdown" }
-                  - { label: "Features List", name: "features_list", widget: "list", field: { label: "Feature Item (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "Features List", name: "features_list", widget: "list", field: { label: "Feature Item (HTML allowed)", widget: "string" } }
                   - { label: "Gallery Section Title", name: "gallery_title", widget: "string" }
                   - { label: "Gallery Section Description", name: "gallery_desc", widget: "markdown" }
                   - { label: "How-To Section Title", name: "howto_title", widget: "string" }
                   - { label: "How-To Section Description", name: "howto_desc", widget: "markdown" }
-                  - { label: "How-To Steps", name: "howto_steps", widget: "list", field: { label: "Step (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "How-To Steps", name: "howto_steps", widget: "list", field: { label: "Step (HTML allowed)", widget: "string" } }
                   - { label: "Privacy Section Title", name: "privacy_title", widget: "string" }
                   - { label: "Privacy Section Description", name: "privacy_desc", widget: "markdown" }
-                  - { label: "Privacy Points", name: "privacy_points", widget: "list", field: { label: "Point (HTML allowed)", name: "item", widget: "string" } }
+                  - { label: "Privacy Points", name: "privacy_points", widget: "list", field: { label: "Point (HTML allowed)", widget: "string" } }
                   - { label: "Privacy Summary", name: "privacy_summary", widget: "string" }
                   - { label: "Privacy Button Text", name: "privacy_btn_text", widget: "string" }
                   - { label: "Footer Title", name: "footer_title", widget: "string" }
