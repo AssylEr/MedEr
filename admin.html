@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager (Sveltia CMS)</title>
-  <script src="https://unpkg.com/sveltia-cms@3.1.5/dist/sveltia-cms.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/sveltia-cms@^3/dist/sveltia-cms.js" onerror="handleScriptError()"></script>
   <script type="importmap">
   {
     "imports": {
@@ -33,6 +33,7 @@
 
   <script>
     const appContainer = document.getElementById('app');
+    let checkInterval; // To hold the interval ID
 
     const showLoader = () => {
       appContainer.innerHTML = `
@@ -61,6 +62,17 @@
         </div>
       `;
     };
+
+    function handleScriptError() {
+      if (checkInterval) {
+        clearInterval(checkInterval);
+      }
+      showError(
+        'CMS Script Failed to Load',
+        'A critical network error occurred while trying to load the Content Manager script. Please check your internet connection, disable any ad-blockers, and ensure that content from cdn.jsdelivr.net is not blocked by your network or firewall.',
+        new Error('The script tag for sveltia-cms.js reported an `onerror` event.')
+      );
+    }
 
     const config = {
       // Sveltia CMS configuration
@@ -266,7 +278,7 @@
       let attempts = 0;
       const maxAttempts = 20; // 20 attempts * 500ms = 10 seconds timeout
 
-      const checkInterval = setInterval(() => {
+      checkInterval = setInterval(() => {
         attempts++;
 
         // If the SveltiaCMS object is now available on the window, we can initialize it.
@@ -291,7 +303,7 @@
           clearInterval(checkInterval); // Stop checking
           showError(
             'CMS Script Failed to Load',
-            'The Content Manager script could not be loaded from the CDN. Please check your network connection and ensure that content from unpkg.com is not being blocked.',
+            'The Content Manager script could not be loaded from the CDN. Please check your network connection and ensure that content from cdn.jsdelivr.net is not being blocked.',
             new Error('`SveltiaCMS` is not defined on the window object after a 10-second timeout.')
           );
         }
