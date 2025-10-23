@@ -29,6 +29,8 @@
 <body>
   <!-- The Sveltia CMS app will be mounted here -->
   <div id="app"></div>
+  
+  <script src="sveltia-cms.js"></script>
 
   <script>
     const appContainer = document.getElementById('app');
@@ -292,51 +294,17 @@
           clearInterval(checkInterval);
           showError(
             'CMS Script Timed Out',
-            'The Content Manager script was loaded, but it failed to initialize correctly within the time limit.',
-            'This can happen for a few reasons:\n1. A temporary issue with the Sveltia CMS script itself.\n2. A conflict with a browser extension.\n3. A slow network connection.\n\nPlease try clearing your browser cache and reloading the page.',
+            'The locally hosted Content Manager script failed to initialize correctly.',
+            'This could be due to a corrupted script file or a conflict within the page. Please check the browser console for errors and ensure the `sveltia-cms.js` file is present and correct.',
             new Error('`SveltiaCMS` was not defined on the window object after the script loaded and a 10-second timeout passed.')
           );
         }
       }, 500);
     };
-    
-    const handleScriptLoadError = (failedSrc) => {
-        clearInterval(checkInterval);
-        showError(
-            'CMS Script Failed to Load',
-            `The Content Manager script could not be loaded from its CDN (${new URL(failedSrc).hostname}). This is almost certainly a network issue.`,
-            'Please try the following:\n1. Check your internet connection.\n2. Disable any ad-blockers or browser extensions.\n3. Ensure your network or firewall is not blocking access to the CDN.\n4. Try accessing this page from a different network (e.g., mobile data instead of Wi-Fi).',
-            new Error(`The script tag for ${failedSrc} reported an 'onerror' event.`)
-        );
-    };
-    
-    const loadScriptWithFallback = () => {
-        const sveltiaVersion = '3.1.2'; // Pinning version for stability
-        const primarySrc = `https://cdn.jsdelivr.net/npm/sveltia-cms@${sveltiaVersion}/dist/sveltia-cms.js`;
-        const fallbackSrc = `https://unpkg.com/sveltia-cms@${sveltiaVersion}/dist/sveltia-cms.js`;
-
-        const script = document.createElement('script');
-        script.src = primarySrc;
-        script.defer = true;
-        
-        script.onload = initializeCMS;
-        
-        script.onerror = () => {
-            console.warn(`Failed to load from primary CDN: ${primarySrc}. Trying fallback...`);
-            const fallbackScript = document.createElement('script');
-            fallbackScript.src = fallbackSrc;
-            fallbackScript.defer = true;
-            fallbackScript.onload = initializeCMS;
-            fallbackScript.onerror = () => handleScriptLoadError(fallbackSrc);
-            document.head.appendChild(fallbackScript);
-        };
-        
-        document.head.appendChild(script);
-    };
 
     const init = () => {
       showLoader();
-      loadScriptWithFallback();
+      initializeCMS();
     };
 
     document.addEventListener('DOMContentLoaded', init);
