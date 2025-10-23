@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager (Sveltia CMS)</title>
-  <script src="https://cdn.jsdelivr.net/npm/sveltia-cms@2.2.0/dist/sveltia-cms.js"></script>
+  <script src="https://unpkg.com/sveltia-cms@2.2.0/dist/sveltia-cms.js"></script>
   <script type="importmap">
   {
     "imports": {
-      "vite": "https://aistudiocdn.com/vite@^7.1.12",
-      "url": "https://aistudiocdn.com/url@^0.11.4"
+      "url": "https://esm.sh/url"
     }
   }
   </script>
@@ -292,7 +291,7 @@
           clearInterval(checkInterval); // Stop checking
           showError(
             'CMS Script Failed to Load',
-            'The Content Manager script could not be loaded from the CDN. Please check your network connection and ensure that content from cdn.jsdelivr.net is not being blocked.',
+            'The Content Manager script could not be loaded from the CDN. Please check your network connection and ensure that content from unpkg.com is not being blocked.',
             new Error('`SveltiaCMS` is not defined on the window object after a 10-second timeout.')
           );
         }
