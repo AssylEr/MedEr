@@ -10,14 +10,8 @@
   <!-- Decap CMS Core -->
   <script src="https://unpkg.com/decap-cms@3.1.11/dist/decap-cms.js"></script>
   <script>
-    window.CMS.init({
-      config: {
-        // Tells Decap CMS to load the config from this file
-        config_url: 'admin-config.yml',
-        // Disables fetching the default config file
-        load_config_file: false,
-      },
-    });
+    // Decap CMS will automatically look for /config.yml in the same directory
+    window.CMS.init();
   </script>
 </body>
 </html>
