@@ -11,12 +11,18 @@ document.addEventListener('DOMContentLoaded', async () => {
           navApps: "Apps",
           navPrivacy: "Privacy Policy",
           navAbout: "About Us",
-          appsModalTitle: "Our Applications",
+          pageTitleApps: "Apps - RuyaX Universe",
+          appsPageTitle: "Our Applications",
+          appsPageSubtitle: "Discover the tools we've built to empower your creativity.",
           futureAppTitle: "Future App",
           comingSoon: "Coming Soon",
           footerCopyright: "&copy; 2025 RuyaX. All rights reserved.",
           learnMore: "Learn More",
           adminPanel: "Admin Panel",
+          errorTitle: "Content Error:",
+          errorMessage: "We couldn't load the necessary content for the site.",
+          errorSuggestion: "Please check your network connection. If the problem persists, the content source might need to be reconfigured in the",
+          errorAdminLink: "Admin Panel"
       },
       ar: {
           navLogo: "عالم RuyaX",
@@ -24,26 +30,39 @@ document.addEventListener('DOMContentLoaded', async () => {
           navApps: "التطبيقات",
           navPrivacy: "سياسة الخصوصية",
           navAbout: "من نحن",
-          appsModalTitle: "تطبيقاتنا",
+          pageTitleApps: "التطبيقات - عالم RuyaX",
+          appsPageTitle: "تطبيقاتنا",
+          appsPageSubtitle: "اكتشف الأدوات التي أنشأناها لتمكين إبداعك.",
           futureAppTitle: "تطبيق مستقبلي",
           comingSoon: "قريباً",
           footerCopyright: "&copy; 2025 RuyaX. جميع الحقوق محفوظة.",
           learnMore: "اعرف المزيد",
           adminPanel: "لوحة الإدارة",
+          errorTitle: "خطأ في المحتوى:",
+          errorMessage: "لم نتمكن من تحميل المحتوى اللازم للموقع.",
+          errorSuggestion: "يرجى التحقق من اتصالك بالشبكة. إذا استمرت المشكلة، فقد يلزم إعادة تكوين مصدر المحتوى في",
+          errorAdminLink: "لوحة الإدارة"
       }
   };
 
   async function fetchJsonData(path) {
-    try {
-      const response = await fetch(path);
-      if (!response.ok) {
-        throw new Error(`Network response was not ok for ${path}`);
-      }
-      return await response.json();
-    } catch (error) {
-      console.error(`Failed to fetch data from ${path}:`, error);
-      return null;
+    const response = await fetch(path);
+    if (!response.ok) {
+      throw new Error(`Network response was not ok for ${path}. Status: ${response.status}`);
     }
+    return await response.json();
+  }
+
+  function displayGlobalError(lang, error) {
+      console.error("Failed to initialize app:", error);
+      const t = translations[lang] || translations.en;
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'global-error';
+      errorDiv.innerHTML = `
+        <p><strong>${t.errorTitle}</strong> ${t.errorMessage}</p>
+        <p>${t.errorSuggestion} <a href="admin.html">${t.errorAdminLink}</a>.</p>
+      `;
+      document.body.prepend(errorDiv);
   }
 
   function populateStaticTranslations(lang) {
@@ -54,6 +73,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         el.innerHTML = currentTranslations[key];
       }
     });
+    const pageTitle = document.querySelector('title[data-translate-key]');
+    if(pageTitle) {
+      document.title = currentTranslations[pageTitle.dataset.translateKey] || 'RuyaX Universe';
+    }
   }
   
   function populatePageContent(lang) {
@@ -64,7 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('[data-page-prop]').forEach(el => {
         const key = el.dataset.pageProp;
         if (content[key] !== undefined) {
-          if (el.dataset.pageProp.endsWith('_list')) {
+          if (el.dataset.pageProp.endsWith('_list') || el.dataset.pageProp.endsWith('_desc')) {
               const converter = new showdown.Converter();
               el.innerHTML = converter.makeHtml(content[key]);
           } else {
@@ -78,8 +101,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  function populateAppsModal(lang) {
-    const grid = document.querySelector('.apps-modal-grid');
+  function populateAppsGrid(lang) {
+    const grid = document.getElementById('apps-page-grid-container');
     if (!grid) return;
     
     const langContent = translations[lang] || translations.en;
@@ -87,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let gridHTML = '';
     APPS_DATA.forEach(app => {
       const appContent = app[lang] || app.en;
-      const cardClass = app.is_placeholder ? 'app-modal-card app-modal-card--placeholder' : 'app-modal-card';
+      const cardClass = app.is_placeholder ? 'app-page-card app-page-card--placeholder' : 'app-page-card';
       const comingSoonOverlay = app.is_placeholder ? `<div class="app-placeholder-overlay"><span>${langContent.comingSoon}</span></div>` : '';
       const appName = app.is_placeholder ? langContent.futureAppTitle : appContent.name;
       const href = app.is_placeholder ? '#' : app.href;
@@ -96,7 +119,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         <a href="${href}" class="${cardClass}">
           <img src="${app.imgSrc}" alt="${app.alt}">
           ${comingSoonOverlay}
-          <h3>${appName}</h3>
+          <div class="app-page-card__content">
+            <h3>${appName}</h3>
+          </div>
         </a>
       `;
     });
@@ -135,7 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const appData = APPS_DATA.find(app => app.slug === slug);
 
     if (!appData) {
-        appPageBody.innerHTML = `<div class="container"><h1 style="text-align:center; margin-top: 50px;">App not found.</h1></div>`;
+        appPageBody.innerHTML = `<div class="container"><h1 style="text-align:center; margin-top: 50px;">App not found.</h1><p style="text-align:center;">Please check the URL or return to the <a href="index.html">home page</a>.</p></div>`;
         return;
     }
 
@@ -238,9 +263,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+        langToggle.textContent = lang === 'en' ? 'العربية' : 'English';
+    }
+
     populateStaticTranslations(lang);
     populatePageContent(lang);
-    populateAppsModal(lang);
+    populateAppsGrid(lang);
     populateHomeGrid(lang);
     populateAppPage(lang);
     populateAppPrivacyPage(lang);
@@ -252,9 +282,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       if (currentPage === 'index.html' || currentPage === '') {
           document.getElementById('nav-home')?.classList.add('active');
+      } else if (currentPage === 'apps.html' || currentPage === 'app.html' || currentPage === 'privacy-app.html') {
+          document.getElementById('nav-apps')?.classList.add('active');
       } else if (currentPage === 'about.html') {
           document.getElementById('nav-about')?.classList.add('active');
-      } else if (currentPage === 'privacy.html' || currentPage === 'privacy-app.html') {
+      } else if (currentPage === 'privacy.html') {
           document.getElementById('nav-privacy')?.classList.add('active');
       }
   }
@@ -285,8 +317,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   function initializeEventListeners() {
       const langToggle = document.getElementById('lang-toggle');
-      const appsModal = document.getElementById('apps-modal');
-      const closeModalBtn = document.querySelector('.close-modal');
       const navToggle = document.querySelector('.nav-toggle');
       const navMenu = document.querySelector('.nav-menu');
 
@@ -304,25 +334,6 @@ document.addEventListener('DOMContentLoaded', async () => {
               navToggle.classList.toggle('active');
           });
       }
-
-      if (appsModal) {
-        document.querySelectorAll('#apps-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-              e.preventDefault();
-              appsModal.style.display = 'flex';
-          });
-        });
-
-        const closeModal = () => {
-          appsModal.style.display = 'none';
-        }
-        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-        appsModal.addEventListener('click', (event) => {
-          if (event.target === appsModal) {
-            closeModal();
-          }
-        });
-      }
   }
   
   async function loadSharedComponents() {
@@ -339,25 +350,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function initializeApp() {
     await loadSharedComponents();
-    addAdminLinkToNavbar();
+    
+    try {
+        const bodyId = document.body.id;
+        let pageDataPath;
+        if (bodyId === 'home-page') pageDataPath = 'home.json';
+        else if (bodyId === 'about-page') pageDataPath = 'about.json';
+        else if (bodyId === 'privacy-page') pageDataPath = 'privacy.json';
 
-    const bodyId = document.body.id;
-    let pageDataPath;
-    if (bodyId === 'home-page') pageDataPath = 'home.json';
-    else if (bodyId === 'about-page') pageDataPath = 'about.json';
-    else if (bodyId === 'privacy-page') pageDataPath = 'privacy.json';
+        const [appsData, pageData] = await Promise.all([
+            fetchJsonData('apps.json'),
+            pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
+        ]);
 
-    const [appsData, pageData] = await Promise.all([
-      fetchJsonData('apps.json'),
-      pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
-    ]);
+        APPS_DATA = (appsData && appsData.applications) || [];
+        PAGE_DATA = pageData || {};
 
-    APPS_DATA = (appsData && appsData.applications) || [];
-    PAGE_DATA = pageData || {};
-
-    setLanguage(currentLang);
-    setActiveNav();
-    initializeEventListeners();
+        addAdminLinkToNavbar();
+        setLanguage(currentLang);
+        setActiveNav();
+        initializeEventListeners();
+    } catch (error) {
+        displayGlobalError(currentLang, error);
+        addAdminLinkToNavbar();
+        initializeEventListeners();
+    }
   }
 
   initializeApp();

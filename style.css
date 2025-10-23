@@ -181,10 +181,6 @@ strong {
   text-decoration: none;
 }
 
-.nav-link#apps-btn {
-  cursor: pointer;
-}
-
 .lang-switcher .nav-link {
   font-weight: bold;
 }
@@ -229,6 +225,7 @@ strong {
 #privacy-page .container {
     max-width: 800px;
 }
+
 .page-header {
   text-align: center;
   padding: 50px 20px 30px;
@@ -376,7 +373,7 @@ strong {
   text-align: left;
 }
 
-.modal, .lightbox {
+.lightbox {
   display: none;
   position: fixed;
   z-index: 2000;
@@ -396,23 +393,7 @@ strong {
   to { opacity: 1 }
 }
 
-#apps-modal .modal-content {
-  background-color: var(--dark-gray);
-  padding: 30px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 800px;
-  text-align: center;
-  position: relative;
-  animation: zoomIn 0.3s;
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.8) }
-  to { transform: scale(1) }
-}
-
-.close-modal, .close-lightbox {
+.close-lightbox {
   position: absolute;
   top: 10px;
   right: 20px;
@@ -423,83 +404,13 @@ strong {
   transition: color 0.3s;
 }
 
-html[dir="rtl"] .close-modal, html[dir="rtl"] .close-lightbox {
+html[dir="rtl"] .close-lightbox {
   right: auto;
   left: 20px;
 }
 
-.close-modal:hover, .close-lightbox:hover {
+.close-lightbox:hover {
   color: var(--text-color);
-}
-
-.modal-content h2 {
-  color: var(--primary-color);
-  margin-bottom: 25px;
-}
-
-.apps-modal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 20px;
-  max-height: 70vh;
-  overflow-y: auto;
-  padding: 10px;
-}
-
-.app-modal-card {
-  background-color: var(--medium-gray);
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  transition: transform 0.3s;
-}
-
-.app-modal-card:hover {
-  transform: scale(1.05);
-  text-decoration: none;
-}
-
-.app-modal-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  display: block;
-}
-
-.app-modal-card h3 {
-  color: var(--text-color);
-  font-size: 0.9rem;
-  padding: 12px 8px;
-  margin: 0;
-  border: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.app-modal-card--placeholder {
-  cursor: not-allowed;
-  opacity: 0.5;
-  position: relative;
-}
-
-.app-modal-card--placeholder:hover {
-  transform: none;
-}
-
-.app-modal-card--placeholder .app-placeholder-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 41px);
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--text-color);
-  font-weight: bold;
-  font-size: 0.8rem;
 }
 
 .lightbox-content {
@@ -507,6 +418,103 @@ html[dir="rtl"] .close-modal, html[dir="rtl"] .close-lightbox {
   display: block;
   max-width: 85%;
   max-height: 85%;
+}
+
+.apps-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.app-page-card {
+  background-color: var(--medium-gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.app-page-card:hover {
+  transform: translateY(-5px);
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+}
+
+.app-page-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.app-page-card__content {
+  padding: 15px;
+}
+
+.app-page-card__content h3 {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 0;
+  border: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.app-page-card--placeholder {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.app-page-card--placeholder:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.app-placeholder-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+.global-error {
+    background-color: #5d0c1d;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    position: sticky;
+    top: var(--navbar-height);
+    z-index: 999;
+    width: 100%;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.global-error p {
+    margin: 5px 0;
+    color: #f1f1f1;
+}
+
+.global-error a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ffcdd2;
+}
+
+.global-error a:hover {
+    color: white;
 }
 
 footer {
@@ -615,20 +623,8 @@ footer p {
     padding: 20px;
   }
 
-  #apps-modal .modal-content {
-    width: 95%;
-    padding: 25px 15px;
-  }
-  .apps-modal-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 15px;
-  }
-  .app-modal-card h3 {
-    font-size: 0.8rem;
-    padding: 10px 5px;
-  }
-  .app-modal-card--placeholder .app-placeholder-overlay {
-    height: calc(100% - 37px);
+  .apps-page-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
   
   footer {

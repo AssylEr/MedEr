@@ -5,17 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager (Sveltia CMS)</title>
-  <script src="https://cdn.jsdelivr.net/npm/sveltia-cms@latest/dist/sveltia-cms.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sveltia-cms@2.2.0/dist/sveltia-cms.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "vite": "https://aistudiocdn.com/vite@^7.1.12",
+      "url": "https://aistudiocdn.com/url@^0.11.4"
+    }
+  }
+  </script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background-color: #f9f9f9; }
+    #app { display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; }
+    .spinner { border: 4px solid rgba(0,0,0,0.1); width: 36px; height: 36px; border-radius: 50%; border-left-color: #09f; animation: spin 1s ease infinite; margin: 0 auto 20px auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .loader-text { font-size: 1.2em; color: #555; }
+    .error-container { padding: 40px; color: #333; max-width: 800px; margin: auto; }
+    .error-container h1 { color: #d9534f; }
+    .error-container p { color: #555; margin-bottom: 20px; font-size: 1.1em; }
+    .error-box { background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: left; background: #ffebeb; }
+    .error-box h3 { border-bottom: 1px solid #d9534f; color: #d9534f; padding-bottom: 10px; margin-top:0; }
+    .error-box pre { background: #f5f5f5; padding: 15px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; color: #333; font-family: monospace; }
+  </style>
 </head>
 <body>
+  <!-- The Sveltia CMS app will be mounted here -->
+  <div id="app"></div>
+
   <script>
+    const appContainer = document.getElementById('app');
+
+    const showLoader = () => {
+      appContainer.innerHTML = `
+        <div>
+          <div class="spinner"></div>
+          <p class="loader-text">Initializing Content Manager...</p>
+        </div>
+      `;
+    };
+
+    const showError = (title, message, error) => {
+      let errorDetails = '';
+      if (error) {
+        errorDetails = `
+          <div class="error-box">
+            <h3>Technical Details</h3>
+            <pre>${error.stack || error.toString()}</pre>
+          </div>
+        `;
+      }
+      appContainer.innerHTML = `
+        <div class="error-container">
+          <h1>${title}</h1>
+          <p>${message}</p>
+          ${errorDetails}
+        </div>
+      `;
+    };
+
     const config = {
+      // Sveltia CMS configuration
       backend: {
         name: 'github',
-        repo: 'AssylEr/MedEr',
+        repo: 'AssylEr/MedEr', // This should be your repository
         branch: 'main',
         auth_type: 'pkce',
-        app_id: 'Ov23liXxs76aN3z4skEo',
+        app_id: 'Ov23liXxs76aN3z4skEo', // This should be your GitHub OAuth App Client ID
       },
       publish_mode: 'simple',
       media_folder: 'uploads',
@@ -30,24 +85,14 @@
               label: 'Home Page',
               file: 'home.json',
               fields: [
-                {
-                  label: 'English Content',
-                  name: 'en',
-                  widget: 'object',
-                  fields: [
+                { label: 'English Content', name: 'en', widget: 'object', fields: [
                     { label: 'Header Title', name: 'header_title', widget: 'string' },
                     { label: 'Header Subtitle', name: 'header_subtitle', widget: 'text' },
-                  ],
-                },
-                {
-                  label: 'Arabic Content',
-                  name: 'ar',
-                  widget: 'object',
-                  fields: [
+                ]},
+                { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
                     { label: 'Header Title', name: 'header_title', widget: 'string' },
                     { label: 'Header Subtitle', name: 'header_subtitle', widget: 'text' },
-                  ],
-                },
+                ]},
               ],
             },
             {
@@ -55,11 +100,7 @@
               label: 'About Us Page',
               file: 'about.json',
               fields: [
-                {
-                  label: 'English Content',
-                  name: 'en',
-                  widget: 'object',
-                  fields: [
+                { label: 'English Content', name: 'en', widget: 'object', fields: [
                     { label: 'Page Title', name: 'page_title', widget: 'string' },
                     { label: 'Header Title', name: 'header_title', widget: 'string' },
                     { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
@@ -68,13 +109,8 @@
                     { label: 'Contact Section Title', name: 'contact_title', widget: 'string' },
                     { label: 'Contact Admin Line', name: 'contact_admin', widget: 'string' },
                     { label: 'Contact Email Line', name: 'contact_email', widget: 'string' },
-                  ],
-                },
-                {
-                  label: 'Arabic Content',
-                  name: 'ar',
-                  widget: 'object',
-                  fields: [
+                ]},
+                { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
                     { label: 'Page Title', name: 'page_title', widget: 'string' },
                     { label: 'Header Title', name: 'header_title', widget: 'string' },
                     { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
@@ -83,8 +119,7 @@
                     { label: 'Contact Section Title', name: 'contact_title', widget: 'string' },
                     { label: 'Contact Admin Line', name: 'contact_admin', widget: 'string' },
                     { label: 'Contact Email Line', name: 'contact_email', widget: 'string' },
-                  ],
-                },
+                ]},
               ],
             },
             {
@@ -92,11 +127,7 @@
               label: 'Website Privacy Page',
               file: 'privacy.json',
               fields: [
-                {
-                  label: 'English Content',
-                  name: 'en',
-                  widget: 'object',
-                  fields: [
+                { label: 'English Content', name: 'en', widget: 'object', fields: [
                     { label: 'Page Title', name: 'page_title', widget: 'string' },
                     { label: 'Header Title', name: 'header_title', widget: 'string' },
                     { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
@@ -119,13 +150,8 @@
                     { label: 'Security Content', name: 'security_p1', widget: 'text' },
                     { label: 'Contact Title', name: 'contact_title', widget: 'string' },
                     { label: 'Contact Content', name: 'contact_p1', widget: 'string' },
-                  ],
-                },
-                {
-                  label: 'Arabic Content',
-                  name: 'ar',
-                  widget: 'object',
-                  fields: [
+                ]},
+                { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
                     { label: 'Page Title', name: 'page_title', widget: 'string' },
                     { label: 'Header Title', name: 'header_title', widget: 'string' },
                     { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
@@ -148,34 +174,24 @@
                     { label: 'Security Content', name: 'security_p1', widget: 'text' },
                     { label: 'Contact Title', name: 'contact_title', widget: 'string' },
                     { label: 'Contact Content', name: 'contact_p1', widget: 'string' },
-                  ],
-                },
+                ]},
               ],
             },
             {
               name: 'apps',
               label: 'Applications',
               file: 'apps.json',
-              editor: {
-                preview: false,
-              },
+              editor: { preview: false },
               fields: [
                 {
-                  name: 'applications',
-                  label: 'Applications',
-                  label_singular: 'Application',
-                  widget: 'list',
+                  name: 'applications', label: 'Applications', label_singular: 'Application', widget: 'list',
                   fields: [
                     { label: 'Slug', name: 'slug', widget: 'string' },
                     { label: 'Is Placeholder', name: 'is_placeholder', widget: 'boolean', default: false },
                     { label: 'App Page Link', name: 'href', widget: 'string' },
                     { label: 'Thumbnail Image', name: 'imgSrc', widget: 'image' },
                     { label: 'Image Alt Text', name: 'alt', widget: 'string' },
-                    {
-                      label: 'English Content',
-                      name: 'en',
-                      widget: 'object',
-                      fields: [
+                    { label: 'English Content', name: 'en', widget: 'object', fields: [
                         { label: 'App Name', name: 'name', widget: 'string' },
                         { label: 'Short Description', name: 'short_desc', widget: 'text' },
                         { label: 'Page Title', name: 'page_title', widget: 'string' },
@@ -203,13 +219,8 @@
                         { label: 'Privacy Policy Header Title', name: 'privacy_header_title', widget: 'string' },
                         { label: 'Privacy Policy Header Subtitle', name: 'privacy_header_subtitle', widget: 'string' },
                         { label: 'Privacy Policy Content', name: 'privacy_content', widget: 'markdown' },
-                      ],
-                    },
-                    {
-                      label: 'Arabic Content',
-                      name: 'ar',
-                      widget: 'object',
-                      fields: [
+                    ]},
+                    { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
                         { label: 'App Name', name: 'name', widget: 'string' },
                         { label: 'Short Description', name: 'short_desc', widget: 'text' },
                         { label: 'Page Title', name: 'page_title', widget: 'string' },
@@ -237,8 +248,7 @@
                         { label: 'Privacy Policy Header Title', name: 'privacy_header_title', widget: 'string' },
                         { label: 'Privacy Policy Header Subtitle', name: 'privacy_header_subtitle', widget: 'string' },
                         { label: 'Privacy Policy Content', name: 'privacy_content', widget: 'markdown' },
-                      ],
-                    },
+                    ]},
                     { label: 'Screenshot Gallery Images', name: 'screenshots', widget: 'list', fields: [{ label: 'Image', name: 'src', widget: 'image' }] },
                     { label: 'Google Play Store Link', name: 'play_store_link', widget: 'string', required: false },
                   ],
@@ -249,7 +259,37 @@
         },
       ],
     };
-    SveltiaCMS.init({ config });
+
+    const init = () => {
+      // We start by showing a loader in the #app container.
+      showLoader();
+      
+      // Give the SveltiaCMS script a moment to load from the CDN.
+      setTimeout(() => {
+        if (typeof SveltiaCMS === 'undefined') {
+          showError(
+            'CMS Script Failed to Load',
+            'The Content Manager script could not be loaded from the CDN. Please check your network connection and ensure that content from cdn.jsdelivr.net is not being blocked.',
+            new Error('`SveltiaCMS` is not defined on the window object.')
+          );
+          return;
+        }
+
+        try {
+          // Pass the #app container for Sveltia CMS to mount into.
+          SveltiaCMS.init({ el: '#app', config });
+        } catch (e) {
+          console.error("Sveltia CMS initialization error:", e);
+          showError(
+            'CMS Initialization Failed',
+            'The Content Manager encountered a critical error during startup. This might be due to a malformed configuration or a bug in the CMS itself.',
+            e
+          );
+        }
+      }, 500);
+    };
+
+    document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
