@@ -264,26 +264,36 @@
       // We start by showing a loader in the #app container.
       showLoader();
       
-      // Give the SveltiaCMS script a moment to load from the CDN.
-      setTimeout(() => {
-        if (typeof SveltiaCMS === 'undefined') {
+      let attempts = 0;
+      const maxAttempts = 20; // 20 attempts * 500ms = 10 seconds timeout
+
+      const checkInterval = setInterval(() => {
+        attempts++;
+
+        // If the SveltiaCMS object is now available on the window, we can initialize it.
+        if (typeof SveltiaCMS !== 'undefined') {
+          clearInterval(checkInterval); // Stop checking
+          try {
+            // Pass the #app container for Sveltia CMS to mount into.
+            SveltiaCMS.init({ el: '#app', config });
+          } catch (e) {
+            console.error("Sveltia CMS initialization error:", e);
+            showError(
+              'CMS Initialization Failed',
+              'The Content Manager encountered a critical error during startup. This might be due to a malformed configuration or a bug in the CMS itself.',
+              e
+            );
+          }
+          return; // Exit the function
+        }
+
+        // If we've tried too many times and it's still not loaded, show an error.
+        if (attempts >= maxAttempts) {
+          clearInterval(checkInterval); // Stop checking
           showError(
             'CMS Script Failed to Load',
             'The Content Manager script could not be loaded from the CDN. Please check your network connection and ensure that content from cdn.jsdelivr.net is not being blocked.',
-            new Error('`SveltiaCMS` is not defined on the window object.')
-          );
-          return;
-        }
-
-        try {
-          // Pass the #app container for Sveltia CMS to mount into.
-          SveltiaCMS.init({ el: '#app', config });
-        } catch (e) {
-          console.error("Sveltia CMS initialization error:", e);
-          showError(
-            'CMS Initialization Failed',
-            'The Content Manager encountered a critical error during startup. This might be due to a malformed configuration or a bug in the CMS itself.',
-            e
+            new Error('`SveltiaCMS` is not defined on the window object after a 10-second timeout.')
           );
         }
       }, 500);
