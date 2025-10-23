@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   };
 
+  // إضافة مكتبة showdown.js
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js';
+  script.onload = initializeApp; // بدء التطبيق بعد تحميل showdown
+  document.head.appendChild(script);
+
   async function fetchJsonData(path) {
     try {
       const response = await fetch(path);
@@ -49,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   function populateStaticTranslations(lang) {
     const currentTranslations = translations[lang] || translations.en;
     document.querySelectorAll('[data-translate-key]').forEach(el => {
-      const key = el.dataset.translateKey;
+      const key = el.dataset.translate_key; // تم تغييرها إلى data-translate-key
       if (currentTranslations[key]) {
         el.innerHTML = currentTranslations[key];
       }
@@ -62,9 +68,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!content) return;
     
     document.querySelectorAll('[data-page-prop]').forEach(el => {
-        const key = el.dataset.pageProp;
+        const key = el.dataset.page_prop; // تم تغييرها إلى data-page-prop
         if (content[key] !== undefined) {
-          if (el.dataset.pageProp.endsWith('_list')) {
+          if (el.dataset.page_prop.endsWith('_list')) {
               const converter = new showdown.Converter();
               el.innerHTML = converter.makeHtml(content[key]);
           } else {
@@ -349,5 +355,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initializeEventListeners();
   }
 
-  initializeApp();
+  // تم نقل initializeApp لتُنفذ بعد تحميل showdown.js
+  // initializeApp(); 
 });
