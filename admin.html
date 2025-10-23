@@ -5,19 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager (Sveltia CMS)</title>
-  <script type="importmap">
-  {
-    "imports": {
-      "url": "https://esm.sh/url"
-    }
-  }
-  </script>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background-color: #f9f9f9; }
     #app { display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; }
-    .spinner { border: 4px solid rgba(0,0,0,0.1); width: 36px; height: 36px; border-radius: 50%; border-left-color: #09f; animation: spin 1s ease infinite; margin: 0 auto 20px auto; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    .loader-text { font-size: 1.2em; color: #555; }
     .error-container { padding: 40px; color: #333; max-width: 800px; margin: auto; }
     .error-container h1 { color: #d9534f; }
     .error-container p { color: #555; margin-bottom: 20px; font-size: 1.1em; }
@@ -33,281 +23,230 @@
   <script src="sveltia-cms.js"></script>
 
   <script>
-    const appContainer = document.getElementById('app');
-    let checkInterval;
+    document.addEventListener('DOMContentLoaded', () => {
+      const config = {
+        // Sveltia CMS configuration
+        backend: {
+          name: 'github',
+          repo: 'AssylEr/MedEr', // This should be your repository
+          branch: 'main',
+          auth_type: 'pkce',
+          app_id: 'Ov23liXxs76aN3z4skEo', // This should be your GitHub OAuth App Client ID
+        },
+        publish_mode: 'simple',
+        media_folder: 'uploads',
+        public_folder: '/uploads',
+        collections: [
+          {
+            name: 'pages',
+            label: 'Pages & Content',
+            files: [
+              {
+                name: 'home',
+                label: 'Home Page',
+                file: 'home.json',
+                fields: [
+                  { label: 'English Content', name: 'en', widget: 'object', fields: [
+                      { label: 'Header Title', name: 'header_title', widget: 'string' },
+                      { label: 'Header Subtitle', name: 'header_subtitle', widget: 'text' },
+                  ]},
+                  { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
+                      { label: 'Header Title', name: 'header_title', widget: 'string' },
+                      { label: 'Header Subtitle', name: 'header_subtitle', widget: 'text' },
+                  ]},
+                ],
+              },
+              {
+                name: 'about',
+                label: 'About Us Page',
+                file: 'about.json',
+                fields: [
+                  { label: 'English Content', name: 'en', widget: 'object', fields: [
+                      { label: 'Page Title', name: 'page_title', widget: 'string' },
+                      { label: 'Header Title', name: 'header_title', widget: 'string' },
+                      { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
+                      { label: 'Admin Section Title', name: 'admin_title', widget: 'string' },
+                      { label: 'Admin Section Description', name: 'admin_desc', widget: 'text' },
+                      { label: 'Contact Section Title', name: 'contact_title', widget: 'string' },
+                      { label: 'Contact Admin Line', name: 'contact_admin', widget: 'string' },
+                      { label: 'Contact Email Line', name: 'contact_email', widget: 'string' },
+                  ]},
+                  { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
+                      { label: 'Page Title', name: 'page_title', widget: 'string' },
+                      { label: 'Header Title', name: 'header_title', widget: 'string' },
+                      { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
+                      { label: 'Admin Section Title', name: 'admin_title', widget: 'string' },
+                      { label: 'Admin Section Description', name: 'admin_desc', widget: 'text' },
+                      { label: 'Contact Section Title', name: 'contact_title', widget: 'string' },
+                      { label: 'Contact Admin Line', name: 'contact_admin', widget: 'string' },
+                      { label: 'Contact Email Line', name: 'contact_email', widget: 'string' },
+                  ]},
+                ],
+              },
+              {
+                name: 'privacy',
+                label: 'Website Privacy Page',
+                file: 'privacy.json',
+                fields: [
+                  { label: 'English Content', name: 'en', widget: 'object', fields: [
+                      { label: 'Page Title', name: 'page_title', widget: 'string' },
+                      { label: 'Header Title', name: 'header_title', widget: 'string' },
+                      { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
+                      { label: 'Introduction Title', name: 'intro_title', widget: 'string' },
+                      { label: 'Introduction Content', name: 'intro_p1', widget: 'text' },
+                      { label: 'Data Collection Title', name: 'data_collection_title', widget: 'string' },
+                      { label: 'Data Collection Content', name: 'data_collection_p1', widget: 'text' },
+                      { label: 'Types of Data Title', name: 'data_type_title', widget: 'string' },
+                      { label: 'Types of Data List (Markdown)', name: 'data_type_list', widget: 'markdown' },
+                      { label: 'Personal Info Title', name: 'data_personal_title', widget: 'string' },
+                      { label: 'Personal Info Content', name: 'data_personal_p1', widget: 'text' },
+                      { label: 'How We Use Title', name: 'data_use_title', widget: 'string' },
+                      { label: 'How We Use Content', name: 'data_use_p1', widget: 'text' },
+                      { label: 'How We Use List (Markdown)', name: 'data_use_list', widget: 'markdown' },
+                      { label: 'Sharing Title', name: 'data_sharing_title', widget: 'string' },
+                      { label: 'Sharing Content', name: 'data_sharing_p1', widget: 'text' },
+                      { label: 'Links Title', name: 'links_title', widget: 'string' },
+                      { label: 'Links Content', name: 'links_p1', widget: 'text' },
+                      { label: 'Security Title', name: 'security_title', widget: 'string' },
+                      { label: 'Security Content', name: 'security_p1', widget: 'text' },
+                      { label: 'Contact Title', name: 'contact_title', widget: 'string' },
+                      { label: 'Contact Content', name: 'contact_p1', widget: 'string' },
+                  ]},
+                  { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
+                      { label: 'Page Title', name: 'page_title', widget: 'string' },
+                      { label: 'Header Title', name: 'header_title', widget: 'string' },
+                      { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
+                      { label: 'Introduction Title', name: 'intro_title', widget: 'string' },
+                      { label: 'Introduction Content', name: 'intro_p1', widget: 'text' },
+                      { label: 'Data Collection Title', name: 'data_collection_title', widget: 'string' },
+                      { label: 'Data Collection Content', name: 'data_collection_p1', widget: 'text' },
+                      { label: 'Types of Data Title', name: 'data_type_title', widget: 'string' },
+                      { label: 'Types of Data List (Markdown)', name: 'data_type_list', widget: 'markdown' },
+                      { label: 'Personal Info Title', name: 'data_personal_title', widget: 'string' },
+                      { label: 'Personal Info Content', name: 'data_personal_p1', widget: 'text' },
+                      { label: 'How We Use Title', name: 'data_use_title', widget: 'string' },
+                      { label: 'How We Use Content', name: 'data_use_p1', widget: 'text' },
+                      { label: 'How We Use List (Markdown)', name: 'data_use_list', widget: 'markdown' },
+                      { label: 'Sharing Title', name: 'data_sharing_title', widget: 'string' },
+                      { label: 'Sharing Content', name: 'data_sharing_p1', widget: 'text' },
+                      { label: 'Links Title', name: 'links_title', widget: 'string' },
+                      { label: 'Links Content', name: 'links_p1', widget: 'text' },
+                      { label: 'Security Title', name: 'security_title', widget: 'string' },
+                      { label: 'Security Content', name: 'security_p1', widget: 'text' },
+                      { label: 'Contact Title', name: 'contact_title', widget: 'string' },
+                      { label: 'Contact Content', name: 'contact_p1', widget: 'string' },
+                  ]},
+                ],
+              },
+              {
+                name: 'apps',
+                label: 'Applications',
+                file: 'apps.json',
+                editor: { preview: false },
+                fields: [
+                  {
+                    name: 'applications', label: 'Applications', label_singular: 'Application', widget: 'list',
+                    fields: [
+                      { label: 'Slug', name: 'slug', widget: 'string' },
+                      { label: 'Is Placeholder', name: 'is_placeholder', widget: 'boolean', default: false },
+                      { label: 'App Page Link', name: 'href', widget: 'string' },
+                      { label: 'Thumbnail Image', name: 'imgSrc', widget: 'image' },
+                      { label: 'Image Alt Text', name: 'alt', widget: 'string' },
+                      { label: 'English Content', name: 'en', widget: 'object', fields: [
+                          { label: 'App Name', name: 'name', widget: 'string' },
+                          { label: 'Short Description', name: 'short_desc', widget: 'text' },
+                          { label: 'Page Title', name: 'page_title', widget: 'string' },
+                          { label: 'Header Title', name: 'header_title', widget: 'string' },
+                          { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
+                          { label: 'Intro Section Title', name: 'intro_title', widget: 'string' },
+                          { label: 'Intro Section Description', name: 'intro_desc', widget: 'markdown' },
+                          { label: 'Features Section Title', name: 'features_title', widget: 'string' },
+                          { label: 'Features Section Description', name: 'features_desc', widget: 'markdown' },
+                          { label: 'Features List', name: 'features_list', widget: 'list', fields: [{ label: 'Feature Item (HTML allowed)', name: 'item', widget: 'string' }] },
+                          { label: 'Gallery Section Title', name: 'gallery_title', widget: 'string' },
+                          { label: 'Gallery Section Description', name: 'gallery_desc', widget: 'markdown' },
+                          { label: 'How-To Section Title', name: 'howto_title', widget: 'string' },
+                          { label: 'How-To Section Description', name: 'howto_desc', widget: 'markdown' },
+                          { label: 'How-To Steps', name: 'howto_steps', widget: 'list', fields: [{ label: 'Step (HTML allowed)', name: 'item', widget: 'string' }] },
+                          { label: 'Privacy Section Title', name: 'privacy_title', widget: 'string' },
+                          { label: 'Privacy Section Description', name: 'privacy_desc', widget: 'markdown' },
+                          { label: 'Privacy Points', name: 'privacy_points', widget: 'list', fields: [{ label: 'Point (HTML allowed)', name: 'item', widget: 'string' }] },
+                          { label: 'Privacy Summary', name: 'privacy_summary', widget: 'string' },
+                          { label: 'Privacy Button Text', name: 'privacy_btn_text', widget: 'string' },
+                          { label: 'Footer Title', name: 'footer_title', widget: 'string' },
+                          { label: 'Footer Description', name: 'footer_desc', widget: 'string' },
+                          { label: 'Download Button Text', name: 'download_btn_text', widget: 'string' },
+                          { label: 'Privacy Policy Page Title', name: 'privacy_page_title', widget: 'string' },
+                          { label: 'Privacy Policy Header Title', name: 'privacy_header_title', widget: 'string' },
+                          { label: 'Privacy Policy Header Subtitle', name: 'privacy_header_subtitle', widget: 'string' },
+                          { label: 'Privacy Policy Content', name: 'privacy_content', widget: 'markdown' },
+                      ]},
+                      { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
+                          { label: 'App Name', name: 'name', widget: 'string' },
+                          { label: 'Short Description', name: 'short_desc', widget: 'text' },
+                          { label: 'Page Title', name: 'page_title', widget: 'string' },
+                          { label: 'Header Title', name: 'header_title', widget: 'string' },
+                          { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
+                          { label: 'Intro Section Title', name: 'intro_title', widget: 'string' },
+                          { label: 'Intro Section Description', name: 'intro_desc', widget: 'markdown' },
+                          { label: 'Features Section Title', name: 'features_title', widget: 'string' },
+                          { label: 'Features Section Description', name: 'features_desc', widget: 'markdown' },
+                          { label: 'Features List', name: 'features_list', widget: 'list', fields: [{ label: 'Feature Item (HTML allowed)', name: 'item', widget: 'string' }] },
+                          { label: 'Gallery Section Title', name: 'gallery_title', widget: 'string' },
+                          { label: 'Gallery Section Description', name: 'gallery_desc', widget: 'markdown' },
+                          { label: 'How-To Section Title', name: 'howto_title', widget: 'string' },
+                          { label: 'How-To Section Description', name: 'howto_desc', widget: 'markdown' },
+                          { label: 'How-To Steps', name: 'howto_steps', widget: 'list', fields: [{ label: 'Step (HTML allowed)', name: 'item', widget: 'string' }] },
+                          { label: 'Privacy Section Title', name: 'privacy_title', widget: 'string' },
+                          { label: 'Privacy Section Description', name: 'privacy_desc', widget: 'markdown' },
+                          { label: 'Privacy Points', name: 'privacy_points', widget: 'list', fields: [{ label: 'Point (HTML allowed)', name: 'item', widget: 'string' }] },
+                          { label: 'Privacy Summary', name: 'privacy_summary', widget: 'string' },
+                          { label: 'Privacy Button Text', name: 'privacy_btn_text', widget: 'string' },
+                          { label: 'Footer Title', name: 'footer_title', widget: 'string' },
+                          { label: 'Footer Description', name: 'footer_desc', widget: 'string' },
+                          { label: 'Download Button Text', name: 'download_btn_text', widget: 'string' },
+                          { label: 'Privacy Policy Page Title', name: 'privacy_page_title', widget: 'string' },
+                          { label: 'Privacy Policy Header Title', name: 'privacy_header_title', widget: 'string' },
+                          { label: 'Privacy Policy Header Subtitle', name: 'privacy_header_subtitle', widget: 'string' },
+                          { label: 'Privacy Policy Content', name: 'privacy_content', widget: 'markdown' },
+                      ]},
+                      { label: 'Screenshot Gallery Images', name: 'screenshots', widget: 'list', fields: [{ label: 'Image', name: 'src', widget: 'image' }] },
+                      { label: 'Google Play Store Link', name: 'play_store_link', widget: 'string', required: false },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      };
 
-    const showLoader = () => {
-      appContainer.innerHTML = `
-        <div>
-          <div class="spinner"></div>
-          <p class="loader-text">Initializing Content Manager...</p>
-        </div>
-      `;
-    };
-
-    const showError = (title, message, details, error) => {
-      let errorDetailsHtml = '';
-      if (error) {
-        errorDetailsHtml = `
-          <div class="error-box">
-            <h3>Technical Details</h3>
-            <pre>${error.stack || error.toString()}</pre>
+      if (typeof SveltiaCMS !== 'undefined') {
+        try {
+          SveltiaCMS.init({ el: '#app', config });
+        } catch (e) {
+          console.error("Sveltia CMS initialization error:", e);
+          document.getElementById('app').innerHTML = `
+            <div class="error-container">
+              <h1>CMS Initialization Failed</h1>
+              <p>The Content Manager encountered a critical error during startup. Check the browser's developer console for specific errors.</p>
+              <div class="error-box">
+                <h3>Technical Details</h3>
+                <pre>${e.stack || e.toString()}</pre>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        console.error("SveltiaCMS object not found. The CMS script might have failed to load.");
+        document.getElementById('app').innerHTML = `
+          <div class="error-container">
+            <h1>CMS Script Not Loaded</h1>
+            <p>The SveltiaCMS script (sveltia-cms.js) did not load correctly. Please check the file and the browser's developer console for errors.</p>
           </div>
         `;
       }
-      appContainer.innerHTML = `
-        <div class="error-container">
-          <h1>${title}</h1>
-          <p>${message}</p>
-          <div class="error-box">
-            <h3>What to do next</h3>
-            <pre style="white-space: pre-wrap; font-family: inherit; font-size: 1em;">${details}</pre>
-          </div>
-          ${errorDetailsHtml}
-        </div>
-      `;
-    };
-
-    const config = {
-      // Sveltia CMS configuration
-      backend: {
-        name: 'github',
-        repo: 'AssylEr/MedEr', // This should be your repository
-        branch: 'main',
-        auth_type: 'pkce',
-        app_id: 'Ov23liXxs76aN3z4skEo', // This should be your GitHub OAuth App Client ID
-      },
-      publish_mode: 'simple',
-      media_folder: 'uploads',
-      public_folder: '/uploads',
-      collections: [
-        {
-          name: 'pages',
-          label: 'Pages & Content',
-          files: [
-            {
-              name: 'home',
-              label: 'Home Page',
-              file: 'home.json',
-              fields: [
-                { label: 'English Content', name: 'en', widget: 'object', fields: [
-                    { label: 'Header Title', name: 'header_title', widget: 'string' },
-                    { label: 'Header Subtitle', name: 'header_subtitle', widget: 'text' },
-                ]},
-                { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
-                    { label: 'Header Title', name: 'header_title', widget: 'string' },
-                    { label: 'Header Subtitle', name: 'header_subtitle', widget: 'text' },
-                ]},
-              ],
-            },
-            {
-              name: 'about',
-              label: 'About Us Page',
-              file: 'about.json',
-              fields: [
-                { label: 'English Content', name: 'en', widget: 'object', fields: [
-                    { label: 'Page Title', name: 'page_title', widget: 'string' },
-                    { label: 'Header Title', name: 'header_title', widget: 'string' },
-                    { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
-                    { label: 'Admin Section Title', name: 'admin_title', widget: 'string' },
-                    { label: 'Admin Section Description', name: 'admin_desc', widget: 'text' },
-                    { label: 'Contact Section Title', name: 'contact_title', widget: 'string' },
-                    { label: 'Contact Admin Line', name: 'contact_admin', widget: 'string' },
-                    { label: 'Contact Email Line', name: 'contact_email', widget: 'string' },
-                ]},
-                { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
-                    { label: 'Page Title', name: 'page_title', widget: 'string' },
-                    { label: 'Header Title', name: 'header_title', widget: 'string' },
-                    { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
-                    { label: 'Admin Section Title', name: 'admin_title', widget: 'string' },
-                    { label: 'Admin Section Description', name: 'admin_desc', widget: 'text' },
-                    { label: 'Contact Section Title', name: 'contact_title', widget: 'string' },
-                    { label: 'Contact Admin Line', name: 'contact_admin', widget: 'string' },
-                    { label: 'Contact Email Line', name: 'contact_email', widget: 'string' },
-                ]},
-              ],
-            },
-            {
-              name: 'privacy',
-              label: 'Website Privacy Page',
-              file: 'privacy.json',
-              fields: [
-                { label: 'English Content', name: 'en', widget: 'object', fields: [
-                    { label: 'Page Title', name: 'page_title', widget: 'string' },
-                    { label: 'Header Title', name: 'header_title', widget: 'string' },
-                    { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
-                    { label: 'Introduction Title', name: 'intro_title', widget: 'string' },
-                    { label: 'Introduction Content', name: 'intro_p1', widget: 'text' },
-                    { label: 'Data Collection Title', name: 'data_collection_title', widget: 'string' },
-                    { label: 'Data Collection Content', name: 'data_collection_p1', widget: 'text' },
-                    { label: 'Types of Data Title', name: 'data_type_title', widget: 'string' },
-                    { label: 'Types of Data List (Markdown)', name: 'data_type_list', widget: 'markdown' },
-                    { label: 'Personal Info Title', name: 'data_personal_title', widget: 'string' },
-                    { label: 'Personal Info Content', name: 'data_personal_p1', widget: 'text' },
-                    { label: 'How We Use Title', name: 'data_use_title', widget: 'string' },
-                    { label: 'How We Use Content', name: 'data_use_p1', widget: 'text' },
-                    { label: 'How We Use List (Markdown)', name: 'data_use_list', widget: 'markdown' },
-                    { label: 'Sharing Title', name: 'data_sharing_title', widget: 'string' },
-                    { label: 'Sharing Content', name: 'data_sharing_p1', widget: 'text' },
-                    { label: 'Links Title', name: 'links_title', widget: 'string' },
-                    { label: 'Links Content', name: 'links_p1', widget: 'text' },
-                    { label: 'Security Title', name: 'security_title', widget: 'string' },
-                    { label: 'Security Content', name: 'security_p1', widget: 'text' },
-                    { label: 'Contact Title', name: 'contact_title', widget: 'string' },
-                    { label: 'Contact Content', name: 'contact_p1', widget: 'string' },
-                ]},
-                { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
-                    { label: 'Page Title', name: 'page_title', widget: 'string' },
-                    { label: 'Header Title', name: 'header_title', widget: 'string' },
-                    { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
-                    { label: 'Introduction Title', name: 'intro_title', widget: 'string' },
-                    { label: 'Introduction Content', name: 'intro_p1', widget: 'text' },
-                    { label: 'Data Collection Title', name: 'data_collection_title', widget: 'string' },
-                    { label: 'Data Collection Content', name: 'data_collection_p1', widget: 'text' },
-                    { label: 'Types of Data Title', name: 'data_type_title', widget: 'string' },
-                    { label: 'Types of Data List (Markdown)', name: 'data_type_list', widget: 'markdown' },
-                    { label: 'Personal Info Title', name: 'data_personal_title', widget: 'string' },
-                    { label: 'Personal Info Content', name: 'data_personal_p1', widget: 'text' },
-                    { label: 'How We Use Title', name: 'data_use_title', widget: 'string' },
-                    { label: 'How We Use Content', name: 'data_use_p1', widget: 'text' },
-                    { label: 'How We Use List (Markdown)', name: 'data_use_list', widget: 'markdown' },
-                    { label: 'Sharing Title', name: 'data_sharing_title', widget: 'string' },
-                    { label: 'Sharing Content', name: 'data_sharing_p1', widget: 'text' },
-                    { label: 'Links Title', name: 'links_title', widget: 'string' },
-                    { label: 'Links Content', name: 'links_p1', widget: 'text' },
-                    { label: 'Security Title', name: 'security_title', widget: 'string' },
-                    { label: 'Security Content', name: 'security_p1', widget: 'text' },
-                    { label: 'Contact Title', name: 'contact_title', widget: 'string' },
-                    { label: 'Contact Content', name: 'contact_p1', widget: 'string' },
-                ]},
-              ],
-            },
-            {
-              name: 'apps',
-              label: 'Applications',
-              file: 'apps.json',
-              editor: { preview: false },
-              fields: [
-                {
-                  name: 'applications', label: 'Applications', label_singular: 'Application', widget: 'list',
-                  fields: [
-                    { label: 'Slug', name: 'slug', widget: 'string' },
-                    { label: 'Is Placeholder', name: 'is_placeholder', widget: 'boolean', default: false },
-                    { label: 'App Page Link', name: 'href', widget: 'string' },
-                    { label: 'Thumbnail Image', name: 'imgSrc', widget: 'image' },
-                    { label: 'Image Alt Text', name: 'alt', widget: 'string' },
-                    { label: 'English Content', name: 'en', widget: 'object', fields: [
-                        { label: 'App Name', name: 'name', widget: 'string' },
-                        { label: 'Short Description', name: 'short_desc', widget: 'text' },
-                        { label: 'Page Title', name: 'page_title', widget: 'string' },
-                        { label: 'Header Title', name: 'header_title', widget: 'string' },
-                        { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
-                        { label: 'Intro Section Title', name: 'intro_title', widget: 'string' },
-                        { label: 'Intro Section Description', name: 'intro_desc', widget: 'markdown' },
-                        { label: 'Features Section Title', name: 'features_title', widget: 'string' },
-                        { label: 'Features Section Description', name: 'features_desc', widget: 'markdown' },
-                        { label: 'Features List', name: 'features_list', widget: 'list', fields: [{ label: 'Feature Item (HTML allowed)', name: 'item', widget: 'string' }] },
-                        { label: 'Gallery Section Title', name: 'gallery_title', widget: 'string' },
-                        { label: 'Gallery Section Description', name: 'gallery_desc', widget: 'markdown' },
-                        { label: 'How-To Section Title', name: 'howto_title', widget: 'string' },
-                        { label: 'How-To Section Description', name: 'howto_desc', widget: 'markdown' },
-                        { label: 'How-To Steps', name: 'howto_steps', widget: 'list', fields: [{ label: 'Step (HTML allowed)', name: 'item', widget: 'string' }] },
-                        { label: 'Privacy Section Title', name: 'privacy_title', widget: 'string' },
-                        { label: 'Privacy Section Description', name: 'privacy_desc', widget: 'markdown' },
-                        { label: 'Privacy Points', name: 'privacy_points', widget: 'list', fields: [{ label: 'Point (HTML allowed)', name: 'item', widget: 'string' }] },
-                        { label: 'Privacy Summary', name: 'privacy_summary', widget: 'string' },
-                        { label: 'Privacy Button Text', name: 'privacy_btn_text', widget: 'string' },
-                        { label: 'Footer Title', name: 'footer_title', widget: 'string' },
-                        { label: 'Footer Description', name: 'footer_desc', widget: 'string' },
-                        { label: 'Download Button Text', name: 'download_btn_text', widget: 'string' },
-                        { label: 'Privacy Policy Page Title', name: 'privacy_page_title', widget: 'string' },
-                        { label: 'Privacy Policy Header Title', name: 'privacy_header_title', widget: 'string' },
-                        { label: 'Privacy Policy Header Subtitle', name: 'privacy_header_subtitle', widget: 'string' },
-                        { label: 'Privacy Policy Content', name: 'privacy_content', widget: 'markdown' },
-                    ]},
-                    { label: 'Arabic Content', name: 'ar', widget: 'object', fields: [
-                        { label: 'App Name', name: 'name', widget: 'string' },
-                        { label: 'Short Description', name: 'short_desc', widget: 'text' },
-                        { label: 'Page Title', name: 'page_title', widget: 'string' },
-                        { label: 'Header Title', name: 'header_title', widget: 'string' },
-                        { label: 'Header Subtitle', name: 'header_subtitle', widget: 'string' },
-                        { label: 'Intro Section Title', name: 'intro_title', widget: 'string' },
-                        { label: 'Intro Section Description', name: 'intro_desc', widget: 'markdown' },
-                        { label: 'Features Section Title', name: 'features_title', widget: 'string' },
-                        { label: 'Features Section Description', name: 'features_desc', widget: 'markdown' },
-                        { label: 'Features List', name: 'features_list', widget: 'list', fields: [{ label: 'Feature Item (HTML allowed)', name: 'item', widget: 'string' }] },
-                        { label: 'Gallery Section Title', name: 'gallery_title', widget: 'string' },
-                        { label: 'Gallery Section Description', name: 'gallery_desc', widget: 'markdown' },
-                        { label: 'How-To Section Title', name: 'howto_title', widget: 'string' },
-                        { label: 'How-To Section Description', name: 'howto_desc', widget: 'markdown' },
-                        { label: 'How-To Steps', name: 'howto_steps', widget: 'list', fields: [{ label: 'Step (HTML allowed)', name: 'item', widget: 'string' }] },
-                        { label: 'Privacy Section Title', name: 'privacy_title', widget: 'string' },
-                        { label: 'Privacy Section Description', name: 'privacy_desc', widget: 'markdown' },
-                        { label: 'Privacy Points', name: 'privacy_points', widget: 'list', fields: [{ label: 'Point (HTML allowed)', name: 'item', widget: 'string' }] },
-                        { label: 'Privacy Summary', name: 'privacy_summary', widget: 'string' },
-                        { label: 'Privacy Button Text', name: 'privacy_btn_text', widget: 'string' },
-                        { label: 'Footer Title', name: 'footer_title', widget: 'string' },
-                        { label: 'Footer Description', name: 'footer_desc', widget: 'string' },
-                        { label: 'Download Button Text', name: 'download_btn_text', widget: 'string' },
-                        { label: 'Privacy Policy Page Title', name: 'privacy_page_title', widget: 'string' },
-                        { label: 'Privacy Policy Header Title', name: 'privacy_header_title', widget: 'string' },
-                        { label: 'Privacy Policy Header Subtitle', name: 'privacy_header_subtitle', widget: 'string' },
-                        { label: 'Privacy Policy Content', name: 'privacy_content', widget: 'markdown' },
-                    ]},
-                    { label: 'Screenshot Gallery Images', name: 'screenshots', widget: 'list', fields: [{ label: 'Image', name: 'src', widget: 'image' }] },
-                    { label: 'Google Play Store Link', name: 'play_store_link', widget: 'string', required: false },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    };
-
-    const initializeCMS = () => {
-      if (checkInterval) clearInterval(checkInterval);
-
-      let attempts = 0;
-      const maxAttempts = 20; // 10 seconds timeout
-
-      checkInterval = setInterval(() => {
-        attempts++;
-
-        if (typeof SveltiaCMS !== 'undefined') {
-          clearInterval(checkInterval);
-          try {
-            SveltiaCMS.init({ el: '#app', config });
-          } catch (e) {
-            console.error("Sveltia CMS initialization error:", e);
-            showError(
-              'CMS Initialization Failed',
-              'The Content Manager encountered a critical error during startup.',
-              'Check the browser\'s developer console for specific errors. This might be due to a malformed configuration or a bug in the CMS itself.',
-              e
-            );
-          }
-          return;
-        }
-
-        if (attempts >= maxAttempts) {
-          clearInterval(checkInterval);
-          showError(
-            'CMS Script Timed Out',
-            'The locally hosted Content Manager script failed to initialize correctly.',
-            'This could be due to a corrupted script file or a conflict within the page. Please check the browser console for errors and ensure the `sveltia-cms.js` file is present and correct.',
-            new Error('`SveltiaCMS` was not defined on the window object after the script loaded and a 10-second timeout passed.')
-          );
-        }
-      }, 500);
-    };
-
-    const init = () => {
-      showLoader();
-      initializeCMS();
-    };
-
-    document.addEventListener('DOMContentLoaded', init);
+    });
   </script>
 </body>
 </html>
