@@ -3,7 +3,7 @@ backend:
   repo: AssylEr/MedEr
   branch: main
   auth_type: pkce
-  app_id: "Ov23liXxs76aN3z4skEo"
+  app_id: Ov23liXxs76aN3z4skEo
 
 publish_mode: simple
 
