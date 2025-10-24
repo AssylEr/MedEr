@@ -221,9 +221,9 @@
         ],
       };
 
-      if (typeof SveltiaCMS !== 'undefined' && SveltiaCMS.SveltiaCMS) {
+      if (typeof sveltiaCMS !== 'undefined' && sveltiaCMS.SveltiaCMS) {
         try {
-          new SveltiaCMS.SveltiaCMS({ target: document.querySelector('#app'), props: { config } });
+          new sveltiaCMS.SveltiaCMS({ target: document.querySelector('#app'), props: { config } });
         } catch (e) {
           console.error("Sveltia CMS initialization error:", e);
           document.getElementById('app').innerHTML = `
@@ -238,7 +238,7 @@
           `;
         }
       } else {
-        console.error("SveltiaCMS object not found. The CMS script might have failed to load.");
+        console.error("sveltiaCMS object not found. The CMS script might have failed to load.");
         document.getElementById('app').innerHTML = `
           <div class="error-container">
             <h1>CMS Script Not Loaded</h1>
