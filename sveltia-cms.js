@@ -1017,7 +1017,7 @@
    * @param {Error} error - Error to be handled.
    */
   const handleException = (error) => {
-      const isDev = !!import.meta.env.DEV;
+      const isDev = false;
       // eslint-disable-next-line no-console
       console.error(error);
       alert({
