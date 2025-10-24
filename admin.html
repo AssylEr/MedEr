@@ -221,9 +221,9 @@
         ],
       };
 
-      if (typeof SveltiaCMS !== 'undefined') {
+      if (typeof SveltiaCMS !== 'undefined' && SveltiaCMS.SveltiaCMS) {
         try {
-          SveltiaCMS.init({ el: '#app', config });
+          new SveltiaCMS.SveltiaCMS({ target: document.querySelector('#app'), props: { config } });
         } catch (e) {
           console.error("Sveltia CMS initialization error:", e);
           document.getElementById('app').innerHTML = `
