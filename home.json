@@ -1,1 +1,10 @@
-{}
+{
+  "en": {
+    "header_title": "Welcome to the <span>RuyaX Universe</span>",
+    "header_subtitle": "Explore our suite of creative applications designed to bring your vision to life. Your world, your rules."
+  },
+  "ar": {
+    "header_title": "مرحباً بكم في <span>عالم RuyaX</span>",
+    "header_subtitle": "استكشف مجموعتنا من التطبيقات الإبداعية المصممة لإحياء رؤيتك. عالمك، قواعدك."
+  }
+}
