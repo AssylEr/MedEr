@@ -42,7 +42,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   async function fetchJsonData(path) {
-    const response = await fetch(path);
+    const url = `${path}?v=${new Date().getTime()}`;
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Network response was not ok for ${path}. Status: ${response.status}`);
     }
