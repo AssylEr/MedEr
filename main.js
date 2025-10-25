@@ -18,11 +18,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           comingSoon: "Coming Soon",
           footerCopyright: "&copy; 2025 RuyaX. All rights reserved.",
           learnMore: "Learn More",
-          adminPanel: "Admin Panel",
           errorTitle: "Content Error:",
           errorMessage: "We couldn't load the necessary content for the site.",
-          errorSuggestion: "Please check your network connection. If the problem persists, the content source might need to be reconfigured in the",
-          errorAdminLink: "Admin Panel"
+          errorSuggestion: "Please check your network connection."
       },
       ar: {
           navLogo: "عالم RuyaX",
@@ -37,11 +35,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           comingSoon: "قريباً",
           footerCopyright: "&copy; 2025 RuyaX. جميع الحقوق محفوظة.",
           learnMore: "اعرف المزيد",
-          adminPanel: "لوحة الإدارة",
           errorTitle: "خطأ في المحتوى:",
           errorMessage: "لم نتمكن من تحميل المحتوى اللازم للموقع.",
-          errorSuggestion: "يرجى التحقق من اتصالك بالشبكة. إذا استمرت المشكلة، فقد يلزم إعادة تكوين مصدر المحتوى في",
-          errorAdminLink: "لوحة الإدارة"
+          errorSuggestion: "يرجى التحقق من اتصالك بالشبكة."
       }
   };
 
@@ -60,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       errorDiv.className = 'global-error';
       errorDiv.innerHTML = `
         <p><strong>${t.errorTitle}</strong> ${t.errorMessage}</p>
-        <p>${t.errorSuggestion} <a href="admin.html">${t.errorAdminLink}</a>.</p>
+        <p>${t.errorSuggestion}</p>
       `;
       document.body.prepend(errorDiv);
   }
@@ -108,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const langContent = translations[lang] || translations.en;
     
     let gridHTML = '';
-    APPS_DATA.forEach(app => {
+    [...APPS_DATA].reverse().forEach(app => {
       const appContent = app[lang] || app.en;
       const cardClass = app.is_placeholder ? 'app-page-card app-page-card--placeholder' : 'app-page-card';
       const comingSoonOverlay = app.is_placeholder ? `<div class="app-placeholder-overlay"><span>${langContent.comingSoon}</span></div>` : '';
@@ -135,7 +131,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const langContent = translations[lang] || translations.en;
     let gridHTML = '';
     
-    APPS_DATA.filter(app => !app.is_placeholder).forEach(app => {
+    [...APPS_DATA].reverse().filter(app => !app.is_placeholder).forEach(app => {
       const appContent = app[lang] || app.en;
       gridHTML += `
         <div class="home-card">
@@ -239,23 +235,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const policyHtml = converter.makeHtml(content.privacy_content || '');
     setContent('privacy_content', policyHtml);
   }
-
-  function addAdminLinkToNavbar() {
-    const navMenu = document.querySelector('.nav-menu');
-    if (navMenu && !navMenu.querySelector('#nav-admin')) {
-        const langSwitcher = navMenu.querySelector('.lang-switcher');
-        const adminNavItem = document.createElement('li');
-        adminNavItem.className = 'nav-item';
-        adminNavItem.innerHTML = `<a href="admin.html" class="nav-link" id="nav-admin" data-translate-key="adminPanel">Admin Panel</a>`;
-        
-        if (langSwitcher) {
-            langSwitcher.before(adminNavItem);
-        } else {
-            navMenu.appendChild(adminNavItem);
-        }
-    }
-  }
-
 
   function setLanguage(lang) {
     currentLang = lang;
@@ -366,13 +345,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         APPS_DATA = (appsData && appsData.applications) || [];
         PAGE_DATA = pageData || {};
 
-        addAdminLinkToNavbar();
         setLanguage(currentLang);
         setActiveNav();
         initializeEventListeners();
     } catch (error) {
         displayGlobalError(currentLang, error);
-        addAdminLinkToNavbar();
         initializeEventListeners();
     }
   }
