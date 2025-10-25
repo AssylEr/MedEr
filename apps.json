@@ -1,3 +1,4 @@
+
 {
   "applications": [
     {
@@ -101,7 +102,7 @@
         { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot10.jpg" },
         { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot11.jpg" }
       ],
-      "play_store_link": "https://play.google.com/store/apps/details?id=com.appy.ruyax"
+      "download_link": "https://play.google.com/store/apps/details?id=com.appy.ruyax"
     },
     {
       "slug": "future-app-1",

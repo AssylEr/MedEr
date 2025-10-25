@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setContent('footer_title', content.footer_title);
     setContent('footer_desc', content.footer_desc);
     setContent('download_btn_text', content.download_btn_text);
-    setAttribute('download_btn', 'href', appData.play_store_link);
+    setAttribute('download_btn', 'href', appData.download_link);
 
     const gallery = document.querySelector('[data-app-prop="gallery_container"]');
     if (gallery) {
