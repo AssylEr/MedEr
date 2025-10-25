@@ -1,4 +1,3 @@
-
 {
   "applications": [
     {
@@ -18,25 +17,43 @@
         "features_title": "Unleash Your Creativity with Powerful Tools",
         "features_desc": "RuyaX empowers you to share your moments and express your unique vision. With our advanced, yet easy-to-use creation tools, your next masterpiece is just a tap away.",
         "features_list": [
-          { "item": "<strong>Advanced In-App Camera:</strong> Switch between photo and video mode, use front or back cameras, control flash, and even apply live filters to capture the perfect shot." },
-          { "item": "<strong>Perfect Your Frame:</strong> Choose from multiple aspect ratios (9:16, 16:9, 1:1) to ensure your content looks exactly how you envisioned it." },
-          { "item": "<strong>Engage & Connect:</strong> Follow your favorite creators, engage with posts through likes and comments, and have private, secure conversations with friends, complete with media and audio message sharing." }
+          {
+            "item": "<strong>Advanced In-App Camera:</strong> Switch between photo and video mode, use front or back cameras, control flash, and even apply live filters to capture the perfect shot."
+          },
+          {
+            "item": "<strong>Perfect Your Frame:</strong> Choose from multiple aspect ratios (9:16, 16:9, 1:1) to ensure your content looks exactly how you envisioned it."
+          },
+          {
+            "item": "<strong>Engage & Connect:</strong> Follow your favorite creators, engage with posts through likes and comments, and have private, secure conversations with friends, complete with media and audio message sharing."
+          }
         ],
         "gallery_title": "A Glimpse Inside RuyaX",
         "gallery_desc": "Here are some snapshots of the RuyaX experience. See how our community brings creativity to life!",
         "howto_title": "How to Get Started",
         "howto_desc": "Joining the RuyaX community is simple. Follow these easy steps to begin your journey:",
         "howto_steps": [
-          { "item": "<strong>Step 1: Sign Up Securely</strong><br>Create an account in seconds using your email or Google account. We prioritize your security from the very first step." },
-          { "item": "<strong>Step 2: Discover & Explore</strong><br>Swipe through a personalized, full-screen feed of content. The more you watch and interact, the better our recommendations become. Use the search feature to find new creators and trends." },
-          { "item": "<strong>Step 3: Create & Share</strong><br>Tap the upload button to share from your gallery, or use our in-app camera to capture a new moment. Add a title and description, and share it with the world!" }
+          {
+            "item": "<strong>Step 1: Sign Up Securely</strong><br>Create an account in seconds using your email or Google account. We prioritize your security from the very first step."
+          },
+          {
+            "item": "<strong>Step 2: Discover & Explore</strong><br>Swipe through a personalized, full-screen feed of content. The more you watch and interact, the better our recommendations become. Use the search feature to find new creators and trends."
+          },
+          {
+            "item": "<strong>Step 3: Create & Share</strong><br>Tap the upload button to share from your gallery, or use our in-app camera to capture a new moment. Add a title and description, and share it with the world!"
+          }
         ],
         "privacy_title": "Your Privacy, Your Control",
         "privacy_desc": "We believe in being upfront and clear about how we handle your data. Your trust is our top priority.",
         "privacy_points": [
-          { "item": "<strong>You Are in Control:</strong> We only require your email for account creation. You decide what other information to share on your profile, with privacy settings to control the visibility of your age, gender, and country." },
-          { "item": "<strong>A Safe Community:</strong> We provide tools to ensure your safety. Block users you don't want to interact with and report any content that violates our guidelines." },
-          { "item": "<strong>Data Deletion:</strong> You have the right to request the complete deletion of your account and all associated data directly within the app." }
+          {
+            "item": "<strong>You Are in Control:</strong> We only require your email for account creation. You decide what other information to share on your profile, with privacy settings to control the visibility of your age, gender, and country."
+          },
+          {
+            "item": "<strong>A Safe Community:</strong> We provide tools to ensure your safety. Block users you don't want to interact with and report any content that violates our guidelines."
+          },
+          {
+            "item": "<strong>Data Deletion:</strong> You have the right to request the complete deletion of your account and all associated data directly within the app."
+          }
         ],
         "privacy_summary": "This is a summary. For complete details, we encourage you to read our full Privacy Policy.",
         "privacy_btn_text": "View Full Privacy Policy",
@@ -59,25 +76,43 @@
         "features_title": "أطلق العنان لإبداعك بأدوات قوية",
         "features_desc": "يمكّنك RuyaX من مشاركة لحظاتك والتعبير عن رؤيتك الفريدة. مع أدواتنا المتقدمة وسهلة الاستخدام، فإن تحفتك الفنية التالية على بعد نقرة واحدة.",
         "features_list": [
-          { "item": "<strong>كاميرا متقدمة داخل التطبيق:</strong> بدّل بين وضع الصور والفيديو، استخدم الكاميرا الأمامية أو الخلفية، تحكم في الفلاش، وطبّق فلاتر حية لالتقاط اللقطة المثالية." },
-          { "item": "<strong>إطار مثالي:</strong> اختر من بين نسب عرض إلى ارتفاع متعددة (9:16، 16:9، 1:1) لضمان ظهور المحتوى الخاص بك تمامًا كما تخيلته." },
-          { "item": "<strong>تفاعل وتواصل:</strong> تابع المبدعين المفضلين لديك، تفاعل مع المنشورات عبر الإعجابات والتعليقات، وأجرِ محادثات خاصة وآمنة مع الأصدقاء، مع إمكانية مشاركة الوسائط والرسائل الصوتية." }
+          {
+            "item": "<strong>كاميرا متقدمة داخل التطبيق:</strong> بدّل بين وضع الصور والفيديو، استخدم الكاميرا الأمامية أو الخلفية، تحكم في الفلاش، وطبّق فلاتر حية لالتقاط اللقطة المثالية."
+          },
+          {
+            "item": "<strong>إطار مثالي:</strong> اختر من بين نسب عرض إلى ارتفاع متعددة (9:16، 16:9، 1:1) لضمان ظهور المحتوى الخاص بك تمامًا كما تخيلته."
+          },
+          {
+            "item": "<strong>تفاعل وتواصل:</strong> تابع المبدعين المفضلين لديك، تفاعل مع المنشورات عبر الإعجابات والتعليقات، وأجرِ محادثات خاصة وآمنة مع الأصدقاء، مع إمكانية مشاركة الوسائط والرسائل الصوتية."
+          }
         ],
         "gallery_title": "لمحة داخل RuyaX",
         "gallery_desc": "إليك بعض اللقطات من تجربة RuyaX. شاهد كيف يبدع مجتمعنا!",
         "howto_title": "كيف تبدأ",
         "howto_desc": "الانضمام إلى مجتمع RuyaX بسيط. اتبع هذه الخطوات السهلة لبدء رحلتك:",
         "howto_steps": [
-          { "item": "<strong>الخطوة 1: تسجيل آمن</strong><br>أنشئ حسابًا في ثوانٍ باستخدام بريدك الإلكتروني أو حساب Google. نحن نعطي الأولوية لأمنك منذ الخطوة الأولى." },
-          { "item": "<strong>الخطوة 2: اكتشف واستكشف</strong><br>تصفح موجزًا مخصصًا بملء الشاشة. كلما شاهدت وتفاعلت أكثر، أصبحت توصياتنا أفضل. استخدم ميزة البحث للعثور على مبدعين واتجاهات جديدة." },
-          { "item": "<strong>الخطوة 3: أنشئ وشارك</strong><br>انقر على زر التحميل للمشاركة من معرض الصور الخاص بك، أو استخدم الكاميرا داخل التطبيق لالتقاط لحظة جديدة. أضف عنوانًا ووصفًا، وشاركه مع العالم!" }
+          {
+            "item": "<strong>الخطوة 1: تسجيل آمن</strong><br>أنشئ حسابًا في ثوانٍ باستخدام بريدك الإلكتروني أو حساب Google. نحن نعطي الأولوية لأمنك منذ الخطوة الأولى."
+          },
+          {
+            "item": "<strong>الخطوة 2: اكتشف واستكشف</strong><br>تصفح موجزًا مخصصًا بملء الشاشة. كلما شاهدت وتفاعلت أكثر، أصبحت توصياتنا أفضل. استخدم ميزة البحث للعثور على مبدعين واتجاهات جديدة."
+          },
+          {
+            "item": "<strong>الخطوة 3: أنشئ وشارك</strong><br>انقر على زر التحميل للمشاركة من معرض الصور الخاص بك، أو استخدم الكاميرا داخل التطبيق لالتقاط لحظة جديدة. أضف عنوانًا ووصفًا، وشاركه مع العالم!"
+          }
         ],
         "privacy_title": "خصوصيتك تحت سيطرتك",
         "privacy_desc": "نؤمن بالشفافية والوضوح في كيفية تعاملنا مع بياناتك. ثقتك هي أولويتنا القصوى.",
         "privacy_points": [
-          { "item": "<strong>أنت المتحكم:</strong> نطلب فقط بريدك الإلكتروني لإنشاء الحساب. أنت تقرر المعلومات الأخرى التي تشاركها في ملفك الشخصي، مع إعدادات الخصوصية للتحكم في رؤية عمرك وجنسك وبلدك." },
-          { "item": "<strong>مجتمع آمن:</strong> نوفر أدوات لضمان سلامتك. احظر المستخدمين الذين لا تريد التفاعل معهم وأبلغ عن أي محتوى ينتهك إرشاداتنا." },
-          { "item": "<strong>حذف البيانات:</strong> لديك الحق في طلب الحذف الكامل لحسابك وجميع البيانات المرتبطة به مباشرة من داخل التطبيق." }
+          {
+            "item": "<strong>أنت المتحكم:</strong> نطلب فقط بريدك الإلكتروني لإنشاء الحساب. أنت تقرر المعلومات الأخرى التي تشاركها في ملفك الشخصي، مع إعدادات الخصوصية للتحكم في رؤية عمرك وجنسك وبلدك."
+          },
+          {
+            "item": "<strong>مجتمع آمن:</strong> نوفر أدوات لضمان سلامتك. احظر المستخدمين الذين لا تريد التفاعل معهم وأبلغ عن أي محتوى ينتهك إرشاداتنا."
+          },
+          {
+            "item": "<strong>حذف البيانات:</strong> لديك الحق في طلب الحذف الكامل لحسابك وجميع البيانات المرتبطة به مباشرة من داخل التطبيق."
+          }
         ],
         "privacy_summary": "هذا ملخص. للحصول على التفاصيل الكاملة، نشجعك على قراءة سياسة الخصوصية الكاملة الخاصة بنا.",
         "privacy_btn_text": "عرض سياسة الخصوصية الكاملة",
@@ -90,26 +125,121 @@
         "privacy_content": "### مقدمة\n\nتنطبق سياسة الخصوصية هذه تحديدًا على تطبيق الهاتف المحمول RuyaX (\"التطبيق\"). وهي توضح كيفية جمعنا واستخدامنا وحماية معلوماتك عند استخدامك لتطبيقنا. للحصول على معلومات بخصوص موقعنا الإلكتروني، يرجى الاطلاع على [سياسة خصوصية الموقع الإلكتروني](privacy.html).\n\n### المعلومات التي نجمعها\n\n#### المعلومات التي تقدمها لنا\n*   **معلومات الحساب:** عند إنشاء حساب RuyaX، فإنك تزودنا بمعلومات مثل عنوان بريدك الإلكتروني واسم المستخدم وكلمة المرور. يمكنك أيضًا اختيار إضافة المزيد من المعلومات إلى ملفك الشخصي، مثل صورة الملف الشخصي، والسيرة الذاتية، والعمر، والجنس، والبلد.\n*   **المحتوى:** نقوم بجمع المحتوى الذي تنشئه على التطبيق، بما في ذلك الصور ومقاطع الفيديو التي تحمّلها، والتعليقات التي تنشرها، والبيانات الوصفية المرتبطة بهذا المحتوى.\n*   **الاتصالات:** نقوم بجمع المعلومات عندما تتواصل معنا (على سبيل المثال، لدعم العملاء) أو مع الآخرين من خلال ميزات المراسلة في التطبيق، بما في ذلك محتوى الرسائل والوسائط والملاحظات الصوتية.\n\n#### المعلومات التي نجمعها تلقائيًا\n*   **معلومات الاستخدام:** نقوم بجمع معلومات حول نشاطك على التطبيق، مثل مقاطع الفيديو التي تشاهدها، والمبدعين الذين تتابعهم، وكيفية تفاعلك مع المحتوى والميزات.\n*   **معلومات الجهاز:** نقوم بجمع معلومات من وعن الأجهزة التي تستخدمها، مثل عنوان IP الخاص بك، ونوع الجهاز، ونظام التشغيل، ومعرفات الجهاز الفريدة.\n\n#### الأذونات\n*   **الكاميرا والصور/الفيديو:** نطلب الوصول إلى الكاميرا ومكتبة الصور/الفيديو الخاصة بك حتى تتمكن من إنشاء وتحميل محتوى مرئي، وهي ميزة أساسية في التطبيق.\n*   **الميكروفون:** نطلب الوصول إلى الميكروفون الخاص بك للسماح لك بتسجيل الصوت لمقاطع الفيديو الخاصة بك وإرسال رسائل صوتية في المحادثات.\n\n### كيف نستخدم معلوماتك\n\nنحن نستخدم معلوماتك من أجل:\n\n*   توفير التطبيق وميزاته وصيانتها وتحسينها.\n*   تخصيص تجربتك من خلال عرض محتوى نعتقد أنه سيهمك.\n*   السماح لك بالاتصال والتواصل مع المستخدمين الآخرين.\n*   التواصل معك، بما في ذلك الدعم الفني والإعلانات المتعلقة بالخدمة.\n*   تطبيق شروطنا وشروطنا وسياساتنا لضمان سلامة وأمن مجتمعنا.\n\n### كيف نشارك معلوماتك\n\nقد نشارك معلوماتك في الحالات التالية:\n\n*   **مع المستخدمين الآخرين:** معلومات ملفك الشخصي (اسم المستخدم، صورة الملف الشخصي) والمحتوى الذي تنشره تكون مرئية للمستخدمين الآخرين. يعتمد مدى مشاركة المحتوى الخاص بك على إعدادات جمهورك.\n*   **لأسباب قانونية:** قد نشارك المعلومات إذا كنا نعتقد أنها مطلوبة بموجب القانون أو لحماية حقوق أو ممتلكات أو سلامة RuyaX أو مستخدمينا أو الآخرين.\n\n### خياراتك وتحكمك\n\nلديك السيطرة على معلوماتك. داخل التطبيق، يمكنك:\n\n*   الوصول إلى معلومات ملفك الشخصي وتحديثها في أي وقت.\n*   التحكم في من يمكنه رؤية المحتوى الخاص بك.\n*   حذف حسابك بشكل دائم من خلال قائمة الإعدادات، مما سيؤدي أيضًا إلى حذف بياناتك.\n*   حظر المستخدمين الآخرين والإبلاغ عن المحتوى الذي ينتهك سياساتنا.\n\n### اتصل بنا\n\nإذا كانت لديك أسئلة حول سياسة خصوصية التطبيق هذه، يرجى الاتصال بنا على: <a href='mailto:contact@ruyax.dev'>contact@ruyax.dev</a>"
       },
       "screenshots": [
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot2.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot3.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot4.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot5.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot6.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot7.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot8.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot9.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot10.jpg" },
-        { "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot11.jpg" }
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot1.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot2.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot3.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot4.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot5.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot6.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot7.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot8.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot9.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot10.jpg"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/AssylEr/MedEr/main/Screenshot11.jpg"
+        }
       ],
       "download_link": "https://play.google.com/store/apps/details?id=com.appy.ruyax"
     },
     {
-      "slug": "future-app-1",
-      "is_placeholder": true,
-      "href": "#",
-      "imgSrc": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=400&auto=format&fit=crop",
-      "alt": "Future App"
+      "imgSrc": "1000035949.png",
+      "download_link": "",
+      "en": {
+        "name": "Puzzle games",
+        "short_desc": "Challenging puzzles, engaging gameplay, and endless fun await you. Train your brain daily!",
+        "intro_desc": "Puzzle games is more than just an app; it's a gateway to improving your cognitive skills while having an absolute blast. From classic jigsaws to innovative logic challenges, our diverse collection promises hours of entertainment for puzzle enthusiasts of all ages.",
+        "privacy_content": "This Privacy Policy describes how Puzzle games collects, uses, and discloses information from and about you when you use our mobile application. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy or our practices with regard to your personal information, please contact us. Information We Collect: We do not collect any personally identifiable information (PII) from users. We may collect non-personal data such as device information (model, OS version), app usage statistics (features used, time spent), and crash reports to improve app performance and user experience. This data is aggregated and anonymized. How We Use Information: The non-personal data collected is used solely to analyze app performance, identify bugs, and enhance future updates. We do not use this data to identify individual users. Data Security: We implement appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please remember that we cannot guarantee that the internet itself is 100% secure. Third-Party Services: Our app may contain links to other websites or services not operated by us. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services. Children's Privacy: We do not knowingly solicit data from or market to children under 13 years of age. Changes to This Privacy Policy: We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy within the app. Contact Us: If you have questions or comments about this policy, you may contact us.",
+        "page_title": "Puzzle games - Your Daily Brain Challenge!",
+        "header_title": "Unlock Endless Fun & Sharpen Your Mind!",
+        "header_subtitle": "Dive into a captivating world of logic, strategy, and pure enjoyment.",
+        "intro_title": "Welcome to Your Next Obsession",
+        "features_title": "Key Features Designed for You",
+        "features_desc": "Discover what makes Puzzle games the ultimate brain-training companion: - **Diverse Puzzle Categories**: Explore jigsaws, sudoku, crosswords, logic grids, and more! - **Daily Challenges**: Keep your mind sharp with fresh, new puzzles every day. - **Intuitive Interface**: Easy to navigate and play, perfect for all skill levels. - **Stunning Graphics & Sound**: Immerse yourself in a beautifully designed gaming experience. - **Offline Play**: Enjoy your favorite puzzles anytime, anywhere, without an internet connection.",
+        "gallery_title": "See the Fun in Action",
+        "gallery_desc": "A glimpse into the vibrant and challenging world of Puzzle games. Get ready to be captivated!",
+        "howto_title": "Master the Art of Puzzling",
+        "howto_desc": "Getting started with Puzzle games is simple: 1. **Choose Your Game**: Select from a wide array of puzzle categories. 2. **Pick Your Difficulty**: Start easy or challenge yourself with expert levels. 3. **Drag, Drop, & Solve**: Use intuitive controls to complete puzzles. 4. **Track Your Progress**: See how you improve and conquer new challenges!",
+        "privacy_title": "Your Privacy Matters",
+        "privacy_desc": "We are committed to protecting your privacy. Learn how we handle your data responsibly.",
+        "privacy_summary": "At Puzzle games, we respect your privacy. We collect minimal data, primarily for app functionality and improvement, and never share or sell your personal information to third parties. Your data is secure with us.",
+        "privacy_btn_text": "View Privacy Policy",
+        "footer_title": "Start Your Puzzle Adventure Today!",
+        "footer_desc": "Join millions of players worldwide. Download Puzzle games and challenge your brain!",
+        "download_btn_text": "Download Now",
+        "privacy_page_title": "Puzzle games - Privacy Policy",
+        "privacy_header_title": "Privacy Policy for Puzzle games",
+        "privacy_header_subtitle": "Understanding how we protect your personal information.",
+        "features_list": [],
+        "howto_steps": [],
+        "privacy_points": []
+      },
+      "ar": {
+        "name": "لعبة البازل العصرية",
+        "short_desc": "ألغاز محيرة، أسلوب لعب ممتع، ومتعة لا حدود لها في انتظارك. درب عقلك يومياً!",
+        "intro_desc": "لعبة البازل العصرية هي أكثر من مجرد تطبيق؛ إنها بوابتك لتحسين مهاراتك الإدراكية بينما تستمتع بوقتك إلى أقصى حد. من أحاجي الصور المقطوعة الكلاسيكية إلى تحديات المنطق المبتكرة، تعد مجموعتنا المتنوعة بساعات من الترفيه لعشاق الألغاز من جميع الأعمار.",
+        "privacy_content": "تصف سياسة الخصوصية هذه كيفية قيام لعبة البازل العصرية بجمع المعلومات واستخدامها والكشف عنها منك وعنك عند استخدام تطبيقنا المحمول. نحن ملتزمون بحماية معلوماتك الشخصية وحقك في الخصوصية. إذا كانت لديك أي أسئلة أو مخاوف بشأن سياستنا أو ممارساتنا فيما يتعلق بمعلوماتك الشخصية، فيرجى الاتصال بنا. المعلومات التي نجمعها: لا نجمع أي معلومات تعريف شخصية (PII) من المستخدمين. قد نجمع بيانات غير شخصية مثل معلومات الجهاز (النموذج، إصدار نظام التشغيل)، إحصائيات استخدام التطبيق (الميزات المستخدمة، الوقت المستغرق)، وتقارير الأعطال لتحسين أداء التطبيق وتجربة المستخدم. يتم تجميع هذه البيانات وإخفائها. كيف نستخدم المعلومات: تُستخدم البيانات غير الشخصية التي تم جمعها فقط لتحليل أداء التطبيق، وتحديد الأخطاء، وتعزيز التحديثات المستقبلية. لا نستخدم هذه البيانات لتحديد هوية المستخدمين الفرديين. أمان البيانات: نطبق تدابير أمنية تقنية وتنظيمية مناسبة مصممة لحماية أمان أي معلومات شخصية نعالجها. ومع ذلك، يرجى تذكر أننا لا نستطيع ضمان أن الإنترنت نفسه آمن بنسبة 100%. خدمات الطرف الثالث: قد يحتوي تطبيقنا على روابط لمواقع ويب أو خدمات أخرى لا تديرها نحن. ليس لدينا أي سيطرة على محتوى أو سياسات الخصوصية أو ممارسات أي مواقع أو خدمات طرف ثالث ولا نتحمل أي مسؤولية عنها. خصوصية الأطفال: لا نطلب عن علم بيانات من الأطفال دون سن 13 عاماً أو نسوق لهم. تغييرات على سياسة الخصوصية هذه: قد نقوم بتحديث سياسة الخصوصية الخاصة بنا من وقت لآخر. سنعلمك بأي تغييرات عن طريق نشر سياسة الخصوصية الجديدة داخل التطبيق. اتصل بنا: إذا كانت لديك أسئلة أو تعليقات حول هذه السياسة، يمكنك الاتصال بنا.",
+        "page_title": "لعبة البازل العصرية - تحدي ذكاء يومي لا مثيل له!",
+        "header_title": "أطلق العنان لمتعة لا نهاية لها واشحذ ذهنك!",
+        "header_subtitle": "اغمر نفسك في عالم آسر من المنطق، الاستراتيجية، والمتعة المطلقة.",
+        "intro_title": "مرحباً بك في إدمانك الجديد",
+        "features_title": "ميزات رئيسية صُممت لأجلك",
+        "features_desc": "اكتشف ما يجعل لعبة البازل العصرية رفيقك الأمثل لتدريب الدماغ: - **فئات ألغاز متنوعة**: استكشف ألغاز الصور المقطوعة، سودوكو، الكلمات المتقاطعة، شبكات المنطق، والمزيد! - **تحديات يومية**: حافظ على حدة ذهنك بألغاز جديدة ومنعشة كل يوم. - **واجهة سهلة الاستخدام**: سهلة التصفح واللعب، مثالية لجميع مستويات المهارة. - **رسومات وأصوات مذهلة**: اغمر نفسك في تجربة لعب مصممة بجمالية رائعة. - **اللعب دون اتصال**: استمتع بألغازك المفضلة في أي وقت، في أي مكان، دون الحاجة لاتصال بالإنترنت.",
+        "gallery_title": "شاهد المتعة في العمل",
+        "gallery_desc": "لمحة عن عالم لعبة البازل العصرية النابض بالحياة والتحدي. استعد للانبهار!",
+        "howto_title": "أتقن فن حل الألغاز",
+        "howto_desc": "البدء مع لعبة البازل العصرية بسيط: 1. **اختر لعبتك**: حدد من مجموعة واسعة من فئات الألغاز. 2. **اختر مستوى الصعوبة**: ابدأ بسهولة أو تحدى نفسك بمستويات الخبراء. 3. **اسحب، أسقط، وحل**: استخدم عناصر التحكم البديهية لإكمال الألغاز. 4. **تتبع تقدمك**: شاهد كيف تتحسن وتتغلب على تحديات جديدة!",
+        "privacy_title": "خصوصيتك تهمنا",
+        "privacy_desc": "نحن ملتزمون بحماية خصوصيتك. تعرف على كيفية تعاملنا مع بياناتك بمسؤولية.",
+        "privacy_summary": "في لعبة البازل العصرية، نحترم خصوصيتك. نجمع الحد الأدنى من البيانات، بشكل أساسي لوظائف التطبيق وتحسينه، ولا نشارك أو نبيع معلوماتك الشخصية لأطراف ثالثة أبداً. بياناتك آمنة معنا.",
+        "privacy_btn_text": "عرض سياسة الخصوصية",
+        "footer_title": "ابدأ مغامرة الألغاز اليوم!",
+        "footer_desc": "انضم إلى ملايين اللاعبين حول العالم. حمل لعبة البازل العصرية وتحدى ذهنك!",
+        "download_btn_text": "حمل الآن",
+        "privacy_page_title": "لعبة البازل العصرية - سياسة الخصوصية",
+        "privacy_header_title": "سياسة الخصوصية للعبة البازل العصرية",
+        "privacy_header_subtitle": "فهم كيفية حمايتنا لمعلوماتك الشخصية.",
+        "features_list": [],
+        "howto_steps": [],
+        "privacy_points": []
+      },
+      "slug": "puzzle-games",
+      "is_placeholder": false,
+      "alt": "",
+      "screenshots": [
+        {
+          "src": "1000035909.jpg"
+        },
+        {
+          "src": "1000035910.jpg"
+        },
+        {
+          "src": "1000036151.jpg"
+        },
+        {
+          "src": "1000036152.jpg"
+        }
+      ],
+      "href": "app.html?slug=puzzle-games"
     }
   ]
 }
