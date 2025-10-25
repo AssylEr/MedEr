@@ -1,3 +1,4 @@
+
 {
   "en": {
     "page_title": "Privacy Policy - RuyaX Universe Website",
@@ -21,7 +22,8 @@
     "security_title": "Security",
     "security_p1": "We are committed to ensuring that your information is secure. While no method of transmission over the Internet is 100% secure, we take reasonable steps to protect the limited data related to our website's operation.",
     "contact_title": "Contact Us",
-    "contact_p1": "If you have questions or comments about this Privacy Policy, please contact us at:"
+    "contact_p1": "If you have questions or comments about this Privacy Policy, please contact us at:",
+    "contact_email_address": "contact@ruyax.dev"
   },
   "ar": {
     "page_title": "سياسة الخصوصية - موقع RuyaX Universe",
@@ -45,6 +47,7 @@
     "security_title": "الأمان",
     "security_p1": "نحن ملتزمون بضمان أمان معلوماتكم. في حين أنه لا توجد طريقة نقل عبر الإنترنت آمنة 100٪، فإننا نتخذ خطوات معقولة لحماية البيانات المحدودة المتعلقة بتشغيل موقعنا.",
     "contact_title": "اتصل بنا",
-    "contact_p1": "إذا كانت لديكم أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا على:"
+    "contact_p1": "إذا كانت لديكم أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا على:",
+    "contact_email_address": "contact@ruyax.dev"
   }
 }

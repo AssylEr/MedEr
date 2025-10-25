@@ -42,8 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   async function fetchJsonData(path) {
-    const url = `${path}?v=${new Date().getTime()}`;
-    const response = await fetch(url);
+    const response = await fetch(path);
     if (!response.ok) {
       throw new Error(`Network response was not ok for ${path}. Status: ${response.status}`);
     }
@@ -84,11 +83,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('[data-page-prop]').forEach(el => {
         const key = el.dataset.pageProp;
         if (content[key] !== undefined) {
+          const value = content[key];
           if (el.dataset.pageProp.endsWith('_list') || el.dataset.pageProp.endsWith('_desc')) {
               const converter = new showdown.Converter();
-              el.innerHTML = converter.makeHtml(content[key]);
+              el.innerHTML = converter.makeHtml(value);
           } else {
-              el.innerHTML = content[key];
+              el.innerHTML = value;
+          }
+          if (el.classList.contains('contact-email-link')) {
+            el.href = 'mailto:' + value;
           }
         }
     });
