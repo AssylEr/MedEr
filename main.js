@@ -345,9 +345,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const socials = [
-        { name: 'Facebook', href: '#', icon: svgIcons.facebook },
-        { name: 'YouTube', href: '#', icon: svgIcons.youtube },
-        { name: 'Twitter', href: '#', icon: svgIcons.twitter }
+        { name: 'Facebook', href: 'https://Facebook.com/', icon: svgIcons.facebook },
+        { name: 'YouTube', href: 'https://youtube.com/@wild-flash?si=9dmKfl-wtMubh1_p', icon: svgIcons.youtube },
+        { name: 'Twitter', href: 'https://twitter.com/', icon: svgIcons.twitter }
     ];
 
     socials.forEach(social => {
