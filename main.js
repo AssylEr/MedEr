@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       gridHTML += `
         <a href="${href}" class="${cardClass}">
-          <img src="${app.imgSrc}" alt="${app.alt}" loading="lazy">
+          <img src="${app.imgSrc}" alt="${app.alt}">
           ${comingSoonOverlay}
           <div class="app-page-card__content">
             <h3>${appName}</h3>
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const appContent = app[lang] || app.en;
       gridHTML += `
         <div class="home-card">
-          <img src="${app.imgSrc}" alt="${app.alt}" class="home-card__image" loading="lazy">
+          <img src="${app.imgSrc}" alt="${app.alt}" class="home-card__image">
           <div class="home-card__content">
               <h2>${appContent.name}</h2>
               <p>${appContent.short_desc}</p>
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const gallery = document.querySelector('[data-app-prop="gallery_container"]');
     if (gallery) {
         gallery.innerHTML = (appData.screenshots || []).map(img => `
-            <div class="screenshot-placeholder"><img src="${img.src}" alt="Screenshot" loading="lazy"></div>
+            <div class="screenshot-placeholder"><img src="${img.src}" alt="Screenshot"></div>
         `).join('');
         initializeLightboxForGallery();
     }
@@ -400,4 +400,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         let pageDataPath;
         if (bodyId === 'home-page') pageDataPath = 'home.json';
         else if (bodyId === 'about-page') pageDataPath = 'about.json';
-        else if (bodyId === 'privacy-page')
+        else if (bodyId === 'privacy-page') pageDataPath = 'privacy.json';
+
+        const [appsData, pageData] = await Promise.all([
+            fetchJsonData('apps.json'),
+            pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
+        ]);
+
+        APPS_DATA = (appsData && appsData.applications) || [];
+        PAGE_DATA = pageData || {};
+
+        setLanguage(currentLang);
+        setActiveNav();
+        initializeEventListeners();
+        injectSocialLinks();
+    } catch (error) {
+        displayGlobalError(currentLang, error);
+        initializeEventListeners();
+    }
+  }
+
+  initializeApp();
+});
