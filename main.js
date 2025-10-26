@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           appsPageSubtitle: "Discover the tools we've built to empower your creativity.",
           futureAppTitle: "Future App",
           comingSoon: "Coming Soon",
-          footerCopyright: "&copy; 2025 RuyaX. All rights reserved.",
+          footerCopyright: "&copy; 2025 RuyaX Universe. All rights reserved.",
           learnMore: "Learn More",
           errorTitle: "Content Error:",
           errorMessage: "We couldn't load the necessary content for the site.",
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           appsPageSubtitle: "اكتشف الأدوات التي أنشأناها لتمكين إبداعك.",
           futureAppTitle: "تطبيق مستقبلي",
           comingSoon: "قريباً",
-          footerCopyright: "&copy; 2025 RuyaX. جميع الحقوق محفوظة.",
+          footerCopyright: "&copy; 2025 RuyaX Universe. جميع الحقوق محفوظة.",
           learnMore: "اعرف المزيد",
           errorTitle: "خطأ في المحتوى:",
           errorMessage: "لم نتمكن من تحميل المحتوى اللازم للموقع.",
@@ -327,6 +327,215 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   }
 
+  function addSocialLinksToFooter() {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const copyrightEl = footer.querySelector('p[data-translate-key="footerCopyright"]');
+    if (!copyrightEl) return;
+
+    const socialContainer = document.createElement('div');
+    socialContainer.className = 'social-links';
+
+    const svgIcons = {
+      facebook: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-1.5c-1 0-1.5.5-1.5 1.5V12h3l-.5 3h-2.5v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>`,
+      youtube: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>`,
+      twitter: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10zm-6.46 2.45c.42.42.42 1.1 0 1.52-.42.42-1.1.42-1.52 0L12 13.52l-2.02 2.45c-.42.42-1.1.42-1.52 0-.42-.42-.42-1.1 0-1.52L10.48 12 8.45 9.55c-.42-.42-.42-1.1 0-1.52.42-.42 1.1-.42 1.52 0L12 10.48l2.02-2.45c.42-.42 1.1-.42 1.52 0 .42.42.42 1.1 0 1.52L13.52 12l2.02 2.45z"/></svg>`,
+      share: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>`
+    };
+
+    const socials = [
+        { name: 'Facebook', href: '#', icon: svgIcons.facebook },
+        { name: 'YouTube', href: '#', icon: svgIcons.youtube },
+        { name: 'Twitter', href: '#', icon: svgIcons.twitter }
+    ];
+
+    socials.forEach(social => {
+        const link = document.createElement('a');
+        link.href = social.href;
+        link.className = 'social-link';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.setAttribute('aria-label', social.name);
+        link.innerHTML = social.icon;
+        socialContainer.appendChild(link);
+    });
+
+    if (navigator.share) {
+        const shareButton = document.createElement('button');
+        shareButton.className = 'social-link';
+        shareButton.setAttribute('aria-label', 'Share');
+        shareButton.innerHTML = svgIcons.share;
+        shareButton.addEventListener('click', async () => {
+            try {
+                await navigator.share({
+                    title: document.title,
+                    text: `Check out this page from RuyaX Universe!`,
+                    url: window.location.href,
+                });
+            } catch (err) {
+                console.error('Share failed:', err);
+            }
+        });
+        socialContainer.appendChild(shareButton);
+    }
+    
+    footer.insertBefore(socialContainer, copyrightEl);
+  }
+
+  async function initializeChatbot() {
+    let ai;
+    let siteContext = '';
+    let GoogleGenAI;
+    let isAiResponding = false;
+    const chatHistory = [];
+
+    async function buildSiteContext() {
+        if (siteContext) return siteContext;
+        try {
+            const [apps, home, about, privacy] = await Promise.all([
+                fetchJsonData('apps.json').catch(e => ({})),
+                fetchJsonData('home.json').catch(e => ({})),
+                fetchJsonData('about.json').catch(e => ({})),
+                fetchJsonData('privacy.json').catch(e => ({}))
+            ]);
+            const combinedContext = {
+                "Our_Applications": apps,
+                "Home_Page_Info": home,
+                "About_Us_Info": about,
+                "Website_Privacy_Policy": privacy
+            };
+            siteContext = JSON.stringify(combinedContext);
+            return siteContext;
+        } catch (error) {
+            console.error("Could not build site context for AI:", error);
+            return null;
+        }
+    }
+
+    function createChatUI() {
+        const chatContainer = document.createElement('div');
+        chatContainer.id = 'ai-chat-container';
+        chatContainer.innerHTML = `
+            <div id="chat-bubble" role="button" aria-label="Open AI Assistant" tabindex="0">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 16V4h7v5h5v7H6z"></path><path d="M15 18H6v-2h9v2zm3-4H6v-2h12v2z"></path></svg>
+            </div>
+            <div id="chat-window" class="chat-window" aria-hidden="true">
+                <div class="chat-header">
+                    <h3>RuyaX AI Assistant</h3>
+                    <button id="close-chat-btn" aria-label="Close Chat">&times;</button>
+                </div>
+                <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
+                <div id="chat-typing-indicator" class="typing-indicator" style="display: none;">
+                    <span></span><span></span><span></span>
+                </div>
+                <form id="chat-input-form" class="chat-input-form">
+                    <input type="text" id="chat-input" placeholder="Ask about RuyaX..." autocomplete="off" required>
+                    <button type="submit" aria-label="Send Message">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </form>
+            </div>
+        `;
+        document.body.appendChild(chatContainer);
+    }
+
+    function toggleChat(open) {
+        const bubble = document.getElementById('chat-bubble');
+        const windowEl = document.getElementById('chat-window');
+        if (open) {
+            windowEl.classList.add('open');
+            windowEl.setAttribute('aria-hidden', 'false');
+            bubble.classList.add('hidden');
+            document.getElementById('chat-input').focus();
+            if (!GoogleGenAI) {
+                initializeAiLibrary();
+            }
+        } else {
+            windowEl.classList.remove('open');
+            windowEl.setAttribute('aria-hidden', 'true');
+            bubble.classList.remove('hidden');
+        }
+    }
+
+    async function initializeAiLibrary() {
+        try {
+            const module = await import("https://cdn.jsdelivr.net/npm/@google/genai/+esm");
+            GoogleGenAI = module.GoogleGenAI;
+            ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            addMessage('ai', currentLang === 'ar' ? 'مرحباً! كيف يمكنني مساعدتك اليوم بخصوص عالم RuyaX؟' : 'Hello! How can I help you today regarding the RuyaX Universe?');
+            if (!siteContext) buildSiteContext();
+        } catch (e) {
+            console.error("Failed to load or initialize Gemini API:", e);
+            addMessage('ai', 'Sorry, the AI assistant is currently unavailable.');
+        }
+    }
+
+    async function handleUserMessage(event) {
+        event.preventDefault();
+        const input = document.getElementById('chat-input');
+        const message = input.value.trim();
+        if (!message || isAiResponding) return;
+        addMessage('user', message);
+        input.value = '';
+
+        if (!ai) {
+            addMessage('ai', 'Sorry, the AI assistant is not available at the moment.');
+            return;
+        }
+
+        isAiResponding = true;
+        document.getElementById('chat-typing-indicator').style.display = 'flex';
+        document.querySelector('#chat-input-form button').disabled = true;
+
+        try {
+            const context = await buildSiteContext();
+            if (!context) throw new Error("Site context is not available.");
+            
+            const systemInstruction = `You are RuyaX AI, a friendly and helpful assistant for the RuyaX Universe website. Your goal is to answer user questions about RuyaX, its apps, and its policies. You must ONLY use the information provided in the following context. Do not use any external knowledge. If the user asks a question that cannot be answered from the context, politely say that you can only answer questions about the RuyaX Universe. Answer in the same language as the user's question (e.g., Arabic or English). Keep your answers concise and helpful. Do not reveal that you are an AI model. Context: ${context}`;
+            
+            const response = await ai.models.generateContent({
+                model: 'gemini-2.5-flash',
+                contents: message,
+                config: {
+                    systemInstruction: systemInstruction,
+                }
+            });
+
+            addMessage('ai', response.text);
+        } catch (error) {
+            console.error("Error communicating with AI:", error);
+            addMessage('ai', 'Sorry, I encountered an error. Please try again.');
+        } finally {
+            isAiResponding = false;
+            document.getElementById('chat-typing-indicator').style.display = 'none';
+            document.querySelector('#chat-input-form button').disabled = false;
+        }
+    }
+
+    function addMessage(sender, text) {
+        const messagesContainer = document.getElementById('chat-messages');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', `${sender}-message`);
+        const p = document.createElement('p');
+        p.textContent = text;
+        messageElement.appendChild(p);
+        messagesContainer.appendChild(messageElement);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        chatHistory.push({ role: sender, parts: [{ text }] });
+    }
+
+    function setupEventListeners() {
+        document.getElementById('chat-bubble').addEventListener('click', () => toggleChat(true));
+        document.getElementById('chat-bubble').addEventListener('keydown', (e) => { if(e.key === 'Enter') toggleChat(true);});
+        document.getElementById('close-chat-btn').addEventListener('click', () => toggleChat(false));
+        document.getElementById('chat-input-form').addEventListener('submit', handleUserMessage);
+    }
+
+    createChatUI();
+    setupEventListeners();
+  }
+
   async function initializeApp() {
     await loadSharedComponents();
     
@@ -348,6 +557,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         setLanguage(currentLang);
         setActiveNav();
         initializeEventListeners();
+        addSocialLinksToFooter();
+
+        try {
+            await initializeChatbot();
+        } catch (error) {
+            console.warn("Chatbot could not be initialized:", error);
+        }
+
     } catch (error) {
         displayGlobalError(currentLang, error);
         initializeEventListeners();
