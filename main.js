@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
+  // Dynamically add Google AdSense script
+  try {
+    const adScript = document.createElement('script');
+    adScript.async = true;
+    adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8230939815999409';
+    adScript.crossOrigin = 'anonymous';
+    document.head.appendChild(adScript);
+  } catch (e) {
+    console.error('Failed to add AdSense script:', e);
+  }
+
   let APPS_DATA = [];
   let PAGE_DATA = {};
   let currentLang = localStorage.getItem('userLanguage') || (navigator.language.startsWith('ar') ? 'ar' : 'en');
@@ -346,7 +357,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const socials = [
         { name: 'Facebook', href: '#', icon: svgIcons.facebook },
-        { name: 'YouTube', href: 'https://youtube.com/@wild-flash?si=ISrziAS5gy87RWXf', icon: svgIcons.youtube },
+        { name: 'YouTube', href: '#', icon: svgIcons.youtube },
         { name: 'Twitter', href: '#', icon: svgIcons.twitter }
     ];
 
