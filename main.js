@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       gridHTML += `
         <a href="${href}" class="${cardClass}">
-          <img src="${app.imgSrc}" alt="${app.alt}">
+          <img src="${app.imgSrc}" alt="${app.alt}" loading="lazy">
           ${comingSoonOverlay}
           <div class="app-page-card__content">
             <h3>${appName}</h3>
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const appContent = app[lang] || app.en;
       gridHTML += `
         <div class="home-card">
-          <img src="${app.imgSrc}" alt="${app.alt}" class="home-card__image">
+          <img src="${app.imgSrc}" alt="${app.alt}" class="home-card__image" loading="lazy">
           <div class="home-card__content">
               <h2>${appContent.name}</h2>
               <p>${appContent.short_desc}</p>
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const gallery = document.querySelector('[data-app-prop="gallery_container"]');
     if (gallery) {
         gallery.innerHTML = (appData.screenshots || []).map(img => `
-            <div class="screenshot-placeholder"><img src="${img.src}" alt="Screenshot"></div>
+            <div class="screenshot-placeholder"><img src="${img.src}" alt="Screenshot" loading="lazy"></div>
         `).join('');
         initializeLightboxForGallery();
     }
@@ -331,6 +331,67 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   }
 
+  function injectSocialLinks() {
+    // --- قم بتغيير روابط التواصل الاجتماعي الخاصة بك هنا ---
+    const socialUrls = {
+      youtube: 'https://youtube.com/your-channel',
+      facebook: 'https://facebook.com/your-page'
+    };
+    // -----------------------------------------
+
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const socialContainer = document.createElement('div');
+    socialContainer.className = 'social-links';
+
+    const youtubeLink = document.createElement('a');
+    youtubeLink.href = socialUrls.youtube;
+    youtubeLink.className = 'social-icon';
+    youtubeLink.target = '_blank';
+    youtubeLink.rel = 'noopener noreferrer';
+    youtubeLink.setAttribute('aria-label', 'Visit our YouTube channel');
+    youtubeLink.innerHTML = `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.25,4,12,4,12,4S5.75,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.75,2,12,2,12s0,4.25,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.75,20,12,20,12,20s6.25,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.25,22,12,22,12S22,7.75,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"></path></svg>`;
+
+    const facebookLink = document.createElement('a');
+    facebookLink.href = socialUrls.facebook;
+    facebookLink.className = 'social-icon';
+    facebookLink.target = '_blank';
+    facebookLink.rel = 'noopener noreferrer';
+    facebookLink.setAttribute('aria-label', 'Visit our Facebook page');
+    facebookLink.innerHTML = `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M22,12c0-5.52-4.48-10-10-10S2,6.48,2,12c0,4.84,3.44,8.87,8,9.8V15H8v-3h2V9.5C10,7.57,11.57,6,13.5,6H16v3h-2 c-0.55,0-1,0.45-1,1v2h3v3h-3v6.95C18.05,21.45,22,17.19,22,12z"></path></svg>`;
+
+    socialContainer.appendChild(youtubeLink);
+    socialContainer.appendChild(facebookLink);
+
+    if (navigator.share) {
+      const shareButton = document.createElement('button');
+      shareButton.className = 'social-icon';
+      shareButton.setAttribute('aria-label', 'Share this page');
+      shareButton.innerHTML = `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M18,16.08c-0.76,0-1.44,0.3-1.96,0.77L8.91,12.7c0.05-0.23,0.09-0.46,0.09-0.7s-0.04-0.47-0.09-0.7l7.05-4.11 C16.5,7.79,17.21,8.08,18,8.08c1.66,0,3-1.34,3-3s-1.34-3-3-3s-3,1.34-3,3c0,0.24,0.04,0.47,0.09,0.7L8.04,9.81 C7.5,9.31,6.79,9,6,9c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.79,0,1.5-0.31,2.04-0.81l7.12,4.16c-0.05,0.21-0.08,0.43-0.08,0.65 c0,1.66,1.34,3,3,3s3-1.34,3-3S19.66,16.08,18,16.08z"></path></svg>`;
+      
+      shareButton.addEventListener('click', async () => {
+        try {
+          await navigator.share({
+            title: document.title,
+            text: `Check out this page: ${document.title}`,
+            url: window.location.href,
+          });
+        } catch (err) {
+          console.error('Error sharing:', err);
+        }
+      });
+      socialContainer.appendChild(shareButton);
+    }
+    
+    const copyrightEl = footer.querySelector('[data-translate-key="footerCopyright"]');
+    if (copyrightEl) {
+      footer.insertBefore(socialContainer, copyrightEl);
+    } else {
+      footer.appendChild(socialContainer);
+    }
+  }
+
   async function initializeApp() {
     await loadSharedComponents();
     
@@ -339,24 +400,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         let pageDataPath;
         if (bodyId === 'home-page') pageDataPath = 'home.json';
         else if (bodyId === 'about-page') pageDataPath = 'about.json';
-        else if (bodyId === 'privacy-page') pageDataPath = 'privacy.json';
-
-        const [appsData, pageData] = await Promise.all([
-            fetchJsonData('apps.json'),
-            pageDataPath ? fetchJsonData(pageDataPath) : Promise.resolve({})
-        ]);
-
-        APPS_DATA = (appsData && appsData.applications) || [];
-        PAGE_DATA = pageData || {};
-
-        setLanguage(currentLang);
-        setActiveNav();
-        initializeEventListeners();
-    } catch (error) {
-        displayGlobalError(currentLang, error);
-        initializeEventListeners();
-    }
-  }
-
-  initializeApp();
-});
+        else if (bodyId === 'privacy-page')
