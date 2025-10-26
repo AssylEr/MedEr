@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('#chat-input-form button').disabled = true;
 
         try {
-            const response = await fetch('/generate', {
+            const response = await fetch('/generate.js', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
