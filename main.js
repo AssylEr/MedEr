@@ -20,13 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           learnMore: "Learn More",
           errorTitle: "Content Error:",
           errorMessage: "We couldn't load the necessary content for the site.",
-          errorSuggestion: "Please check your network connection.",
-          chatWindowTitle: "RuyaX Universe AI Assistant",
-          errorChatInvalidKey: "The API key you provided seems to be invalid. Please check it and try again.",
-          promptForApiKey: 'Please provide your Google Gemini API key to activate the assistant. You can get a key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio</a>. Your key is stored only in your browser.',
-          apiKeySaved: 'Thank you! Your API key has been saved. How can I help you today?',
-          errorChatInit: "Sorry, the AI assistant is currently unavailable.",
-          welcomeMessage: "Hello! I'm the RuyaX Universe assistant. How can I help you today?"
+          errorSuggestion: "Please check your network connection."
       },
       ar: {
           navLogo: "عالم RuyaX",
@@ -43,13 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           learnMore: "اعرف المزيد",
           errorTitle: "خطأ في المحتوى:",
           errorMessage: "لم نتمكن من تحميل المحتوى اللازم للموقع.",
-          errorSuggestion: "يرجى التحقق من اتصالك بالشبكة.",
-          chatWindowTitle: "مساعد عالم RuyaX الذكي",
-          errorChatInvalidKey: "مفتاح الواجهة البرمجية الذي أدخلته غير صالح. يرجى التحقق منه والمحاولة مرة أخرى.",
-          promptForApiKey: 'يرجى تقديم مفتاح واجهة Gemini API من Google لتفعيل المساعد. يمكنك الحصول على مفتاح من <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio</a>. يتم تخزين مفتاحك في متصفحك فقط.',
-          apiKeySaved: 'شكراً لك! تم حفظ مفتاح الواجهة البرمجية بنجاح. كيف يمكنني مساعدتك اليوم؟',
-          errorChatInit: "عذراً، مساعد الذكاء الاصطناعي غير متاح حالياً.",
-          welcomeMessage: "أهلاً بك! أنا مساعد عالم RuyaX. كيف يمكنني مساعدتك اليوم؟"
+          errorSuggestion: "يرجى التحقق من اتصالك بالشبكة."
       }
   };
 
@@ -395,152 +383,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     footer.insertBefore(socialContainer, copyrightEl);
   }
 
-  async function initializeChatbot() {
-    let siteContext = '';
-    let isAiResponding = false;
-    let chatHistory = [];
-
-    async function buildSiteContext() {
-        if (siteContext) return siteContext;
-        try {
-            const [apps, home, about, privacy] = await Promise.all([
-                fetchJsonData('apps.json').catch(e => ({})),
-                fetchJsonData('home.json').catch(e => ({})),
-                fetchJsonData('about.json').catch(e => ({})),
-                fetchJsonData('privacy.json').catch(e => ({}))
-            ]);
-            const combinedContext = {
-                "Our_Applications": apps,
-                "Home_Page_Info": home,
-                "About_Us_Info": about,
-                "Website_Privacy_Policy": privacy
-            };
-            siteContext = JSON.stringify(combinedContext);
-            return siteContext;
-        } catch (error) {
-            console.error("Could not build site context for AI:", error);
-            return null;
-        }
-    }
-
-    function createChatUI() {
-        const chatContainer = document.createElement('div');
-        chatContainer.id = 'ai-chat-container';
-        chatContainer.innerHTML = `
-            <div id="chat-bubble" role="button" aria-label="Open AI Assistant" tabindex="0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2.71-4.29a.996.996 0 0 0 1.41 0L12 14.41l1.29 1.3a.996.996 0 1 0 1.41-1.41L13.41 13l1.3-1.29a.996.996 0 1 0-1.41-1.41L12 11.59l-1.29-1.3a.996.996 0 1 0-1.41 1.41L10.59 13l-1.3 1.29c-.39.39-.39 1.02 0 1.42zM16.5 8c-.83 0-1.5-.67-1.5-1.5S15.67 5 16.5 5s1.5.67 1.5 1.5S17.33 8 16.5 8zm-9 0c-.83 0-1.5-.67-1.5-1.5S6.67 5 7.5 5s1.5.67 1.5 1.5S8.33 8 7.5 8z"/></svg>
-            </div>
-            <div id="chat-window" class="chat-window" aria-hidden="true">
-                <div class="chat-header">
-                    <h3 data-translate-key="chatWindowTitle">RuyaX Universe AI Assistant</h3>
-                    <button id="close-chat-btn" aria-label="Close Chat">&times;</button>
-                </div>
-                <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
-                <div id="chat-typing-indicator" class="typing-indicator" style="display: none;">
-                    <span></span><span></span><span></span>
-                </div>
-                <form id="chat-input-form" class="chat-input-form">
-                    <input type="text" id="chat-input" placeholder="Ask about RuyaX..." autocomplete="off" required>
-                    <button type="submit" aria-label="Send Message">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                    </button>
-                </form>
-            </div>
-        `;
-        document.body.appendChild(chatContainer);
-    }
-    
-    function addMessage(sender, text, isHtml = false) {
-        const messagesContainer = document.getElementById('chat-messages');
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', `${sender}-message`);
-        const p = document.createElement('p');
-        if (isHtml) {
-            p.innerHTML = text;
-        } else {
-            const converter = new showdown.Converter();
-            p.innerHTML = converter.makeHtml(text);
-        }
-        messageElement.appendChild(p);
-        messagesContainer.appendChild(messageElement);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function toggleChat(open) {
-        const bubble = document.getElementById('chat-bubble');
-        const windowEl = document.getElementById('chat-window');
-        if (open) {
-            windowEl.classList.add('open');
-            windowEl.setAttribute('aria-hidden', 'false');
-            bubble.classList.add('hidden');
-            document.getElementById('chat-input').focus();
-        } else {
-            windowEl.classList.remove('open');
-            windowEl.setAttribute('aria-hidden', 'true');
-            bubble.classList.remove('hidden');
-        }
-    }
-
-    async function handleUserMessage(event) {
-        event.preventDefault();
-        const input = document.getElementById('chat-input');
-        const message = input.value.trim();
-        if (!message || isAiResponding) return;
-
-        addMessage('user', message);
-        input.value = '';
-
-        isAiResponding = true;
-        document.getElementById('chat-typing-indicator').style.display = 'flex';
-        document.querySelector('#chat-input-form button').disabled = true;
-
-        try {
-            const response = await fetch('/generate.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    message: message,
-                    history: chatHistory,
-                    siteContext: siteContext
-                })
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error?.message || 'The server responded with an error.');
-            }
-
-            const data = await response.json();
-            const aiResponse = data.text;
-
-            chatHistory.push({ role: 'user', parts: [{ text: message }] });
-            chatHistory.push({ role: 'model', parts: [{ text: aiResponse }] });
-            
-            addMessage('ai', aiResponse);
-
-        } catch (error) {
-            console.error("Error communicating with AI backend:", error);
-            addMessage('ai', 'Sorry, I encountered an error. Please try again.');
-        } finally {
-            isAiResponding = false;
-            document.getElementById('chat-typing-indicator').style.display = 'none';
-            document.querySelector('#chat-input-form button').disabled = false;
-            input.focus();
-        }
-    }
-
-    function setupEventListeners() {
-        document.getElementById('chat-bubble').addEventListener('click', () => toggleChat(true));
-        document.getElementById('chat-bubble').addEventListener('keydown', (e) => { if(e.key === 'Enter') toggleChat(true);});
-        document.getElementById('close-chat-btn').addEventListener('click', () => toggleChat(false));
-        document.getElementById('chat-input-form').addEventListener('submit', handleUserMessage);
-    }
-
-    createChatUI();
-    setupEventListeners();
-    await buildSiteContext();
-    const t = translations[currentLang] || translations.en;
-    addMessage('ai', t.welcomeMessage);
+  function initializeWhatsAppButton() {
+    const whatsAppBubble = document.createElement('a');
+    whatsAppBubble.id = 'whatsapp-bubble';
+    // You need to replace "YOUR_PHONE_NUMBER_HERE" with your actual WhatsApp number including the country code without '+' or '00'.
+    whatsAppBubble.href = 'https://wa.me/YOUR_PHONE_NUMBER_HERE'; 
+    whatsAppBubble.target = '_blank';
+    whatsAppBubble.rel = 'noopener noreferrer';
+    whatsAppBubble.setAttribute('aria-label', 'Contact us on WhatsApp');
+    whatsAppBubble.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.8-26.7l-7-4.1-72.5 19.1 19.4-70.5-4.5-7.3C71.3 318.4 64 282.7 64 246.1c0-101.5 82.8-184.2 184.6-184.2 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.6-82.8 184.3-184.6 184.3zm88.6-114.8c-3.8-1.9-22.5-11.1-26-12.4-3.5-1.4-6-1.9-8.6 1.9s-9.9 12.4-12.1 14.8c-2.2 2.4-4.5 2.7-8.2 0.9-3.8-1.8-15.9-5.9-30.4-18.9-11.3-10-19-22.4-21.2-26.2-2.2-3.8-0.2-5.9 1.7-7.7 1.6-1.6 3.5-4.1 5.3-6.2 1.7-2.1 2.3-3.8 3.5-6.2 1.2-2.5 0.6-4.6-0.3-6.2-0.9-1.6-8.6-20.7-11.7-28.5-3.1-7.8-6.3-6.7-8.6-6.8-2.1-0.1-4.5-0.1-6.8-0.1-2.3 0-6.1 0.9-9.2 4.5-3.1 3.6-12 11.7-12 28.5 0 16.8 12.3 33.1 14 35.5 1.7 2.4 24.1 36.8 58.3 51.3 34.2 14.5 34.2 9.7 40.4 9.1 6.2-0.6 19.5-8 22.3-15.7 2.8-7.7 2.8-14.4 1.9-15.7-0.9-1.3-3.4-1.9-7.2-3.8z"/>
+      </svg>
+    `;
+    document.body.appendChild(whatsAppBubble);
   }
 
   async function initializeApp() {
@@ -565,12 +421,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setActiveNav();
         initializeEventListeners();
         addSocialLinksToFooter();
-
-        try {
-            await initializeChatbot();
-        } catch (error) {
-            console.warn("Chatbot could not be initialized:", error);
-        }
+        initializeWhatsAppButton();
 
     } catch (error) {
         displayGlobalError(currentLang, error);
