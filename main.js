@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           learnMore: "Learn More",
           errorTitle: "Content Error:",
           errorMessage: "We couldn't load the necessary content for the site.",
-          errorSuggestion: "Please check your network connection."
+          errorSuggestion: "Please check your network connection.",
+          chatWindowTitle: "RuyaX Universe AI Assistant",
+          errorChatUnavailableConfig: "Sorry, the AI assistant is currently unavailable due to a configuration issue.",
+          errorChatInit: "Sorry, the AI assistant is currently unavailable."
       },
       ar: {
           navLogo: "عالم RuyaX",
@@ -37,7 +40,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           learnMore: "اعرف المزيد",
           errorTitle: "خطأ في المحتوى:",
           errorMessage: "لم نتمكن من تحميل المحتوى اللازم للموقع.",
-          errorSuggestion: "يرجى التحقق من اتصالك بالشبكة."
+          errorSuggestion: "يرجى التحقق من اتصالك بالشبكة.",
+          chatWindowTitle: "مساعد عالم RuyaX الذكي",
+          errorChatUnavailableConfig: "عذراً، مساعد الذكاء الاصطناعي غير متاح حالياً بسبب مشكلة في الإعدادات.",
+          errorChatInit: "عذراً، مساعد الذكاء الاصطناعي غير متاح حالياً."
       }
   };
 
@@ -418,11 +424,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         chatContainer.id = 'ai-chat-container';
         chatContainer.innerHTML = `
             <div id="chat-bubble" role="button" aria-label="Open AI Assistant" tabindex="0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 16V4h7v5h5v7H6z"></path><path d="M15 18H6v-2h9v2zm3-4H6v-2h12v2z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2.71-4.29a.996.996 0 0 0 1.41 0L12 14.41l1.29 1.3a.996.996 0 1 0 1.41-1.41L13.41 13l1.3-1.29a.996.996 0 1 0-1.41-1.41L12 11.59l-1.29-1.3a.996.996 0 1 0-1.41 1.41L10.59 13l-1.3 1.29c-.39.39-.39 1.02 0 1.42zM16.5 8c-.83 0-1.5-.67-1.5-1.5S15.67 5 16.5 5s1.5.67 1.5 1.5S17.33 8 16.5 8zm-9 0c-.83 0-1.5-.67-1.5-1.5S6.67 5 7.5 5s1.5.67 1.5 1.5S8.33 8 7.5 8z"/></svg>
             </div>
             <div id="chat-window" class="chat-window" aria-hidden="true">
                 <div class="chat-header">
-                    <h3>RuyaX AI Assistant</h3>
+                    <h3 data-translate-key="chatWindowTitle">RuyaX Universe AI Assistant</h3>
                     <button id="close-chat-btn" aria-label="Close Chat">&times;</button>
                 </div>
                 <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
@@ -459,6 +465,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function initializeAiLibrary() {
+        const t = translations[currentLang] || translations.en;
+        if (!process.env.API_KEY) {
+            console.error("Gemini API key is not available (process.env.API_KEY is missing).");
+            addMessage('ai', t.errorChatUnavailableConfig);
+            return;
+        }
         try {
             const module = await import("https://cdn.jsdelivr.net/npm/@google/genai/+esm");
             GoogleGenAI = module.GoogleGenAI;
@@ -467,7 +479,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!siteContext) buildSiteContext();
         } catch (e) {
             console.error("Failed to load or initialize Gemini API:", e);
-            addMessage('ai', 'Sorry, the AI assistant is currently unavailable.');
+            addMessage('ai', t.errorChatInit);
         }
     }
 
@@ -480,7 +492,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         input.value = '';
 
         if (!ai) {
-            addMessage('ai', 'Sorry, the AI assistant is not available at the moment.');
+            addMessage('ai', (translations[currentLang] || translations.en).errorChatInit);
             return;
         }
 
