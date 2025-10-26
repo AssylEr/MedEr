@@ -22,8 +22,11 @@ document.addEventListener('DOMContentLoaded', async () => {
           errorMessage: "We couldn't load the necessary content for the site.",
           errorSuggestion: "Please check your network connection.",
           chatWindowTitle: "RuyaX Universe AI Assistant",
-          errorChatUnavailableConfig: "Sorry, the AI assistant is currently unavailable due to a configuration issue.",
-          errorChatInit: "Sorry, the AI assistant is currently unavailable."
+          errorChatInvalidKey: "The API key you provided seems to be invalid. Please check it and try again.",
+          promptForApiKey: 'Please provide your Google Gemini API key to activate the assistant. You can get a key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio</a>. Your key is stored only in your browser.',
+          apiKeySaved: 'Thank you! Your API key has been saved. How can I help you today?',
+          errorChatInit: "Sorry, the AI assistant is currently unavailable.",
+          welcomeMessage: "Hello! I'm the RuyaX Universe assistant. How can I help you today?"
       },
       ar: {
           navLogo: "عالم RuyaX",
@@ -42,8 +45,11 @@ document.addEventListener('DOMContentLoaded', async () => {
           errorMessage: "لم نتمكن من تحميل المحتوى اللازم للموقع.",
           errorSuggestion: "يرجى التحقق من اتصالك بالشبكة.",
           chatWindowTitle: "مساعد عالم RuyaX الذكي",
-          errorChatUnavailableConfig: "عذراً، مساعد الذكاء الاصطناعي غير متاح حالياً بسبب مشكلة في الإعدادات.",
-          errorChatInit: "عذراً، مساعد الذكاء الاصطناعي غير متاح حالياً."
+          errorChatInvalidKey: "مفتاح الواجهة البرمجية الذي أدخلته غير صالح. يرجى التحقق منه والمحاولة مرة أخرى.",
+          promptForApiKey: 'يرجى تقديم مفتاح واجهة Gemini API من Google لتفعيل المساعد. يمكنك الحصول على مفتاح من <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio</a>. يتم تخزين مفتاحك في متصفحك فقط.',
+          apiKeySaved: 'شكراً لك! تم حفظ مفتاح الواجهة البرمجية بنجاح. كيف يمكنني مساعدتك اليوم؟',
+          errorChatInit: "عذراً، مساعد الذكاء الاصطناعي غير متاح حالياً.",
+          welcomeMessage: "أهلاً بك! أنا مساعد عالم RuyaX. كيف يمكنني مساعدتك اليوم؟"
       }
   };
 
@@ -390,11 +396,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function initializeChatbot() {
-    let ai;
     let siteContext = '';
-    let GoogleGenAI;
     let isAiResponding = false;
-    const chatHistory = [];
+    let chatHistory = [];
 
     async function buildSiteContext() {
         if (siteContext) return siteContext;
@@ -445,6 +449,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
         document.body.appendChild(chatContainer);
     }
+    
+    function addMessage(sender, text, isHtml = false) {
+        const messagesContainer = document.getElementById('chat-messages');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', `${sender}-message`);
+        const p = document.createElement('p');
+        if (isHtml) {
+            p.innerHTML = text;
+        } else {
+            const converter = new showdown.Converter();
+            p.innerHTML = converter.makeHtml(text);
+        }
+        messageElement.appendChild(p);
+        messagesContainer.appendChild(messageElement);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
 
     function toggleChat(open) {
         const bubble = document.getElementById('chat-bubble');
@@ -454,32 +474,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             windowEl.setAttribute('aria-hidden', 'false');
             bubble.classList.add('hidden');
             document.getElementById('chat-input').focus();
-            if (!GoogleGenAI) {
-                initializeAiLibrary();
-            }
         } else {
             windowEl.classList.remove('open');
             windowEl.setAttribute('aria-hidden', 'true');
             bubble.classList.remove('hidden');
-        }
-    }
-
-    async function initializeAiLibrary() {
-        const t = translations[currentLang] || translations.en;
-        if (!process.env.API_KEY) {
-            console.error("Gemini API key is not available (process.env.API_KEY is missing).");
-            addMessage('ai', t.errorChatUnavailableConfig);
-            return;
-        }
-        try {
-            const module = await import("https://cdn.jsdelivr.net/npm/@google/genai/+esm");
-            GoogleGenAI = module.GoogleGenAI;
-            ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-            addMessage('ai', currentLang === 'ar' ? 'مرحباً! كيف يمكنني مساعدتك اليوم بخصوص عالم RuyaX؟' : 'Hello! How can I help you today regarding the RuyaX Universe?');
-            if (!siteContext) buildSiteContext();
-        } catch (e) {
-            console.error("Failed to load or initialize Gemini API:", e);
-            addMessage('ai', t.errorChatInit);
         }
     }
 
@@ -488,53 +486,47 @@ document.addEventListener('DOMContentLoaded', async () => {
         const input = document.getElementById('chat-input');
         const message = input.value.trim();
         if (!message || isAiResponding) return;
+
         addMessage('user', message);
         input.value = '';
-
-        if (!ai) {
-            addMessage('ai', (translations[currentLang] || translations.en).errorChatInit);
-            return;
-        }
 
         isAiResponding = true;
         document.getElementById('chat-typing-indicator').style.display = 'flex';
         document.querySelector('#chat-input-form button').disabled = true;
 
         try {
-            const context = await buildSiteContext();
-            if (!context) throw new Error("Site context is not available.");
-            
-            const systemInstruction = `You are RuyaX AI, a friendly and helpful assistant for the RuyaX Universe website. Your goal is to answer user questions about RuyaX, its apps, and its policies. You must ONLY use the information provided in the following context. Do not use any external knowledge. If the user asks a question that cannot be answered from the context, politely say that you can only answer questions about the RuyaX Universe. Answer in the same language as the user's question (e.g., Arabic or English). Keep your answers concise and helpful. Do not reveal that you are an AI model. Context: ${context}`;
-            
-            const response = await ai.models.generateContent({
-                model: 'gemini-2.5-flash',
-                contents: message,
-                config: {
-                    systemInstruction: systemInstruction,
-                }
+            const response = await fetch('/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: message,
+                    history: chatHistory,
+                    siteContext: siteContext
+                })
             });
 
-            addMessage('ai', response.text);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error?.message || 'The server responded with an error.');
+            }
+
+            const data = await response.json();
+            const aiResponse = data.text;
+
+            chatHistory.push({ role: 'user', parts: [{ text: message }] });
+            chatHistory.push({ role: 'model', parts: [{ text: aiResponse }] });
+            
+            addMessage('ai', aiResponse);
+
         } catch (error) {
-            console.error("Error communicating with AI:", error);
+            console.error("Error communicating with AI backend:", error);
             addMessage('ai', 'Sorry, I encountered an error. Please try again.');
         } finally {
             isAiResponding = false;
             document.getElementById('chat-typing-indicator').style.display = 'none';
             document.querySelector('#chat-input-form button').disabled = false;
+            input.focus();
         }
-    }
-
-    function addMessage(sender, text) {
-        const messagesContainer = document.getElementById('chat-messages');
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', `${sender}-message`);
-        const p = document.createElement('p');
-        p.textContent = text;
-        messageElement.appendChild(p);
-        messagesContainer.appendChild(messageElement);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        chatHistory.push({ role: sender, parts: [{ text }] });
     }
 
     function setupEventListeners() {
@@ -546,6 +538,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     createChatUI();
     setupEventListeners();
+    await buildSiteContext();
+    const t = translations[currentLang] || translations.en;
+    addMessage('ai', t.welcomeMessage);
   }
 
   async function initializeApp() {
