@@ -527,47 +527,7 @@ footer {
 footer p {
   font-size: 0.9rem;
   color: var(--text-color-secondary);
-  margin-bottom: 0; /* Adjusted for social links */
 }
-
-.social-links {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.social-icon {
-  display: inline-block;
-  width: 44px;
-  height: 44px;
-  background-color: var(--light-gray);
-  border-radius: 50%;
-  transition: transform 0.3s, background-color 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.social-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--text-color-secondary);
-  transition: fill 0.3s;
-}
-
-.social-icon:hover {
-  transform: scale(1.1);
-  background-color: var(--primary-color);
-}
-
-.social-icon:hover svg {
-  fill: var(--text-color);
-}
-
 
 @media (max-width: 768px) {
   .container {
