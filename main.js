@@ -339,14 +339,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const svgIcons = {
       facebook: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-1.5c-1 0-1.5.5-1.5 1.5V12h3l-.5 3h-2.5v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>`,
-      youtube: `<svg xmlns="https://youtube.com/@wild-flash?si=ISrziAS5gy87RWXf" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>`,
+      youtube: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>`,
       twitter: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10zm-6.46 2.45c.42.42.42 1.1 0 1.52-.42.42-1.1.42-1.52 0L12 13.52l-2.02 2.45c-.42.42-1.1.42-1.52 0-.42-.42-.42-1.1 0-1.52L10.48 12 8.45 9.55c-.42-.42-.42-1.1 0-1.52.42-.42 1.1-.42 1.52 0L12 10.48l2.02-2.45c.42-.42 1.1-.42 1.52 0 .42.42.42 1.1 0 1.52L13.52 12l2.02 2.45z"/></svg>`,
       share: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>`
     };
 
     const socials = [
         { name: 'Facebook', href: '#', icon: svgIcons.facebook },
-        { name: 'YouTube', href: '#', icon: svgIcons.youtube },
+        { name: 'YouTube', href: 'https://youtube.com/@wild-flash?si=ISrziAS5gy87RWXf', icon: svgIcons.youtube },
         { name: 'Twitter', href: '#', icon: svgIcons.twitter }
     ];
 
